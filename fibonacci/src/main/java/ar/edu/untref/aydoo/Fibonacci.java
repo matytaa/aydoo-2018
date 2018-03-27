@@ -27,7 +27,7 @@ public class Fibonacci {
 	public int ejecutarFibonacci(int numeroFibonacci) {
 		String cabecera = "fibo<"+numeroFibonacci+">: ";
 		String cuerpo = "";
-		for (int i = 0; i <= numeroFibonacci; i++) {
+		for (int i = 0; i < numeroFibonacci; i++) {
 			cuerpo = cuerpo + " " + calcularFibonacci(i);
 		}
 		System.out.println(cabecera + cuerpo);
