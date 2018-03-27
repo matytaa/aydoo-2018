@@ -1,10 +1,9 @@
 package ar.edu.untref.aydoo;
 
 public class Fibonacci {
-	private int resultadoParcial = 1;
-	private int numerador = 0;
-	private int denominador = 0;
-	private int numero = 0;
+	private int resultadoParcial = 0;
+	private int numeroFibonaci = 0;
+	//private int resultadoFinal = 0;
 	
 	public int calcularFibonacci(int numeroFibonacci) {
 
@@ -24,5 +23,16 @@ public class Fibonacci {
 		}
 		return (numeroFibonacci > 1);
 	}
+	
+	public int ejecutarFibonacci(int numeroFibonacci) {
+		String cabecera = "fibo<"+numeroFibonacci+">: ";
+		String cuerpo = "";
+		for (int i = 0; i <= numeroFibonacci; i++) {
+			cuerpo = cuerpo + " " + calcularFibonacci(i);
+		}
+		System.out.println(cabecera + cuerpo);
+		return this.resultadoParcial;
+	}
+	
 
 }
