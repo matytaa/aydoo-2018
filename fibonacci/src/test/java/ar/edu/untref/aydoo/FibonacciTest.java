@@ -9,70 +9,92 @@ import org.junit.Test;
 
 public class FibonacciTest {
 
-	Fibonacci miFibonacci = new Fibonacci();
-	int resultado = 0;
 	
 	@Test
 	public void fibonacciDe1() {
-		resultado = miFibonacci.ejecutarFibonacci(1);
+		Fibonacci miFibonacci = new Fibonacci(1);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(0, resultado);
 	}
 	
 	@Test
 	public void fibonacciDe2() {
-		resultado = miFibonacci.ejecutarFibonacci(2);
+		Fibonacci miFibonacci = new Fibonacci(2);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(1, resultado);
 	}
 	
 	@Test
 	public void fibonacciDe3() {
-		resultado = miFibonacci.ejecutarFibonacci(3);
+		Fibonacci miFibonacci = new Fibonacci(3);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(1, resultado);
 	}
 	
 	@Test
 	public void fibonacciDe4() {
-		resultado = miFibonacci.ejecutarFibonacci(4);
+		Fibonacci miFibonacci = new Fibonacci(4);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(2, resultado);
 	}
 	@Test
 	public void fibonacciDe5() {
-		resultado = miFibonacci.ejecutarFibonacci(5);
+		Fibonacci miFibonacci = new Fibonacci(5);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(3, resultado);
 	}
 	@Test
 	public void fibonacciDe6() {
-		resultado = miFibonacci.ejecutarFibonacci(6);
+		Fibonacci miFibonacci = new Fibonacci(6);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(5, resultado);
 	}
 	@Test
 	public void fibonacciDe7() {
-		resultado = miFibonacci.ejecutarFibonacci(7);
+		Fibonacci miFibonacci = new Fibonacci(7);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(8, resultado);
 	}
 	@Test
 	public void fibonacciDe8() {
-		resultado = miFibonacci.ejecutarFibonacci(8);
+		Fibonacci miFibonacci = new Fibonacci(8);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(13, resultado);
 	}
 	@Test
 	public void fibonacciDe9() {
-		resultado = miFibonacci.ejecutarFibonacci(9);
+		Fibonacci miFibonacci = new Fibonacci(9);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(21, resultado);
 	}
 	@Test
 	public void fibonacciDe10() {
-		resultado = miFibonacci.ejecutarFibonacci(10);
+		Fibonacci miFibonacci = new Fibonacci(10);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(34, resultado);
 	}
 	@Test
 	public void fibonacciDe11() {
-		resultado = miFibonacci.ejecutarFibonacci(11);
+		Fibonacci miFibonacci = new Fibonacci(11);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(55, resultado);
 	}
 	@Test
 	public void fibonacciDe12() {
-		resultado = miFibonacci.ejecutarFibonacci(12);
+		Fibonacci miFibonacci = new Fibonacci(12);
+		int resultado = 0;
+		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(89, resultado);
 	}
 }

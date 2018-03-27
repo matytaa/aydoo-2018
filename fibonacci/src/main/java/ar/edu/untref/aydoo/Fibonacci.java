@@ -2,9 +2,13 @@ package ar.edu.untref.aydoo;
 
 public class Fibonacci {
 	private int resultadoParcial = 0;
-	private int numeroFibonaci = 0;
+	private int numeroFibonacci = 0;
 	//private int resultadoFinal = 0;
 	
+	public Fibonacci(int numeroFibonacci) {
+		this.numeroFibonacci = numeroFibonacci;
+	}
+
 	public int calcularFibonacci(int numeroFibonacci) {
 
 		if (verificarNumero(numeroFibonacci)){
@@ -24,10 +28,10 @@ public class Fibonacci {
 		return (numeroFibonacci > 1);
 	}
 	
-	public int ejecutarFibonacci(int numeroFibonacci) {
-		String cabecera = "fibo<"+numeroFibonacci+">: ";
+	public int ejecutarFibonacci() {
+		String cabecera = "fibo<"+this.numeroFibonacci+">: ";
 		String cuerpo = "";
-		for (int i = 0; i < numeroFibonacci; i++) {
+		for (int i = 0; i < this.numeroFibonacci; i++) {
 			cuerpo = cuerpo + " " + calcularFibonacci(i);
 		}
 		System.out.println(cabecera + cuerpo);
