@@ -29,14 +29,22 @@ public class Fibonacci {
 	}
 	
 	public int ejecutarFibonacci() {
-		String cabecera = "fibo<"+this.numeroFibonacci+">: ";
-		String cuerpo = "";
-		for (int i = 0; i < this.numeroFibonacci; i++) {
-			cuerpo = cuerpo + " " + calcularFibonacci(i);
+        String cabecera = "fibo<" + this.numeroFibonacci + ">: ";
+        String cuerpo = "";
+        for (int i = 0; i < this.numeroFibonacci; i++) {
+            cuerpo = cuerpo + " " + calcularFibonacci(i);
+        }
+        System.out.println(cabecera + cuerpo);
+        return this.resultadoParcial;
+    }
+
+	public static void main (String args[]) {
+        if (args.length==1){
+            int numeroFib = Integer.parseInt(args[0]);
+			Fibonacci miFibonacci = new Fibonacci(numeroFib);
+			miFibonacci.ejecutarFibonacci();
+
 		}
-		System.out.println(cabecera + cuerpo);
-		return this.resultadoParcial;
 	}
-	
 
 }
