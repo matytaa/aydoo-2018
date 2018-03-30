@@ -1,7 +1,7 @@
 package ar.edu.untref.aydoo;
 
 public class Azucarero {
-    public void ponerAzucar(Vaso unVaso, int cantidadAzucar) {
+    public void ponerAzucar(final Vaso unVaso, final int cantidadAzucar) {
         unVaso.ponerAzucar(cantidadAzucar);
     }
 }

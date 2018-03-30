@@ -15,7 +15,7 @@ public class Vaso {
     }
 
     public boolean tieneAzucar() {
-        return this.cantidadDeAzucar>0;
+        return this.cantidadDeAzucar > 0;
     }
 
     public boolean tieneTe() {
@@ -26,17 +26,17 @@ public class Vaso {
         return this.contieneLeche;
     }
 
-    public void ponerSustancia(Sustancia sustanciaAPoner){
-        if (sustanciaAPoner==Sustancia.CAFE){
+    public void ponerSustancia(final Sustancia sustanciaAPoner) {
+        if (sustanciaAPoner == Sustancia.CAFE) {
             this.contieneCafe = true;
-        }else if(sustanciaAPoner==Sustancia.LECHE){
+        } else if (sustanciaAPoner == Sustancia.LECHE) {
             this.contieneLeche = true;
-        }else if(sustanciaAPoner==Sustancia.TE){
+        } else if (sustanciaAPoner == Sustancia.TE) {
             this.contieneTe = true;
         }
     }
 
-    public void ponerAzucar(int cantidadAzucar) {
+    public void ponerAzucar(final int cantidadAzucar) {
         this.cantidadDeAzucar = cantidadAzucar;
     }
 }

@@ -11,14 +11,16 @@ public class MaquinaExpendedoraDeBebidas {
         miHacedorDeTeConLeche = new HacedorDeTeConLeche();
     }
 
-    public void hacerCafeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
+    public void hacerCafeConLecheConNDeAzucar(
+            final Vaso unVaso, final int cantidadAzucar) {
         Vaso miVaso = unVaso;
         this.miHacedorDeCafe.hacerCafe(miVaso);
         this.miAzucarero.ponerAzucar(miVaso, cantidadAzucar);
     }
 
-    public void hacerTeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
+    public void hacerTeConLecheConNDeAzucar(
+            final Vaso unVaso, final int cantidadAzucar) {
         this.miHacedorDeTeConLeche.hacerTeConLeche(unVaso);
-        this.miAzucarero.ponerAzucar(unVaso,cantidadAzucar);
+        this.miAzucarero.ponerAzucar(unVaso, cantidadAzucar);
     }
 }

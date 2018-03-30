@@ -9,7 +9,7 @@ public class HacedorDeTeConLeche {
         miLechero = new Lechero();
     }
 
-    public void hacerTeConLeche(Vaso unVaso) {
+    public void hacerTeConLeche(final Vaso unVaso) {
         this.miTetero.ponerTe(unVaso);
         this.miLechero.ponerLeche(unVaso);
     }
