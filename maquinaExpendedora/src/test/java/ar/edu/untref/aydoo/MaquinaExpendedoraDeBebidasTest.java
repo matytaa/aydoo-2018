@@ -18,4 +18,18 @@ public class MaquinaExpendedoraDeBebidasTest {
         Assert.assertTrue(unVaso.tieneAzucar());
         Assert.assertFalse(unVaso.tieneTe());
     }
+    @Test
+    public void deberiaHacerTeConLecheCon0DeAzucar() {
+
+        int cantidadAzucar = 0;
+        Vaso unVaso = new Vaso();
+        MaquinaExpendedoraDeBebidas maquinaExpendedoraDeBebidas = new MaquinaExpendedoraDeBebidas();
+
+        maquinaExpendedoraDeBebidas.hacerTeConLecheConNDeAzucar(unVaso, cantidadAzucar);
+
+        Assert.assertEquals(cantidadAzucar, unVaso.getCantidadDeAzucar());
+        Assert.assertFalse(unVaso.tieneCafe());
+        Assert.assertFalse(unVaso.tieneAzucar());
+        Assert.assertTrue(unVaso.tieneTe());
+    }
 }
