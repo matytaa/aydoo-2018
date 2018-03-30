@@ -14,4 +14,7 @@ public class MaquinaExpendedoraDeBebidas {
         this.miHacedorDeCafe.hacerCafe(miVaso);
         this.miAzucarero.ponerCafe(miVaso, cantidadAzucar);
     }
+
+    public void hacerTeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
+    }
 }
