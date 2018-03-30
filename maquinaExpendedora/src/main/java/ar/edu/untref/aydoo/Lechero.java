@@ -1,7 +1,8 @@
 package ar.edu.untref.aydoo;
+import static ar.edu.untref.aydoo.Sustancia.LECHE;
 
 public class Lechero {
     public void ponerLeche(Vaso unVaso) {
-        unVaso.ponerSustancia(Sustancia.LECHE);
+        unVaso.ponerSustancia(LECHE);
     }
 }
