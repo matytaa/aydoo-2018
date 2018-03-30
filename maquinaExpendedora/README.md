@@ -1,16 +1,8 @@
-Ejercicio 0
+Ejercicio 2
 ===========
 Repositorio personal de Matias Nievas Soto
 
-
-Este proyecto es un ejemplo para tomar como base para los distintos proyecto de la materia.
-El proyecto está basado en Maven 3 y ya cuenta con un conjunto de herramientas preconfiguradas:
-
-* JUnit
-* Cucumber-JVM
-* Cobertura
-* PMD
-* CheckStyle
+Implementación de test para la máquina expendedora
 
 Comandos:
 
