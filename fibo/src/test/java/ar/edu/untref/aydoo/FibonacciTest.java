@@ -1,9 +1,7 @@
 package ar.edu.untref.aydoo;
 
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
