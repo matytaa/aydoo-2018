@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 public class MaquinaExpendedoraDeBebidas {
     private HacedoDeCafe miHacedorDeCafe;
     private Azucarero miAzucarero;
+    private HacedorDeTe miHacedorDeTe;
 
     public MaquinaExpendedoraDeBebidas() {
         miAzucarero = new Azucarero();
@@ -16,5 +17,6 @@ public class MaquinaExpendedoraDeBebidas {
     }
 
     public void hacerTeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
+        this.miHacedorDeTe.haceTe(unVaso);
     }
 }
