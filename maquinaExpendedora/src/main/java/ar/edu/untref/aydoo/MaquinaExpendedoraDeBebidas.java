@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class MaquinaExpendedoraDeBebidas {
     private HacedoDeCafe miHacedorDeCafe;
     private Azucarero miAzucarero;
-    private HacedorDeTe miHacedorDeTe;
+    private HacedorDeTeConLeche miHacedorDeTeConLeche;
 
     public MaquinaExpendedoraDeBebidas() {
         miAzucarero = new Azucarero();
@@ -13,10 +13,11 @@ public class MaquinaExpendedoraDeBebidas {
     public void hacerCafeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
         Vaso miVaso = unVaso;
         this.miHacedorDeCafe.hacerCafe(miVaso);
-        this.miAzucarero.ponerCafe(miVaso, cantidadAzucar);
+        this.miAzucarero.ponerAzucar(miVaso, cantidadAzucar);
     }
 
     public void hacerTeConLecheConNDeAzucar(Vaso unVaso, int cantidadAzucar) {
-        this.miHacedorDeTe.haceTe(unVaso);
+        this.miHacedorDeTeConLeche.hacerTe(unVaso);
+        this.miAzucarero.ponerAzucar(unVaso,cantidadAzucar);
     }
 }
