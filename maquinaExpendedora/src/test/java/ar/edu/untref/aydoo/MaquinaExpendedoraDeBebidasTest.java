@@ -18,6 +18,7 @@ public class MaquinaExpendedoraDeBebidasTest {
         Assert.assertTrue(unVaso.tieneAzucar());
         Assert.assertFalse(unVaso.tieneTe());
     }
+
     @Test
     public void deberiaHacerTeConLecheCon0DeAzucar() {
 

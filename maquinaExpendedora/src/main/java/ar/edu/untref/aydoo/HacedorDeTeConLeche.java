@@ -1,6 +1,16 @@
 package ar.edu.untref.aydoo;
 
 public class HacedorDeTeConLeche {
-    public void hacerTe(Vaso unVaso) {
+    private Lechero miLechero;
+    private HacedorDeTe miTetero;
+
+    public HacedorDeTeConLeche() {
+        miTetero = new HacedorDeTe();
+        miLechero = new Lechero();
+    }
+
+    public void hacerTeConLeche(Vaso unVaso) {
+        this.miTetero.ponerTe(unVaso);
+        this.miLechero.ponerLeche(unVaso);
     }
 }

@@ -1,10 +1,10 @@
 package ar.edu.untref.aydoo;
 
-public class HacedoDeCafe {
+public class HacedorDeCafe {
     private Cafetero miCafetero;
     private Lechero miLechero;
 
-    public HacedoDeCafe() {
+    public HacedorDeCafe() {
         this.miCafetero = new Cafetero();
         this.miLechero = new Lechero();
     }
