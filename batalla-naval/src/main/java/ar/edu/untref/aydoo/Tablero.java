@@ -11,18 +11,18 @@ public class Tablero {
 	}
 	
 	public int cantidadColumnas() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.ancho;
 	}
 
 	public int cantidadFilas() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.largo;
 	}
 
 	public boolean hayBarcoEnPosicion(int columna, int fila) {
 		// TODO Auto-generated method stub
-		return false;
+		Casillero unCasillero = this.casilleros[fila][columna];
+
+		return unCasillero.estaVacio();
 	}
 	
 	
