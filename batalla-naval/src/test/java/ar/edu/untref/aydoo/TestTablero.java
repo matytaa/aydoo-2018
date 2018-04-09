@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TestTablero {
 	
 	@Test
-	public void sfsdf() {
+	public void casillero_tablero_null_debe_dar_que_no_hay_barco_en_casillero() {
 		Tablero tablero = new Tablero();
 		
 		for(int columna = 0; columna < tablero.cantidadColumnas(); columna++) {

@@ -8,8 +8,17 @@ public class Tablero {
 	
 	public Tablero() {
 		casilleros = new Casillero[ancho][largo];
+		inicializarCasilleros();
 	}
-	
+
+	private void inicializarCasilleros() {
+		for (int fila = 0; fila < cantidadFilas(); fila++){
+			for (int columna = 0; columna < cantidadColumnas(); columna++){
+				this.casilleros[fila][columna] = null;
+			}
+		}
+	}
+
 	public int cantidadColumnas() {
 		return this.ancho;
 	}
@@ -21,8 +30,11 @@ public class Tablero {
 	public boolean hayBarcoEnPosicion(int columna, int fila) {
 		// TODO Auto-generated method stub
 		Casillero unCasillero = this.casilleros[fila][columna];
+		if (unCasillero==null){
+			return false;
+		}
 
-		return false;
+		return unCasillero.estaVacio();
 	}
 	
 	

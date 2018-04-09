@@ -1,4 +1,4 @@
-Ejercicio 0
+Ejercicio batalla naval
 ===========
 Repositorio personal de Matias Nievas Soto
 
