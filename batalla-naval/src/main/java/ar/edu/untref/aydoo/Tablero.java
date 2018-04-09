@@ -22,7 +22,7 @@ public class Tablero {
 		// TODO Auto-generated method stub
 		Casillero unCasillero = this.casilleros[fila][columna];
 
-		return unCasillero.estaVacio();
+		return false;
 	}
 	
 	
