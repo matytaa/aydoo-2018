@@ -2,41 +2,40 @@ package ar.edu.untref.aydoo;
 
 public class Tablero {
 
-	private final int ancho = 5;
-	private final int largo = 5;
-	private Casillero[][] casilleros;
-	
-	public Tablero() {
-		casilleros = new Casillero[ancho][largo];
-		inicializarCasilleros();
-	}
+    private final int ancho = 5;
+    private final int largo = 5;
+    private Casillero[][] casilleros;
 
-	private void inicializarCasilleros() {
-		for (int fila = 0; fila < cantidadFilas(); fila++){
-			for (int columna = 0; columna < cantidadColumnas(); columna++){
-				this.casilleros[fila][columna] = null;
-			}
-		}
-	}
+    public Tablero() {
+        casilleros = new Casillero[ancho][largo];
+        inicializarCasilleros();
+    }
 
-	public int cantidadColumnas() {
-		return this.ancho;
-	}
+    private void inicializarCasilleros() {
+        for (int fila = 0; fila < cantidadFilas(); fila++) {
+            for (int columna = 0; columna < cantidadColumnas(); columna++) {
+                this.casilleros[fila][columna] = null;
+            }
+        }
+    }
 
-	public int cantidadFilas() {
-		return this.largo;
-	}
+    public int cantidadColumnas() {
+        return this.ancho;
+    }
 
-	public boolean hayBarcoEnPosicion(int columna, int fila) {
-		// TODO Auto-generated method stub
-		Casillero unCasillero = this.casilleros[fila][columna];
-		if (unCasillero==null){
-			return false;
-		}
+    public int cantidadFilas() {
+        return this.largo;
+    }
 
-		return unCasillero.estaVacio();
-	}
-	
-	
+    public boolean hayBarcoEnPosicion(final int columna, final int fila) {
+        // TODO Auto-generated method stub
+        Casillero unCasillero = this.casilleros[fila][columna];
+        if (unCasillero == null) {
+            return false;
+        }
+
+        return unCasillero.estaVacio();
+    }
+
 
 }
