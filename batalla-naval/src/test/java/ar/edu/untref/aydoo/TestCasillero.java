@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import gherkin.lexer.Ca;
@@ -41,6 +42,14 @@ public class TestCasillero {
         Casillero unCasillero = new Casillero(horizontal, vertical);
         unCasillero.ponerBarco(unBote);
         Assert.assertEquals(1, unCasillero.dameElBarco().obtenerTamanio());
+    }
+
+    @Test
+    public void casillero_disponible_si_no_recibio_disparo_a_su_posicion() {
+        int horizontal = 2;
+        int vertical = 2;
+        Casillero unCasillero = new Casillero(horizontal, vertical);
+        Assert.assertTrue(unCasillero.recibirDisparo());
     }
 
 }

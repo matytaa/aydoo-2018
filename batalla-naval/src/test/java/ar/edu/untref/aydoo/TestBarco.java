@@ -40,7 +40,7 @@ public class TestBarco {
 	}
 
 	@Test
-	public void obtener_sentido_del_barco(){
+	public void obtener_sentido_del_barco_debe_dar_horizontal(){
 		Barco barco = new Barco(1);
 		barco.indicarSentido(Sentido.HORIZONTAL);
 		Assert.assertEquals(Sentido.HORIZONTAL, barco.obtenerSentido());

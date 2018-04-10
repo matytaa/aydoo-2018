@@ -5,11 +5,13 @@ public class Casillero {
     private Barco barco = null;
     private int horizontal;
     private int vertical;
+    private boolean casilleroDisponible;
 
     public Casillero(final int unaPosicionHorizontal,
                      final int unaPosicionVertical) {
         this.horizontal = unaPosicionHorizontal;
         this.vertical = unaPosicionVertical;
+        this.casilleroDisponible = true;
     }
 
     public boolean estaVacio() {
@@ -31,5 +33,9 @@ public class Casillero {
 
     public Barco dameElBarco() {
         return this.barco;
+    }
+
+    public boolean recibirDisparo() {
+        return this.casilleroDisponible;
     }
 }
