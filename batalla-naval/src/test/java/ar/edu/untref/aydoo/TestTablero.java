@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 
@@ -12,9 +11,14 @@ public class TestTablero {
         Tablero tablero = new Tablero();
         for (int columna = 0; columna < tablero.cantidadColumnas(); columna++) {
             for (int fila = 0; fila < tablero.cantidadFilas(); fila++) {
-                Assert.assertFalse(tablero.hayBarcoEnPosicion(columna, fila));
+                Assert.assertTrue(tablero.casilleroEstaVacion(fila, columna));
             }
         }
     }
 
+    @Test
+    public void inicializar_tablero_y_casilleros_con_sus_respectivas_posiciones() {
+        Tablero tablero = new Tablero();
+        Assert.assertEquals(25, tablero.verificarCasilleros());
+    }
 }

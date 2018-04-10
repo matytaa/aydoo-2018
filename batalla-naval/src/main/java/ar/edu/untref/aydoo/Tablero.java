@@ -7,14 +7,15 @@ public class Tablero {
     private Casillero[][] casilleros;
 
     public Tablero() {
-        casilleros = new Casillero[ancho][largo];
+        this.casilleros = new Casillero[ancho][largo];
         inicializarCasilleros();
     }
 
     private void inicializarCasilleros() {
         for (int fila = 0; fila < cantidadFilas(); fila++) {
             for (int columna = 0; columna < cantidadColumnas(); columna++) {
-                this.casilleros[fila][columna] = null;
+                Casillero unCasillero = new Casillero(fila,columna);
+                this.casilleros[fila][columna] =  unCasillero;
             }
         }
     }
@@ -27,15 +28,23 @@ public class Tablero {
         return this.largo;
     }
 
-    public boolean hayBarcoEnPosicion(final int columna, final int fila) {
+    public boolean casilleroEstaVacion(final int fila, final int columna) {
         // TODO Auto-generated method stub
         Casillero unCasillero = this.casilleros[fila][columna];
-        if (unCasillero == null) {
-            return false;
-        }
 
         return unCasillero.estaVacio();
     }
 
 
+    public int verificarCasilleros() {
+        int casillerosCreados = 0;
+        for(int fila = 0; fila < this.largo; fila++){
+            for(int columna = 0; columna < this.ancho; columna++){
+                if (this.casilleros[fila][columna] != null) {
+                    casillerosCreados++;
+                }
+            }
+        }
+        return casillerosCreados;
+    }
 }
