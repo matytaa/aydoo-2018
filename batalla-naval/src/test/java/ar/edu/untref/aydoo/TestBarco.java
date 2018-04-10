@@ -39,4 +39,11 @@ public class TestBarco {
 		Assert.assertTrue(barco.estaHundido());
 	}
 
+	@Test
+	public void obtener_sentido_del_barco(){
+		Barco barco = new Barco(1);
+		barco.indicarSentido(Sentido.HORIZONTAL);
+		Assert.assertEquals(Sentido.HORIZONTAL, barco.obtenerSentido());
+	}
+
 }

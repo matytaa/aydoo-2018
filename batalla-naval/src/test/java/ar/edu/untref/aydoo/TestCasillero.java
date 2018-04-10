@@ -33,4 +33,14 @@ public class TestCasillero {
         Assert.assertEquals(2, unCasillero.dameTuPosicioVertical());
     }
 
+    @Test
+    public void asignar_bote_a_casillero_y_recuperar_tamanio_del_bote() {
+        int horizontal = 2;
+        int vertical = 2;
+        Bote unBote = new Bote(1);
+        Casillero unCasillero = new Casillero(horizontal, vertical);
+        unCasillero.ponerBarco(unBote);
+        Assert.assertEquals(1, unCasillero.dameElBarco().obtenerTamanio());
+    }
+
 }

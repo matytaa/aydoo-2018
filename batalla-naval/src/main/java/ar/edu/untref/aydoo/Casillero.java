@@ -6,7 +6,8 @@ public class Casillero {
     private int horizontal;
     private int vertical;
 
-    public Casillero(final int unaPosicionHorizontal, final int unaPosicionVertical) {
+    public Casillero(final int unaPosicionHorizontal,
+                     final int unaPosicionVertical) {
         this.horizontal = unaPosicionHorizontal;
         this.vertical = unaPosicionVertical;
     }
@@ -26,5 +27,9 @@ public class Casillero {
 
     public int dameTuPosicioVertical() {
         return this.vertical;
+    }
+
+    public Barco dameElBarco() {
+        return this.barco;
     }
 }

@@ -47,14 +47,41 @@ public class Tablero {
         return casillerosCreados;
     }
 
-    public ResultadoDelDisparo disparar(Casillero casilleroADisparar) {
+    public ResultadoDelDisparo disparar(final Casillero casilleroADisparar) {
         boolean resultadoDisparo;
         resultadoDisparo = casilleroEstaVacion(
-                casilleroADisparar.dameTuPosicioHorizontal(),casilleroADisparar.dameTuPosicioVertical());
+                casilleroADisparar.dameTuPosicioHorizontal(),
+                casilleroADisparar.dameTuPosicioVertical());
 
-        if (resultadoDisparo)
+        if (resultadoDisparo) {
             return ResultadoDelDisparo.AGUA;
+        }
+
+        if (tocarBarco(casilleroADisparar.dameElBarco())) {
+            return ResultadoDelDisparo.HUNDIDO;
+        }
 
         return ResultadoDelDisparo.TOCADO;
+    }
+
+    private boolean tocarBarco(final Barco barco) {
+        Barco unBarco = barco;
+        unBarco.tocado();
+        return unBarco.estaHundido();
+    }
+
+    public boolean llenarCasillero(final Casillero casilleroADisparar) {
+        if (tableroInicializado()) {
+            return false;
+        }
+        this.casilleros
+                [casilleroADisparar.dameTuPosicioHorizontal()]
+                [casilleroADisparar.dameTuPosicioVertical()]
+                = casilleroADisparar;
+        return true;
+    }
+
+    private boolean tableroInicializado() {
+        return this.casilleros == null;
     }
 }
