@@ -14,8 +14,8 @@ public class Tablero {
     private void inicializarCasilleros() {
         for (int fila = 0; fila < cantidadFilas(); fila++) {
             for (int columna = 0; columna < cantidadColumnas(); columna++) {
-                Casillero unCasillero = new Casillero(fila,columna);
-                this.casilleros[fila][columna] =  unCasillero;
+                Casillero unCasillero = new Casillero(fila, columna);
+                this.casilleros[fila][columna] = unCasillero;
             }
         }
     }
@@ -29,7 +29,6 @@ public class Tablero {
     }
 
     public boolean casilleroEstaVacion(final int fila, final int columna) {
-        // TODO Auto-generated method stub
         Casillero unCasillero = this.casilleros[fila][columna];
 
         return unCasillero.estaVacio();
@@ -38,13 +37,24 @@ public class Tablero {
 
     public int verificarCasilleros() {
         int casillerosCreados = 0;
-        for(int fila = 0; fila < this.largo; fila++){
-            for(int columna = 0; columna < this.ancho; columna++){
+        for (int fila = 0; fila < this.largo; fila++) {
+            for (int columna = 0; columna < this.ancho; columna++) {
                 if (this.casilleros[fila][columna] != null) {
                     casillerosCreados++;
                 }
             }
         }
         return casillerosCreados;
+    }
+
+    public ResultadoDelDisparo disparar(Casillero casilleroADisparar) {
+        boolean resultadoDisparo;
+        resultadoDisparo = casilleroEstaVacion(
+                casilleroADisparar.dameTuPosicioHorizontal(),casilleroADisparar.dameTuPosicioVertical());
+
+        if (resultadoDisparo)
+            return ResultadoDelDisparo.AGUA;
+
+        return ResultadoDelDisparo.TOCADO;
     }
 }
