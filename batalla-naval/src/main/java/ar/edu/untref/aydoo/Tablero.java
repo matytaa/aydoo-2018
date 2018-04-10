@@ -2,29 +2,28 @@ package ar.edu.untref.aydoo;
 
 public class Tablero {
 
-	private final int ancho = 5;
-	private final int largo = 5;
-	private Casillero[][] casilleros;
-	
-	public Tablero() {
-		casilleros = new Casillero[ancho][largo];
-	}
-	
-	public int cantidadColumnas() {
-		return this.ancho;
-	}
+    private final int ancho = 5;
+    private final int largo = 5;
+    private Casillero[][] casilleros;
 
-	public int cantidadFilas() {
-		return this.largo;
-	}
+    public Tablero() {
+        casilleros = new Casillero[ancho][largo];
+    }
 
-	public boolean hayBarcoEnPosicion(int columna, int fila) {
-		// TODO Auto-generated method stub
-		Casillero unCasillero = this.casilleros[fila][columna];
+    public int cantidadColumnas() {
+        return this.ancho;
+    }
 
-		return false;
-	}
-	
-	
+    public int cantidadFilas() {
+        return this.largo;
+    }
+
+    public boolean hayBarcoEnPosicion(final int columna, final int fila) {
+        // TODO Auto-generated method stub
+        Casillero unCasillero = this.casilleros[fila][columna];
+
+        return false;
+    }
+
 
 }
