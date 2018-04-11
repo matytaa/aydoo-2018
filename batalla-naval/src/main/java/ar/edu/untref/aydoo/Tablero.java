@@ -31,7 +31,7 @@ public class Tablero {
     public boolean casilleroEstaVacion(final int fila, final int columna) {
         Casillero unCasillero = this.casilleros[fila][columna];
         try {
-            if (unCasillero.estadoCasillero()){
+            if (unCasillero.estadoCasillero()) {
                 return unCasillero.estaVacio();
             }
         } catch (Exception e) {

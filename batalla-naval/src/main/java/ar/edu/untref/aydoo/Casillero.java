@@ -36,7 +36,8 @@ public class Casillero {
     }
 
     public boolean recibirDisparo() {
-        return this.casilleroDisponible = false;
+        this.casilleroDisponible = false;
+        return estadoCasillero();
     }
 
     public boolean estadoCasillero() {
