@@ -52,4 +52,13 @@ public class TestTablero {
         ResultadoDelDisparo miDisparo = tablero.disparar(casilleroADisparar);
         Assert.assertEquals(ResultadoDelDisparo.TOCADO, miDisparo);
     }
+
+    @Test(expected=Exception.class)
+    public void disparar_mas_de_una_vez_a_un_casillero_lanza_excepcion_movimiento_no_permitido() {
+        Tablero tablero = new Tablero();
+        Casillero casilleroADisparar = new Casillero(4, 4);
+        ResultadoDelDisparo miDisparo = tablero.disparar(casilleroADisparar);
+        Assert.assertEquals(ResultadoDelDisparo.AGUA, miDisparo);
+        tablero.disparar(casilleroADisparar);
+    }
 }

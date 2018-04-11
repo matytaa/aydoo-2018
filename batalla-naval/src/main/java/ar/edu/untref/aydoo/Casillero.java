@@ -15,7 +15,7 @@ public class Casillero {
     }
 
     public boolean estaVacio() {
-
+        recibirDisparo();
         return this.barco == null;
     }
 
@@ -36,6 +36,10 @@ public class Casillero {
     }
 
     public boolean recibirDisparo() {
+        return this.casilleroDisponible = false;
+    }
+
+    public boolean estadoCasillero() {
         return this.casilleroDisponible;
     }
 }

@@ -30,8 +30,15 @@ public class Tablero {
 
     public boolean casilleroEstaVacion(final int fila, final int columna) {
         Casillero unCasillero = this.casilleros[fila][columna];
+        try {
+            if (unCasillero.estadoCasillero()){
+                return unCasillero.estaVacio();
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
 
-        return unCasillero.estaVacio();
+        return Boolean.parseBoolean(null);
     }
 
 
@@ -57,17 +64,16 @@ public class Tablero {
             return ResultadoDelDisparo.AGUA;
         }
 
-        if (tocarBarco(casilleroADisparar.dameElBarco())) {
-            return ResultadoDelDisparo.HUNDIDO;
-        }
-
-        return ResultadoDelDisparo.TOCADO;
+        return tocarBarco(casilleroADisparar.dameElBarco());
     }
 
-    private boolean tocarBarco(final Barco barco) {
+    private ResultadoDelDisparo tocarBarco(final Barco barco) {
         Barco unBarco = barco;
         unBarco.tocado();
-        return unBarco.estaHundido();
+        if (unBarco.estaHundido()) {
+            return ResultadoDelDisparo.HUNDIDO;
+        }
+        return ResultadoDelDisparo.TOCADO;
     }
 
     public boolean llenarCasillero(final Casillero casilleroADisparar) {

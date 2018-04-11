@@ -49,7 +49,17 @@ public class TestCasillero {
         int horizontal = 2;
         int vertical = 2;
         Casillero unCasillero = new Casillero(horizontal, vertical);
-        Assert.assertTrue(unCasillero.recibirDisparo());
+        Assert.assertTrue(unCasillero.estadoCasillero());
+    }
+
+    @Test
+    public void casillero_disponible_hasta_que_recibe_disparo() {
+        int horizontal = 2;
+        int vertical = 2;
+        Casillero unCasillero = new Casillero(horizontal, vertical);
+        Assert.assertTrue(unCasillero.estadoCasillero());
+        unCasillero.recibirDisparo();
+        Assert.assertFalse(unCasillero.estadoCasillero());
     }
 
 }
