@@ -90,4 +90,67 @@ public class Tablero {
     private boolean tableroInicializado() {
         return this.casilleros == null;
     }
+
+    public void ponerBarcoEnCasillero(final Barco unBarco,
+                                      final Casillero casilleroInicial) {
+        int fila = casilleroInicial.dameTuPosicioHorizontal();
+        int columna = casilleroInicial.dameTuPosicioVertical();
+        Sentido sentido = unBarco.obtenerSentido();
+        int limite = unBarco.obtenerTamanio() - 1;
+        if (verificarLimites(fila, columna, sentido, limite)) {
+            casilleroInicial.ponerBarco(unBarco);
+            llenarCasillero(casilleroInicial);
+        }
+
+        for (int i = 0; i < limite; i++) {
+            ocuparSiguienteCasillero(unBarco, casilleroInicial, i + 1);
+        }
+    }
+
+    private void ocuparSiguienteCasillero(final Barco unBarco,
+                                          final Casillero casilleroInicial,
+                                          final int incremento) {
+        int unaColumna = casilleroInicial.dameTuPosicioVertical();
+        int unaFila = casilleroInicial.dameTuPosicioHorizontal();
+        if (unBarco.obtenerSentido() == Sentido.HORIZONTAL) {
+            unaColumna = unaColumna + incremento;
+        } else {
+            unaFila = unaFila + incremento;
+        }
+        Casillero casilleroAuxiliar = new Casillero(unaFila, unaColumna);
+        casilleroAuxiliar.ponerBarco(unBarco);
+        llenarCasillero(casilleroAuxiliar);
+    }
+
+    public boolean verificarLimites(final int fila, final int columna,
+                                    final Sentido sentido, final int limite) {
+        boolean continuar = false;
+        continuar = verificarHorizontal(columna, sentido, limite);
+        if (!continuar) {
+            continuar = verificarVertical(fila, sentido, limite);
+        }
+        return continuar;
+
+    }
+
+    private boolean verificarVertical(final int fila, final Sentido sentido,
+                                      final int limite) {
+        if (fila < this.ancho - limite
+                && sentido == Sentido.VERTICAL) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean verificarHorizontal(final int columna,
+                                        final Sentido sentido,
+                                        final int limite) {
+        if (columna < this.largo - limite
+                && sentido == Sentido.HORIZONTAL) {
+            return true;
+        }
+        return false;
+    }
+
+
 }
