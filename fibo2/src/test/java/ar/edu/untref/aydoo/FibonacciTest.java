@@ -103,4 +103,13 @@ public class FibonacciTest {
 		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(89, resultado);
 	}
+	@Test
+	public void imprimirFiboInverso() {
+		Fibonacci miFibonacci = new Fibonacci(12);
+		int resultado = 0;
+		miFibonacci.definirTipoSalida(false);
+		miFibonacci.ejecutarEnOrdenInverso(true);
+		resultado = miFibonacci.ejecutarFibonacciInverso();
+		Assert.assertEquals(0, resultado);
+	}
 }

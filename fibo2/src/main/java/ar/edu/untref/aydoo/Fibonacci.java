@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 public class Fibonacci {
     private boolean vertical;
+    private boolean ordenInverso;
     private int resultadoParcial = 0;
     private int numeroFibonacci = 0;
 
@@ -39,6 +40,17 @@ public class Fibonacci {
         return this.resultadoParcial;
     }
 
+    public int ejecutarFibonacciInverso() {
+        String cabecera = "fibo<" + this.numeroFibonacci + ">: ";
+        String cuerpo = "";
+        for (int i = this.numeroFibonacci; i >= 0; i--) {
+            //cuerpo = cuerpo + " " + calcularFibonacci(i);
+            cuerpo = cuerpo + imprimirFibonacci(calcularFibonacci(i));
+        }
+        System.out.println(cabecera + cuerpo);
+        return this.resultadoParcial;
+    }
+
     private String imprimirFibonacci(final int numeroFibonacciAImprimir) {
         String cadanaAImprimir = "";
         if (this.vertical) {
@@ -49,6 +61,14 @@ public class Fibonacci {
         return cadanaAImprimir;
     }
 
+    public void definirTipoSalida(final boolean imprimeVertical) {
+        this.vertical = imprimeVertical;
+    }
+
+    public void ejecutarEnOrdenInverso(final boolean unOrden) {
+        this.ordenInverso = unOrden;
+    }
+
     public static void main(final String[] args) {
         if (args.length == 1) {
             int numeroFib = Integer.parseInt(args[0]);
@@ -56,9 +76,5 @@ public class Fibonacci {
             miFibonacci.ejecutarFibonacci();
 
         }
-    }
-
-    public void definirTipoSalida(final boolean imprimeVertical) {
-        this.vertical = imprimeVertical;
     }
 }
