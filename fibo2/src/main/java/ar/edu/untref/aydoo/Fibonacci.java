@@ -72,7 +72,7 @@ public class Fibonacci {
         this.ordenInverso = unOrden;
     }
 
-    public void recibirParamtetros(String parametros) {
+    public void recibirParamtetros(final String parametros) {
         imprimeEnVertical(parametros.contains("v"));
         ejecutarEnOrdenInverso(parametros.contains("i"));
     }
