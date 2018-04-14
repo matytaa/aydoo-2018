@@ -5,9 +5,12 @@ public class Fibonacci {
     private boolean ordenInverso;
     private int resultadoParcial = 0;
     private int numeroFibonacci = 0;
+    private String cuerpoTxt = "";
+    private String cabeceraTxt;
 
     public Fibonacci(final int unNumeroFibonacci) {
         this.numeroFibonacci = unNumeroFibonacci;
+        armarCabeceraDeSalida();
     }
 
     public int calcularFibonacci(final int unNumeroFibonacci) {
@@ -29,25 +32,25 @@ public class Fibonacci {
         return (unNumeroFibonacci > 1);
     }
 
+    private void armarCabeceraDeSalida() {
+        this.cabeceraTxt = "fibo<" + this.numeroFibonacci + ">: ";
+    }
+
     public int ejecutarFibonacci() {
-        String cabecera = "fibo<" + this.numeroFibonacci + ">: ";
-        String cuerpo = "";
         for (int i = 0; i < this.numeroFibonacci; i++) {
-            //cuerpo = cuerpo + " " + calcularFibonacci(i);
-            cuerpo = cuerpo + imprimirFibonacci(calcularFibonacci(i));
+            this.cuerpoTxt = this.cuerpoTxt
+                    + imprimirFibonacci(calcularFibonacci(i));
         }
-        System.out.println(cabecera + cuerpo);
+        System.out.println(this.cabeceraTxt + this.cuerpoTxt);
         return this.resultadoParcial;
     }
 
     public int ejecutarFibonacciInverso() {
-        String cabecera = "fibo<" + this.numeroFibonacci + ">: ";
-        String cuerpo = "";
         for (int i = this.numeroFibonacci; i >= 0; i--) {
-            //cuerpo = cuerpo + " " + calcularFibonacci(i);
-            cuerpo = cuerpo + imprimirFibonacci(calcularFibonacci(i));
+            this.cuerpoTxt = this.cuerpoTxt
+                    + imprimirFibonacci(calcularFibonacci(i));
         }
-        System.out.println(cabecera + cuerpo);
+        System.out.println(this.cabeceraTxt + this.cuerpoTxt);
         return this.resultadoParcial;
     }
 
@@ -74,7 +77,7 @@ public class Fibonacci {
             int numeroFib = Integer.parseInt(args[0]);
             Fibonacci miFibonacci = new Fibonacci(numeroFib);
             miFibonacci.ejecutarFibonacci();
-
+            miFibonacci.armarCabeceraDeSalida();
         }
     }
 }
