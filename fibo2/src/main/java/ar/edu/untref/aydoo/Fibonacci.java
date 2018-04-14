@@ -64,12 +64,17 @@ public class Fibonacci {
         return cadanaAImprimir;
     }
 
-    public void definirTipoSalida(final boolean imprimeVertical) {
+    public void imprimeEnVertical(final boolean imprimeVertical) {
         this.vertical = imprimeVertical;
     }
 
     public void ejecutarEnOrdenInverso(final boolean unOrden) {
         this.ordenInverso = unOrden;
+    }
+
+    public void recibirParamtetros(String parametros) {
+        imprimeEnVertical(parametros.contains("v"));
+        ejecutarEnOrdenInverso(parametros.contains("i"));
     }
 
     public static void main(final String[] args) {

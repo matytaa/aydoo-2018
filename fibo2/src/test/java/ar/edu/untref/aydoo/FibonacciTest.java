@@ -108,7 +108,7 @@ public class FibonacciTest {
     public void imprimirFiboEnVertical() {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
-        miFibonacci.definirTipoSalida(true);
+        miFibonacci.imprimeEnVertical(true);
         resultado = miFibonacci.ejecutarFibonacci();
         Assert.assertEquals(89, resultado);
     }
@@ -117,7 +117,7 @@ public class FibonacciTest {
     public void imprimirFiboInverso() {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
-        miFibonacci.definirTipoSalida(false);
+        miFibonacci.imprimeEnVertical(false);
         miFibonacci.ejecutarEnOrdenInverso(true);
         resultado = miFibonacci.ejecutarFibonacciInverso();
         Assert.assertEquals(0, resultado);
@@ -127,8 +127,17 @@ public class FibonacciTest {
     public void imprimirFiboInversoVertical() {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
-        miFibonacci.definirTipoSalida(true);
+        miFibonacci.imprimeEnVertical(true);
         miFibonacci.ejecutarEnOrdenInverso(true);
+        resultado = miFibonacci.ejecutarFibonacciInverso();
+        Assert.assertEquals(0, resultado);
+    }
+
+    @Test
+    public void recibeParametro_vd_debeImprimirVerticalDirecto() {
+        Fibonacci miFibonacci = new Fibonacci(12);
+        int resultado = 0;
+        miFibonacci.recibirParamtetros("-o=vd");
         resultado = miFibonacci.ejecutarFibonacciInverso();
         Assert.assertEquals(0, resultado);
     }
