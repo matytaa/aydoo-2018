@@ -95,4 +95,12 @@ public class FibonacciTest {
 		resultado = miFibonacci.ejecutarFibonacci();
 		Assert.assertEquals(89, resultado);
 	}
+	@Test
+	public void imprimirFiboEnVertical() {
+		Fibonacci miFibonacci = new Fibonacci(12);
+		int resultado = 0;
+		miFibonacci.definirTipoSalida(true);
+		resultado = miFibonacci.ejecutarFibonacci();
+		Assert.assertEquals(89, resultado);
+	}
 }
