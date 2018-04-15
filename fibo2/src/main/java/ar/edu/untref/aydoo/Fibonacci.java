@@ -83,12 +83,20 @@ public class Fibonacci {
         this.ordenInverso = unOrden;
     }
 
-    public void recibirParamtetros(final String parametros) {
-        imprimeEnVertical(parametros.contains("v"));
-        ejecutarEnOrdenInverso(parametros.contains("i"));
+    public void recibirParamtetros(final String parametros) throws Exception {
+        if ((parametros.equals("-o=vi"))
+                || (parametros.equals("-o=vd"))
+                || (parametros.equals("-o=hi"))
+                || (parametros.equals("-o=hd"))
+                || (parametros.equals(""))) {
+            imprimeEnVertical(parametros.contains("v"));
+            ejecutarEnOrdenInverso(parametros.contains("i"));
+        } else {
+            throw new Exception("Números fuera del intervalo");
+        }
     }
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws Exception {
         int numeroFib = -1;
         String argumentoTipoImpresion = "";
         if (args.length == 1) {

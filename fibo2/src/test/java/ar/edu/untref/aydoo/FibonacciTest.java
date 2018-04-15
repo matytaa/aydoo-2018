@@ -4,6 +4,9 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class FibonacciTest {
 
@@ -134,11 +137,19 @@ public class FibonacciTest {
     }
 
     @Test
-    public void recibeParametro_vd_debeImprimirVerticalDirecto() {
+    public void recibeParametro_vd_debeImprimirVerticalDirecto() throws Exception {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
         miFibonacci.recibirParamtetros("-o=vd");
         resultado = miFibonacci.ejecutarFibonacciInverso();
         Assert.assertEquals(0, resultado);
+    }
+
+    @Test
+    public void asd() {
+        String argumento1 = "-o=vi";
+        String argumento2 = "-o=vd";
+        String argumento3 = "-o=hi";
+        String argumento4 = "-o=hi";
     }
 }
