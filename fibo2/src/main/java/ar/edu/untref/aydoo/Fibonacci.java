@@ -37,6 +37,17 @@ public class Fibonacci {
     }
 
     public int ejecutarFibonacci() {
+        if (esEjecucionInversa()) {
+            return ejecutarFibonacciInverso();
+        }
+        return ejecutarFibonacciDirecto();
+    }
+
+    private boolean esEjecucionInversa() {
+        return this.ordenInverso;
+    }
+
+    public int ejecutarFibonacciDirecto() {
         for (int i = 0; i < this.numeroFibonacci; i++) {
             this.cuerpoTxt = this.cuerpoTxt
                     + imprimirFibonacci(calcularFibonacci(i));
@@ -46,7 +57,7 @@ public class Fibonacci {
     }
 
     public int ejecutarFibonacciInverso() {
-        for (int i = this.numeroFibonacci; i >= 0; i--) {
+        for (int i = this.numeroFibonacci - 1; i >= 0; i--) {
             this.cuerpoTxt = this.cuerpoTxt
                     + imprimirFibonacci(calcularFibonacci(i));
         }
@@ -78,11 +89,17 @@ public class Fibonacci {
     }
 
     public static void main(final String[] args) {
+        int numeroFib = -1;
+        String argumentoTipoImpresion = "";
         if (args.length == 1) {
-            int numeroFib = Integer.parseInt(args[0]);
-            Fibonacci miFibonacci = new Fibonacci(numeroFib);
-            miFibonacci.ejecutarFibonacci();
-            miFibonacci.armarCabeceraDeSalida();
+            numeroFib = Integer.parseInt(args[0]);
+        } else if (args.length > 1) {
+            argumentoTipoImpresion = args[0];
+            numeroFib = Integer.parseInt(args[1]);
         }
+        Fibonacci miFibonacci = new Fibonacci(numeroFib);
+        miFibonacci.recibirParamtetros(argumentoTipoImpresion);
+        miFibonacci.ejecutarFibonacci();
+        miFibonacci.armarCabeceraDeSalida();
     }
 }
