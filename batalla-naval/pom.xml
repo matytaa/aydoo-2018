@@ -102,7 +102,11 @@
                   <archive>
                     <manifest>
                       <addClasspath>true</addClasspath>
+<<<<<<< HEAD
                       <mainClass>ar.edu.untref.aydoo.Barco</mainClass>
+=======
+                      <mainClass>ar.edu.untref.aydoo.Tablero</mainClass>
+>>>>>>> batalla-naval
                     </manifest>
                   </archive>
                 </configuration>
