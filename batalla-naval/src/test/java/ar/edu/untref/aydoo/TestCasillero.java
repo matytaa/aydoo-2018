@@ -11,29 +11,19 @@ public class TestCasillero {
 
     @Test
     public void casilleroVacioDeberiaEstarVacio() {
-<<<<<<< HEAD
-        Casillero casillero = new Casillero();
-=======
         Casillero casillero = new Casillero(1, 1);
->>>>>>> batalla-naval
 
         Assert.assertTrue(casillero.estaVacio());
     }
 
     @Test
     public void casilleroConBarcoNoEstaVacio() {
-<<<<<<< HEAD
-        Casillero casillero = new Casillero();
-=======
         Casillero casillero = new Casillero(2, 2);
->>>>>>> batalla-naval
         Barco barco = new Barco(23);
         casillero.ponerBarco(barco);
 
         Assert.assertFalse(casillero.estaVacio());
     }
-<<<<<<< HEAD
-=======
 
     @Test
     public void casilleroRecibeSuPosicionEnConstructorYparaLuegoSolicitarla() {
@@ -71,6 +61,5 @@ public class TestCasillero {
         unCasillero.recibirDisparo();
         Assert.assertFalse(unCasillero.estadoCasillero());
     }
->>>>>>> batalla-naval
 
 }

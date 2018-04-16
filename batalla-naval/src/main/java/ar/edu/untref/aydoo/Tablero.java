@@ -7,9 +7,6 @@ public class Tablero {
     private Casillero[][] casilleros;
 
     public Tablero() {
-<<<<<<< HEAD
-        casilleros = new Casillero[ancho][largo];
-=======
         this.casilleros = new Casillero[ancho][largo];
         inicializarCasilleros();
     }
@@ -21,7 +18,6 @@ public class Tablero {
                 this.casilleros[fila][columna] = unCasillero;
             }
         }
->>>>>>> batalla-naval
     }
 
     public int cantidadColumnas() {
@@ -32,12 +28,6 @@ public class Tablero {
         return this.largo;
     }
 
-<<<<<<< HEAD
-    public boolean hayBarcoEnPosicion(final int columna, final int fila) {
-        // TODO Auto-generated method stub
-        Casillero unCasillero = this.casilleros[fila][columna];
-
-=======
     public boolean casilleroEstaVacion(final int fila, final int columna) {
         Casillero unCasillero = this.casilleros[fila][columna];
         try {
@@ -159,7 +149,6 @@ public class Tablero {
                 && sentido == Sentido.HORIZONTAL) {
             return true;
         }
->>>>>>> batalla-naval
         return false;
     }
 

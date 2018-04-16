@@ -2,10 +2,7 @@ package ar.edu.untref.aydoo;
 
 public class Barco {
 
-<<<<<<< HEAD
-=======
     private Sentido sentido;
->>>>>>> batalla-naval
     private int tamanio;
     private int parteDaniada;
 
@@ -28,8 +25,6 @@ public class Barco {
         return this.parteDaniada == this.tamanio;
     }
 
-<<<<<<< HEAD
-=======
     public void indicarSentido(final Sentido unSentido) {
         this.sentido = unSentido;
     }
@@ -37,5 +32,4 @@ public class Barco {
     public Sentido obtenerSentido() {
         return this.sentido;
     }
->>>>>>> batalla-naval
 }

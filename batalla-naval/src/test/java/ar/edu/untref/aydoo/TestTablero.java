@@ -7,20 +7,6 @@ import org.junit.Test;
 
 
 public class TestTablero {
-<<<<<<< HEAD
-
-    @Test
-    public void sfsdf() {
-        Tablero tablero = new Tablero();
-
-        for (int columna = 0; columna < tablero.cantidadColumnas(); columna++) {
-            for (int fila = 0; fila < tablero.cantidadFilas(); fila++) {
-                Assert.assertFalse(tablero.hayBarcoEnPosicion(columna, fila));
-            }
-        }
-    }
-=======
->>>>>>> batalla-naval
 
     Tablero tablero;
     Bote unBote;
@@ -81,39 +67,39 @@ public class TestTablero {
 
     @Test
     public void no_permitir_poner_barco_horizontal_de_tamanio_mayor_a_1_en_ultima_columna() {
-        Assert.assertFalse(tablero.verificarLimites(3,4,Sentido.HORIZONTAL,1));
+        Assert.assertFalse(tablero.verificarLimites(3, 4, Sentido.HORIZONTAL, 1));
     }
 
     @Test
     public void permitir_poner_barco_horizontal_de_tamanio_mayor_a_1_en_anteultima_columna() {
-        Assert.assertTrue(tablero.verificarLimites(3,3,Sentido.HORIZONTAL,1));
+        Assert.assertTrue(tablero.verificarLimites(3, 3, Sentido.HORIZONTAL, 1));
     }
 
     @Test
     public void no_permitir_poner_barco_vertical_de_tamanio_mayor_a_1_en_ultima_fila() {
-        Assert.assertFalse(tablero.verificarLimites(4,4,Sentido.VERTICAL,1));
+        Assert.assertFalse(tablero.verificarLimites(4, 4, Sentido.VERTICAL, 1));
     }
 
     @Test
     public void permitir_poner_barco_vertical_de_tamanio_mayor_a_1_en_anteultima_fila() {
-        Assert.assertTrue(tablero.verificarLimites(3,3,Sentido.VERTICAL,1));
+        Assert.assertTrue(tablero.verificarLimites(3, 3, Sentido.VERTICAL, 1));
     }
 
     @Test
-    public void poner_Crucero_Horizontal_En_Casilleros_Consecutivos (){
-        Crucero unCrucero = new Crucero(2,Sentido.HORIZONTAL);
-        Casillero unCasillero = new Casillero(2,2);
-        tablero.ponerBarcoEnCasillero(unCrucero,unCasillero);
-        Assert.assertFalse(tablero.casilleroEstaVacion(2,2));
-        Assert.assertFalse(tablero.casilleroEstaVacion(2,3));
+    public void poner_Crucero_Horizontal_En_Casilleros_Consecutivos() {
+        Crucero unCrucero = new Crucero(2, Sentido.HORIZONTAL);
+        Casillero unCasillero = new Casillero(2, 2);
+        tablero.ponerBarcoEnCasillero(unCrucero, unCasillero);
+        Assert.assertFalse(tablero.casilleroEstaVacion(2, 2));
+        Assert.assertFalse(tablero.casilleroEstaVacion(2, 3));
     }
 
     @Test
-    public void poner_Crucero_Vertical_En_Casilleros_Consecutivos (){
-        Crucero unCrucero = new Crucero(2,Sentido.VERTICAL);
-        Casillero unCasillero = new Casillero(2,2);
-        tablero.ponerBarcoEnCasillero(unCrucero,unCasillero);
-        Assert.assertFalse(tablero.casilleroEstaVacion(2,2));
-        Assert.assertFalse(tablero.casilleroEstaVacion(3,2));
+    public void poner_Crucero_Vertical_En_Casilleros_Consecutivos() {
+        Crucero unCrucero = new Crucero(2, Sentido.VERTICAL);
+        Casillero unCasillero = new Casillero(2, 2);
+        tablero.ponerBarcoEnCasillero(unCrucero, unCasillero);
+        Assert.assertFalse(tablero.casilleroEstaVacion(2, 2));
+        Assert.assertFalse(tablero.casilleroEstaVacion(3, 2));
     }
 }

@@ -3,17 +3,6 @@ package ar.edu.untref.aydoo;
 public class Casillero {
 
     private Barco barco = null;
-<<<<<<< HEAD
-
-    public boolean estaVacio() {
-
-        return this.barco == null;
-    }
-
-    public void ponerBarco(final Barco unBarco) {
-        this.barco = unBarco;
-    }
-=======
     private int horizontal;
     private int vertical;
     private boolean casilleroDisponible;
@@ -29,7 +18,6 @@ public class Casillero {
         recibirDisparo();
         return this.barco == null;
     }
->>>>>>> batalla-naval
 
     public void ponerBarco(final Barco unBarco) {
         this.barco = unBarco;
