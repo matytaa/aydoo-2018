@@ -7,6 +7,7 @@ public class Fibonacci {
     private int numeroFibonacci = 0;
     private String cuerpoTxt = "";
     private String cabeceraTxt;
+    private int posicionVertical = 0;
 
     public Fibonacci(final int unNumeroFibonacci) {
         this.numeroFibonacci = unNumeroFibonacci;
@@ -68,11 +69,22 @@ public class Fibonacci {
     private String imprimirFibonacci(final int numeroFibonacciAImprimir) {
         String cadanaAImprimir = "";
         if (this.vertical) {
-            cadanaAImprimir = "\n" + numeroFibonacciAImprimir + "\n";
+            //cadanaAImprimir = "\n" + numeroFibonacciAImprimir + "\n";
+            cadanaAImprimir = "\n" + numeroFibonacciAImprimir;
+            this.posicionVertical = this.posicionVertical + 1;
+            cadanaAImprimir = agregarSaltoDeLinea(cadanaAImprimir);
         } else {
             cadanaAImprimir = cadanaAImprimir + " " + numeroFibonacciAImprimir;
         }
         return cadanaAImprimir;
+    }
+
+    private String agregarSaltoDeLinea(final String unaCadena) {
+        String cadanaConSaltoDeLinea = unaCadena;
+        if (this.posicionVertical < this.numeroFibonacci) {
+            cadanaConSaltoDeLinea = cadanaConSaltoDeLinea + "\n";
+        }
+        return cadanaConSaltoDeLinea;
     }
 
     public void imprimeEnVertical(final boolean imprimeVertical) {
@@ -92,7 +104,7 @@ public class Fibonacci {
             imprimeEnVertical(parametros.contains("v"));
             ejecutarEnOrdenInverso(parametros.contains("i"));
         } else {
-            throw new Exception("Números fuera del intervalo");
+            throw new Exception("Opción invalida");
         }
     }
 

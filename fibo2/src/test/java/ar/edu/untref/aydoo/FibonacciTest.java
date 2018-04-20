@@ -145,6 +145,28 @@ public class FibonacciTest {
         Assert.assertEquals(0, resultado);
     }
 
+    @Test (expected = Exception.class)
+    public void recibeParametro_xy_debeLanzarExcepcion() throws Exception {
+        Fibonacci miFibonacci = new Fibonacci(12);
+        int resultado = 0;
+        miFibonacci.recibirParamtetros("-o=xy");
+        resultado = miFibonacci.ejecutarFibonacciInverso();
+        Assert.assertEquals(0, resultado);
+    }
+
+    @Test
+    public void fibonacciDe8VD() {
+        Fibonacci miFibonacci = new Fibonacci(8);
+        int resultado = 0;
+        try {
+            miFibonacci.recibirParamtetros("-o=vd");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        resultado = miFibonacci.ejecutarFibonacci();
+        Assert.assertEquals(13, resultado);
+    }
+
     @Test
     public void asd() {
         String argumento1 = "-o=vi";
