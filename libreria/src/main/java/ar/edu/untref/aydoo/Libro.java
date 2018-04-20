@@ -6,4 +6,8 @@ public class Libro {
     public Libro(final int unPrecio) {
         this.precio = unPrecio;
     }
+
+    public int precioLibro() {
+        return this.precio;
+    }
 }

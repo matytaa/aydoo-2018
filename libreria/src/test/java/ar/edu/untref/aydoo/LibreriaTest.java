@@ -5,13 +5,13 @@ import org.junit.Test;
 
 public class LibreriaTest {
     @Test
-    public void crearLibreriaVaciaYSolicitarLaCantidadDeProductos_debeDarCero(){
+    public void crearLibreriaVaciaYSolicitarLaCantidadDeProductos_debeDarCero() {
         Libreria miLibreria = new Libreria();
         Assert.assertEquals(0, miLibreria.cantidadDeProductos());
     }
 
     @Test
-    public void almacenarUnLibroYSolicitarLaCantidadDeProductos(){
+    public void almacenarUnLibroYSolicitarLaCantidadDeProductos() {
         Libreria miLibreria = new Libreria();
         Libro sonGoku = new Libro(10);
         miLibreria.AgregarProducto(sonGoku);
