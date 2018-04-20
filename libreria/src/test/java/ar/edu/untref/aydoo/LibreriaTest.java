@@ -9,4 +9,12 @@ public class LibreriaTest {
         Libreria miLibreria = new Libreria();
         Assert.assertEquals(0, miLibreria.cantidadDeProductos());
     }
+
+    @Test
+    public void almacenarUnLibroYSolicitarLaCantidadDeProductos(){
+        Libreria miLibreria = new Libreria();
+        Libro sonGoku = new Libro(10);
+        miLibreria.AgregarProducto(sonGoku);
+        Assert.assertEquals(1, miLibreria.cantidadDeLibros());
+    }
 }
