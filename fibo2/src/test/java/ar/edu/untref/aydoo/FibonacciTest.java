@@ -156,7 +156,7 @@ public class FibonacciTest {
         resultado = miFibonacci.ejecutarConParametros("-o=vd");
         Assert.assertEquals(13, resultado);
     }
-    
+
     @Test
     public void fibonacciDe8VI() {
         Fibonacci miFibonacci = new Fibonacci(8);
