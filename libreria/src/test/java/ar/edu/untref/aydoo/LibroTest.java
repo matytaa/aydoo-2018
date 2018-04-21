@@ -7,6 +7,6 @@ public class LibroTest {
     @Test
     public void crearUnLibroConPrecioYLuegoSolicitarlo(){
         Libro unLibro = new Libro(10);
-        Assert.assertEquals(10, unLibro.precioLibro());
+        Assert.assertEquals(10, unLibro.darPrecio());
     }
 }

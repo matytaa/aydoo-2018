@@ -11,10 +11,26 @@ public class LibreriaTest {
     }
 
     @Test
-    public void almacenarUnLibroYSolicitarLaCantidadDeProductos() {
+    public void almacenarUnLibroYSolicitarLaCantidadDeLibros() {
         Libreria miLibreria = new Libreria();
         Libro biblografiaDBZ = new Libro(10);
-        miLibreria.AgregarProducto(biblografiaDBZ);
+        miLibreria.agregarLibro(biblografiaDBZ);
         Assert.assertEquals(1, miLibreria.cantidadDeLibros());
+    }
+
+    @Test
+    public void almacenarUnaRevistaYSolicitarLaCantidadDePeriodicos() {
+        Libreria miLibreria = new Libreria();
+        Periodico revistaDBZ = new Periodico(10,3);
+        miLibreria.agregarPeriodico(revistaDBZ);
+        Assert.assertEquals(1, miLibreria.cantidadDePeriodicos());
+    }
+
+    @Test
+    public void almacenarUnArticuloDeLibreriaYSolicitarLaCantidadDeArticulosDeLibreria() {
+        Libreria miLibreria = new Libreria();
+        ArticuloLibreria albumDBZ = new ArticuloLibreria(10, 10);
+        miLibreria.agregarArticuloLibreria(albumDBZ);
+        Assert.assertEquals(1, miLibreria.cantidadDeArticulos());
     }
 }

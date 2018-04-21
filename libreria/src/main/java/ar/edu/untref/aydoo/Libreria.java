@@ -4,17 +4,35 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Libreria {
-    private List<Libro> misLibros = new LinkedList<Libro>();
+    private List<Libro> misLibros = new LinkedList<>();
+    private List<Periodico> misPeriodicos = new LinkedList<>();
+    private List<ArticuloLibreria> misArticulosLibreria = new LinkedList<>();
 
     public int cantidadDeProductos() {
         return 0;
     }
 
-    public void AgregarProducto(Libro unLibro) {
+    public void agregarLibro(final Libro unLibro) {
         this.misLibros.add(unLibro);
     }
 
     public int cantidadDeLibros() {
-        return misLibros.size();
+        return this.misLibros.size();
+    }
+
+    public int cantidadDePeriodicos() {
+        return this.misPeriodicos.size();
+    }
+
+    public void agregarPeriodico(final Periodico unPeriodico) {
+        this.misPeriodicos.add(unPeriodico);
+    }
+
+    public void agregarArticuloLibreria(final ArticuloLibreria unArticulo) {
+        this.misArticulosLibreria.add(unArticulo);
+    }
+
+    public int cantidadDeArticulos() {
+        return this.misArticulosLibreria.size();
     }
 }

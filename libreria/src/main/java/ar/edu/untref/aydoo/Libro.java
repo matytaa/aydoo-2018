@@ -1,13 +1,10 @@
 package ar.edu.untref.aydoo;
 
-public class Libro {
+public class Libro extends Producto {
     private int precio;
 
     public Libro(final int unPrecio) {
-        this.precio = unPrecio;
+        super(unPrecio);
     }
 
-    public int precioLibro() {
-        return this.precio;
-    }
 }
