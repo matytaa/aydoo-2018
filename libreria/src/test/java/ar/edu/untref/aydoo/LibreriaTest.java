@@ -13,8 +13,8 @@ public class LibreriaTest {
     @Test
     public void almacenarUnLibroYSolicitarLaCantidadDeProductos() {
         Libreria miLibreria = new Libreria();
-        Libro sonGoku = new Libro(10);
-        miLibreria.AgregarProducto(sonGoku);
+        Libro biblografiaDBZ = new Libro(10);
+        miLibreria.AgregarProducto(biblografiaDBZ);
         Assert.assertEquals(1, miLibreria.cantidadDeLibros());
     }
 }
