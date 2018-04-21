@@ -4,9 +4,6 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 public class FibonacciTest {
 
@@ -137,20 +134,18 @@ public class FibonacciTest {
     }
 
     @Test
-    public void recibeParametro_vd_debeImprimirVerticalDirecto() throws Exception {
+    public void recibeParametro_vd_debeImprimirVerticalDirecto() {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
-        miFibonacci.recibirParamtetros("-o=vd");
-        resultado = miFibonacci.ejecutarFibonacciInverso();
-        Assert.assertEquals(0, resultado);
+        resultado = miFibonacci.ejecutarConParametros("-o=vd");
+        Assert.assertEquals(89, resultado);
     }
 
-    @Test (expected = Exception.class)
-    public void recibeParametro_xy_debeLanzarExcepcion() throws Exception {
+    @Test
+    public void recibeParametro_xy_resultadoDebeSerCero() {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
-        miFibonacci.recibirParamtetros("-o=xy");
-        resultado = miFibonacci.ejecutarFibonacciInverso();
+        resultado = miFibonacci.ejecutarConParametros("-o=xy");
         Assert.assertEquals(0, resultado);
     }
 
@@ -158,20 +153,15 @@ public class FibonacciTest {
     public void fibonacciDe8VD() {
         Fibonacci miFibonacci = new Fibonacci(8);
         int resultado = 0;
-        try {
-            miFibonacci.recibirParamtetros("-o=vd");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        resultado = miFibonacci.ejecutarFibonacci();
+        resultado = miFibonacci.ejecutarConParametros("-o=vd");
         Assert.assertEquals(13, resultado);
     }
-
+    
     @Test
-    public void asd() {
-        String argumento1 = "-o=vi";
-        String argumento2 = "-o=vd";
-        String argumento3 = "-o=hi";
-        String argumento4 = "-o=hi";
+    public void fibonacciDe8VI() {
+        Fibonacci miFibonacci = new Fibonacci(8);
+        int resultado = 0;
+        resultado = miFibonacci.ejecutarConParametros("-o=vi");
+        Assert.assertEquals(0, resultado);
     }
 }

@@ -7,7 +7,6 @@ public class Fibonacci {
     private int numeroFibonacci = 0;
     private String cuerpoTxt = "";
     private String cabeceraTxt;
-    private int posicionVertical = 0;
 
     public Fibonacci(final int unNumeroFibonacci) {
         this.numeroFibonacci = unNumeroFibonacci;
@@ -69,22 +68,11 @@ public class Fibonacci {
     private String imprimirFibonacci(final int numeroFibonacciAImprimir) {
         String cadanaAImprimir = "";
         if (this.vertical) {
-            //cadanaAImprimir = "\n" + numeroFibonacciAImprimir + "\n";
             cadanaAImprimir = "\n" + numeroFibonacciAImprimir;
-            this.posicionVertical = this.posicionVertical + 1;
-            cadanaAImprimir = agregarSaltoDeLinea(cadanaAImprimir);
         } else {
             cadanaAImprimir = cadanaAImprimir + " " + numeroFibonacciAImprimir;
         }
         return cadanaAImprimir;
-    }
-
-    private String agregarSaltoDeLinea(final String unaCadena) {
-        String cadanaConSaltoDeLinea = unaCadena;
-        if (this.posicionVertical < this.numeroFibonacci) {
-            cadanaConSaltoDeLinea = cadanaConSaltoDeLinea + "\n";
-        }
-        return cadanaConSaltoDeLinea;
     }
 
     public void imprimeEnVertical(final boolean imprimeVertical) {
@@ -95,7 +83,8 @@ public class Fibonacci {
         this.ordenInverso = unOrden;
     }
 
-    public void recibirParamtetros(final String parametros) throws Exception {
+    public int ejecutarConParametros(final String parametros) {
+        int valorRetorno = 0;
         if ((parametros.equals("-o=vi"))
                 || (parametros.equals("-o=vd"))
                 || (parametros.equals("-o=hi"))
@@ -103,12 +92,15 @@ public class Fibonacci {
                 || (parametros.equals(""))) {
             imprimeEnVertical(parametros.contains("v"));
             ejecutarEnOrdenInverso(parametros.contains("i"));
+            valorRetorno = ejecutarFibonacci();
+            armarCabeceraDeSalida();
         } else {
-            throw new Exception("Opción invalida");
+            System.out.println("Opciones no validas");
         }
+        return valorRetorno;
     }
 
-    public static void main(final String[] args) throws Exception {
+    public static void main(final String[] args) {
         int numeroFib = -1;
         String argumentoTipoImpresion = "";
         if (args.length == 1) {
@@ -118,8 +110,6 @@ public class Fibonacci {
             numeroFib = Integer.parseInt(args[1]);
         }
         Fibonacci miFibonacci = new Fibonacci(numeroFib);
-        miFibonacci.recibirParamtetros(argumentoTipoImpresion);
-        miFibonacci.ejecutarFibonacci();
-        miFibonacci.armarCabeceraDeSalida();
+        miFibonacci.ejecutarConParametros(argumentoTipoImpresion);
     }
 }
