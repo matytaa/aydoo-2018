@@ -5,19 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Libreria {
-    private List<Producto> misProductos = new LinkedList<>();
+
     private List<Compra> listaDeCompras = new LinkedList<>();
 
-    public void agregarUnProducto(final Producto unProducto) {
-        this.misProductos.add(unProducto);
-    }
-
-    public int cantidadDeProductos() {
-        return this.misProductos.size();
-    }
-
-    public void registrarVenta(final Compra unaCompra) {
-        decrementarLibros(unaCompra.darProducto());
+    public void registrarCompra(final Compra unaCompra) {
         this.listaDeCompras.add(unaCompra);
     }
 
@@ -25,17 +16,22 @@ public class Libreria {
     }
 
     public Double ventasDelMesAnioDeUnCliente(final Cliente unCliente,
-                                           final int unMes,
-                                           final int unAnio) {
-        Iterator<Compra> iteradorVentas = this.listaDeCompras.iterator();
+                                              final int unMes,
+                                              final int unAnio) {
+        Iterator<Compra> iteradorCompras = this.listaDeCompras.iterator();
         Compra unaCompra;
         Double importeDelMes = 0.0;
-        while (iteradorVentas.hasNext()) {
-            unaCompra = iteradorVentas.next();
+        Producto unProducto;
+        while (iteradorCompras.hasNext()) {
+            unaCompra = iteradorCompras.next();
             if (mismoCliente(unCliente, unaCompra.darCliente())) {
                 if (unaCompra.perteneceAlPeriodo(unAnio, unMes)) {
-                    importeDelMes = importeDelMes
-                            + unaCompra.darProducto().darPrecio();
+                    Iterator<Producto> iteradorProductos =
+                            unaCompra.darListaDeProducto().iterator();
+                    while (iteradorProductos.hasNext()) {
+                        unProducto = iteradorProductos.next();
+                        importeDelMes += unProducto.darPrecio();
+                    }
                 }
             }
         }

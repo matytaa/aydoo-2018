@@ -1,20 +1,30 @@
 package ar.edu.untref.aydoo;
 
-import java.util.Calendar;
+
 import java.util.Date;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Compra {
-    private Producto producto;
+    private List<Producto> misProductos;
     private Date fechaDeVenta;
     private Cliente cliente;
 
     public Compra(final Cliente unCliente,
-                  final Producto unProducto,
                   final Date unaFechaDeVenta) {
         this.cliente = unCliente;
-        this.producto = unProducto;
         this.fechaDeVenta = unaFechaDeVenta;
+        this.misProductos = new LinkedList<>();
+    }
+
+    public void agregarUnProducto(final Producto unProducto) {
+        this.misProductos.add(unProducto);
+    }
+
+    public int cantidadDeProductos() {
+        return this.misProductos.size();
     }
 
     public boolean perteneceAlMes(final int unMes) {
@@ -37,7 +47,7 @@ public class Compra {
         return perteneceAlAnio(unAnio) && perteneceAlMes(unMes);
     }
 
-    public Producto darProducto() {
-        return this.producto;
+    public List<Producto> darListaDeProducto() {
+        return this.misProductos;
     }
 }
