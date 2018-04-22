@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Libreria {
     private List<Producto> misProductos = new LinkedList<>();
-    private List<Venta> listaDeVentas = new LinkedList<>();
+    private List<Compra> listaDeCompras = new LinkedList<>();
 
     public void agregarUnProducto(final Producto unProducto) {
         this.misProductos.add(unProducto);
@@ -16,9 +16,9 @@ public class Libreria {
         return this.misProductos.size();
     }
 
-    public void registrarVenta(final Venta unaVenta) {
-        decrementarLibros(unaVenta.darProducto());
-        this.listaDeVentas.add(unaVenta);
+    public void registrarVenta(final Compra unaCompra) {
+        decrementarLibros(unaCompra.darProducto());
+        this.listaDeCompras.add(unaCompra);
     }
 
     private void decrementarLibros(final Producto producto) {
@@ -27,15 +27,15 @@ public class Libreria {
     public Double ventasDelMesAnioDeUnCliente(final Cliente unCliente,
                                            final int unMes,
                                            final int unAnio) {
-        Iterator<Venta> iteradorVentas = this.listaDeVentas.iterator();
-        Venta unaVenta;
+        Iterator<Compra> iteradorVentas = this.listaDeCompras.iterator();
+        Compra unaCompra;
         Double importeDelMes = 0.0;
         while (iteradorVentas.hasNext()) {
-            unaVenta = iteradorVentas.next();
-            if (mismoCliente(unCliente, unaVenta.darCliente())) {
-                if (unaVenta.perteneceAlPeriodo(unAnio, unMes)) {
+            unaCompra = iteradorVentas.next();
+            if (mismoCliente(unCliente, unaCompra.darCliente())) {
+                if (unaCompra.perteneceAlPeriodo(unAnio, unMes)) {
                     importeDelMes = importeDelMes
-                            + unaVenta.darProducto().darPrecio();
+                            + unaCompra.darProducto().darPrecio();
                 }
             }
         }

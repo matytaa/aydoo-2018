@@ -1,13 +1,12 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class VentaTest {
+public class CompraTest {
     @Test
     public void generarUnaVentaYSolicitarMontoDeVenta() {
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
@@ -15,8 +14,8 @@ public class VentaTest {
         Calendar unaFecha = Calendar.getInstance();
         unaFecha.set(2018, 3, 17);
         Date fechaDeVenta = unaFecha.getTime();
-        Venta unaVenta = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
-        Assert.assertEquals(100, unaVenta.darPrecioProducto());
+        Compra unaCompra = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Assert.assertEquals(100, unaCompra.darProducto().darPrecio());
     }
 
     @Test
@@ -27,8 +26,8 @@ public class VentaTest {
 
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Libro eauRouge = new Libro(100);
-        Venta unaVenta = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
-        Assert.assertTrue(unaVenta.perteneceAlMes(4));
+        Compra unaCompra = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Assert.assertTrue(unaCompra.perteneceAlMes(4));
     }
 
     @Test
@@ -39,8 +38,8 @@ public class VentaTest {
 
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Libro eauRouge = new Libro(100);
-        Venta unaVenta = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
-        Assert.assertTrue(unaVenta.perteneceAlAnio(2018));
+        Compra unaCompra = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Assert.assertTrue(unaCompra.perteneceAlAnio(2018));
     }
 
     @Test
@@ -51,8 +50,8 @@ public class VentaTest {
 
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Libro eauRouge = new Libro(100);
-        Venta unaVenta = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
-        Assert.assertTrue(unaVenta.perteneceAlPeriodo(2018, 4));
+        Compra unaCompra = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Assert.assertTrue(unaCompra.perteneceAlPeriodo(2018, 4));
     }
 
     @Test
@@ -63,19 +62,19 @@ public class VentaTest {
 
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Libro eauRouge = new Libro(100);
-        Venta unaVenta = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
-        Assert.assertEquals(kimiRaikkonen, unaVenta.darCliente());
+        Compra unaCompra = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Assert.assertEquals(kimiRaikkonen, unaCompra.darCliente());
     }
 
     @Test
-    public void crearUnaVentaYSolicitarElProducto() {
+    public void verificarExistenciaDeProducto() {
         Calendar unaFecha = Calendar.getInstance();
         unaFecha.set(2018, 3, 17);
         Date fechaDeVenta = unaFecha.getTime();
 
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Libro eauRouge = new Libro(100);
-        Venta unaVenta = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
-        Assert.assertEquals(eauRouge, unaVenta.darProducto());
+        Compra unaCompra = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Assert.assertEquals(eauRouge, unaCompra.darProducto());
     }
 }

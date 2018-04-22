@@ -37,16 +37,6 @@ public class LibreriaTest {
         Assert.assertEquals(1, miLibreria.cantidadDeProductos());
     }
 
-    @Test
-    public void clienteCompraYLuegoCantidadDeLibrosDebeDarCero() {
-        Libreria miLibreria = new Libreria();
-        Libro biblografiaDBZ = new Libro(10);
-        miLibreria.agregarUnProducto(biblografiaDBZ);
-        Cliente unCliente = new Cliente("Rafeal Nadal", "Vinateros 954");
-        Date fechaDeVenta = new Date();
-        Venta unaVenta = new Venta(unCliente, biblografiaDBZ, fechaDeVenta);
-        miLibreria.registrarVenta(unaVenta);
-    }
 
     @Test
     public void generarVentasYSolicitarLasVentasDelMesDeMarzoDeKimi() {
@@ -56,28 +46,28 @@ public class LibreriaTest {
 
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Libro eauRouge = new Libro(100);
-        Venta venta1 = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Compra compra1 = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
 
         unaFecha.set(2018, 2, 17);
         fechaDeVenta = unaFecha.getTime();
         ArticuloLibreria parabolica = new ArticuloLibreria(90, 21);
-        Venta venta2 = new Venta(kimiRaikkonen, parabolica, fechaDeVenta);
+        Compra compra2 = new Compra(kimiRaikkonen, parabolica, fechaDeVenta);
 
         unaFecha.set(2018, 2, 7);
         fechaDeVenta = unaFecha.getTime();
         Periodico rectaPrincipal = new Periodico(90, 3);
-        Venta venta3 = new Venta(kimiRaikkonen, rectaPrincipal, fechaDeVenta);
+        Compra compra3 = new Compra(kimiRaikkonen, rectaPrincipal, fechaDeVenta);
 
         unaFecha.set(2018, 2, 27);
         fechaDeVenta = unaFecha.getTime();
         Libro boxes = new Libro(90);
-        Venta venta4 = new Venta(kimiRaikkonen, boxes, fechaDeVenta);
+        Compra compra4 = new Compra(kimiRaikkonen, boxes, fechaDeVenta);
 
         Libreria miLibreria = new Libreria();
-        miLibreria.registrarVenta(venta1);
-        miLibreria.registrarVenta(venta2);
-        miLibreria.registrarVenta(venta3);
-        miLibreria.registrarVenta(venta4);
+        miLibreria.registrarVenta(compra1);
+        miLibreria.registrarVenta(compra2);
+        miLibreria.registrarVenta(compra3);
+        miLibreria.registrarVenta(compra4);
         Double resultado = 270.0;
 
         Assert.assertEquals(resultado,miLibreria.ventasDelMesAnioDeUnCliente(kimiRaikkonen, 3, 2018));
@@ -92,30 +82,41 @@ public class LibreriaTest {
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
         Cliente sebastianVettel = new Cliente("Sebastian Vettel", "Monza");
         Libro eauRouge = new Libro(100);
-        Venta venta1 = new Venta(kimiRaikkonen, eauRouge, fechaDeVenta);
+        Compra compra1 = new Compra(kimiRaikkonen, eauRouge, fechaDeVenta);
 
         unaFecha.set(2018, 2, 17);
         fechaDeVenta = unaFecha.getTime();
         ArticuloLibreria parabolica = new ArticuloLibreria(90, 21);
-        Venta venta2 = new Venta(sebastianVettel, parabolica, fechaDeVenta);
+        Compra compra2 = new Compra(sebastianVettel, parabolica, fechaDeVenta);
 
         unaFecha.set(2018, 2, 7);
         fechaDeVenta = unaFecha.getTime();
         Periodico rectaPrincipal = new Periodico(90, 3);
-        Venta venta3 = new Venta(sebastianVettel, rectaPrincipal, fechaDeVenta);
+        Compra compra3 = new Compra(sebastianVettel, rectaPrincipal, fechaDeVenta);
 
         unaFecha.set(2018, 2, 27);
         fechaDeVenta = unaFecha.getTime();
         Libro boxes = new Libro(90);
-        Venta venta4 = new Venta(kimiRaikkonen, boxes, fechaDeVenta);
+        Compra compra4 = new Compra(kimiRaikkonen, boxes, fechaDeVenta);
 
         Libreria miLibreria = new Libreria();
-        miLibreria.registrarVenta(venta1);
-        miLibreria.registrarVenta(venta2);
-        miLibreria.registrarVenta(venta3);
-        miLibreria.registrarVenta(venta4);
+        miLibreria.registrarVenta(compra1);
+        miLibreria.registrarVenta(compra2);
+        miLibreria.registrarVenta(compra3);
+        miLibreria.registrarVenta(compra4);
         Double resultado = 180.0;
 
         Assert.assertEquals(resultado,miLibreria.ventasDelMesAnioDeUnCliente(sebastianVettel, 3, 2018));
+    }
+
+    @Test
+    public void clienteCompraYLuegoCantidadDeLibrosDebeDarCero() {
+        Libreria miLibreria = new Libreria();
+        Libro biblografiaDBZ = new Libro(10);
+        miLibreria.agregarUnProducto(biblografiaDBZ);
+        Cliente unCliente = new Cliente("Rafeal Nadal", "Vinateros 954");
+        Date fechaDeVenta = new Date();
+        Compra unaCompra = new Compra(unCliente, biblografiaDBZ, fechaDeVenta);
+        miLibreria.registrarVenta(unaCompra);
     }
 }
