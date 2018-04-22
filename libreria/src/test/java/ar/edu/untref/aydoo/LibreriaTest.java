@@ -7,11 +7,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class LibreriaTest {
-    @Test
-    public void crearLibreriaVaciaYSolicitarLaCantidadDeProductos_debeDarCero() {
-        Libreria miLibreria = new Libreria();
-
-    }
 
     @Test
     public void generarVentasYSolicitarLasVentasDelMesDeMarzoDeKimi() {
