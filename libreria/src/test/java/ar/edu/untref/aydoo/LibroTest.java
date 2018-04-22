@@ -6,7 +6,8 @@ import org.junit.Test;
 public class LibroTest {
     @Test
     public void crearUnLibroConPrecioYLuegoSolicitarlo(){
-        Libro unLibro = new Libro(10);
-        Assert.assertEquals(10, unLibro.darPrecio());
+        Libro unLibro = new Libro(10.0);
+        Double unPrecio = 10.0;
+        Assert.assertEquals(unPrecio, unLibro.darPrecio());
     }
 }

@@ -6,7 +6,8 @@ import org.junit.Test;
 public class ProductoTest {
     @Test
     public void crearUnProductoYSolicitarPrecio() {
-        Producto unProducto = new Producto(10);
-        Assert.assertEquals(10, unProducto.darPrecio());
+        Producto unProducto = new Producto(10.0);
+        Double unPrecio = 10.0;
+        Assert.assertEquals(unPrecio, unProducto.darPrecio());
     }
 }

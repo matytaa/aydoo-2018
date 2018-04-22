@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class Periodico extends Producto {
     private int periodicidad;
 
-    public Periodico(final int precio, final int unaPeriodicidad) {
+    public Periodico(final Double precio, final int unaPeriodicidad) {
         super(precio);
         this.periodicidad = unaPeriodicidad;
     }

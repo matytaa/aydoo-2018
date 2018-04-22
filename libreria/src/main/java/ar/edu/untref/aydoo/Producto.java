@@ -1,13 +1,13 @@
 package ar.edu.untref.aydoo;
 
 public class Producto {
-    private int precio;
+    private Double precio;
 
-    public Producto(final int unPrecio) {
+    public Producto(final Double unPrecio) {
         this.precio = unPrecio;
     }
 
-    public int darPrecio() {
+    public Double darPrecio() {
         return this.precio;
     }
 }
