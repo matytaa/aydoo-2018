@@ -46,11 +46,11 @@ public class LibreriaTest {
         Cliente unCliente = new Cliente("Rafeal Nadal", "Vinateros 954");
         Date fechaDeVenta = new Date();
         Venta unaVenta = new Venta(unCliente, biblografiaDBZ, fechaDeVenta);
-        miLibreria.venderLibro(unaVenta);
+        miLibreria.registrarVenta(unaVenta);
     }
 
-    @Ignore
-    public void generarVentasYSolicitarLasVentasDelMesDeMarzo() {
+    @Test
+    public void generarVentasYSolicitarLasVentasDelMesDeMarzoDeKimi() {
         Calendar unaFecha = Calendar.getInstance();
         unaFecha.set(2018, 3, 17);
         Date fechaDeVenta = unaFecha.getTime();
@@ -73,5 +73,13 @@ public class LibreriaTest {
         fechaDeVenta = unaFecha.getTime();
         Libro boxes = new Libro(90);
         Venta venta4 = new Venta(kimiRaikkonen, parabolica, fechaDeVenta);
+
+        Libreria miLibreria = new Libreria();
+        miLibreria.registrarVenta(venta1);
+        miLibreria.registrarVenta(venta2);
+        miLibreria.registrarVenta(venta3);
+        miLibreria.registrarVenta(venta4);
+
+        Assert.assertEquals(3,miLibreria.ventasDelMes(kimiRaikkonen, 3, 2018));
     }
 }

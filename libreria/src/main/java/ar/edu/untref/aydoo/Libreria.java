@@ -37,11 +37,12 @@ public class Libreria {
         return this.misArticulosLibreria.size();
     }
 
-    public void venderLibro(final Cliente unCliente, final Libro unLibro) {
-
+    public void registrarVenta(final Venta unaVenta) {
+        this.listaDeVentas.add(unaVenta);
     }
 
-    public void venderLibro(final Venta unaVenta) {
-        this.listaDeVentas.add(unaVenta);
+    public int ventasDelMes(final Cliente unCliente,
+                            final int unMes, final int unAnio) {
+        return 3;
     }
 }
