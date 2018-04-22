@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,6 +44,22 @@ public class Libreria {
 
     public int ventasDelMes(final Cliente unCliente,
                             final int unMes, final int unAnio) {
-        return 3;
+        Iterator<Venta> iteradorVentas = this.listaDeVentas.iterator();
+        Venta unaVenta;
+        int cantidadDeVentas = 0;
+        while (iteradorVentas.hasNext()) {
+            unaVenta = iteradorVentas.next();
+            if (mismoCliente(unCliente, unaVenta.darCliente())) {
+                if (unaVenta.perteneceAlPeriodo(unAnio, unMes)) {
+                    cantidadDeVentas++;
+                }
+            }
+        }
+        return cantidadDeVentas;
+    }
+
+    private boolean mismoCliente(final Cliente unCliente,
+                                 final Cliente clienteVenta) {
+        return unCliente.equals(clienteVenta);
     }
 }

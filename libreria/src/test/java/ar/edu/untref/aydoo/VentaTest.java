@@ -43,4 +43,27 @@ public class VentaTest {
         Assert.assertTrue(unaVenta.perteneceAlAnio(2018));
     }
 
+    @Test
+    public void verificarVentaPertenecienteAlAnio2018MesAbril() {
+        Calendar unaFecha = Calendar.getInstance();
+        unaFecha.set(2018,3,17);
+        Date fechaDeVenta = unaFecha.getTime();
+
+        Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
+        Libro eauRouge = new Libro(100);
+        Venta unaVenta = new Venta(kimiRaikkonen,eauRouge, fechaDeVenta);
+        Assert.assertTrue(unaVenta.perteneceAlPeriodo(2018,4));
+    }
+
+    @Test
+    public void crearUnaVentaYSolicitarElCliente() {
+        Calendar unaFecha = Calendar.getInstance();
+        unaFecha.set(2018,3,17);
+        Date fechaDeVenta = unaFecha.getTime();
+
+        Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
+        Libro eauRouge = new Libro(100);
+        Venta unaVenta = new Venta(kimiRaikkonen,eauRouge, fechaDeVenta);
+        Assert.assertEquals(kimiRaikkonen, unaVenta.darCliente());
+    }
 }

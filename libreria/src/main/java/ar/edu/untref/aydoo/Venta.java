@@ -32,4 +32,12 @@ public class Venta {
         calendar.setTime(this.fechaDeVenta);
         return calendar.get(Calendar.YEAR) == unAnio;
     }
+
+    public Cliente darCliente() {
+        return this.cliente;
+    }
+
+    public boolean perteneceAlPeriodo(final int unAnio, final int unMes) {
+        return perteneceAlAnio(unAnio) && perteneceAlMes(unMes);
+    }
 }
