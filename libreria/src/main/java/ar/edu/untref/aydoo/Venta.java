@@ -40,4 +40,8 @@ public class Venta {
     public boolean perteneceAlPeriodo(final int unAnio, final int unMes) {
         return perteneceAlAnio(unAnio) && perteneceAlMes(unMes);
     }
+
+    public Producto darProducto() {
+        return this.producto;
+    }
 }

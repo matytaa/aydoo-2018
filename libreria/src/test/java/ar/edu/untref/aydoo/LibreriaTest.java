@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -18,31 +17,31 @@ public class LibreriaTest {
     public void almacenarUnLibroYSolicitarLaCantidadDeLibros() {
         Libreria miLibreria = new Libreria();
         Libro biblografiaDBZ = new Libro(10);
-        miLibreria.agregarLibro(biblografiaDBZ);
-        Assert.assertEquals(1, miLibreria.cantidadDeLibros());
+        miLibreria.agregarUnProducto(biblografiaDBZ);
+        Assert.assertEquals(1, miLibreria.cantidadDeProductos());
     }
 
     @Test
-    public void almacenarUnaRevistaYSolicitarLaCantidadDePeriodicos() {
+    public void almacenarUnaRevistaYSolicitarLacantidadDeProductos() {
         Libreria miLibreria = new Libreria();
         Periodico revistaDBZ = new Periodico(10, 3);
-        miLibreria.agregarPeriodico(revistaDBZ);
-        Assert.assertEquals(1, miLibreria.cantidadDePeriodicos());
+        miLibreria.agregarUnProducto(revistaDBZ);
+        Assert.assertEquals(1, miLibreria.cantidadDeProductos());
     }
 
     @Test
     public void almacenarUnArticuloDeLibreriaYSolicitarLaCantidadDeArticulosDeLibreria() {
         Libreria miLibreria = new Libreria();
         ArticuloLibreria albumDBZ = new ArticuloLibreria(10, 10);
-        miLibreria.agregarArticuloLibreria(albumDBZ);
-        Assert.assertEquals(1, miLibreria.cantidadDeArticulos());
+        miLibreria.agregarUnProducto(albumDBZ);
+        Assert.assertEquals(1, miLibreria.cantidadDeProductos());
     }
 
     @Test
     public void clienteCompraYLuegoCantidadDeLibrosDebeDarCero() {
         Libreria miLibreria = new Libreria();
         Libro biblografiaDBZ = new Libro(10);
-        miLibreria.agregarLibro(biblografiaDBZ);
+        miLibreria.agregarUnProducto(biblografiaDBZ);
         Cliente unCliente = new Cliente("Rafeal Nadal", "Vinateros 954");
         Date fechaDeVenta = new Date();
         Venta unaVenta = new Venta(unCliente, biblografiaDBZ, fechaDeVenta);
@@ -72,7 +71,7 @@ public class LibreriaTest {
         unaFecha.set(2018, 2, 27);
         fechaDeVenta = unaFecha.getTime();
         Libro boxes = new Libro(90);
-        Venta venta4 = new Venta(kimiRaikkonen, parabolica, fechaDeVenta);
+        Venta venta4 = new Venta(kimiRaikkonen, boxes, fechaDeVenta);
 
         Libreria miLibreria = new Libreria();
         miLibreria.registrarVenta(venta1);
@@ -80,6 +79,6 @@ public class LibreriaTest {
         miLibreria.registrarVenta(venta3);
         miLibreria.registrarVenta(venta4);
 
-        Assert.assertEquals(3,miLibreria.ventasDelMes(kimiRaikkonen, 3, 2018));
+        Assert.assertEquals(3,miLibreria.ventasDelMesAnioDeUnCliente(kimiRaikkonen, 3, 2018));
     }
 }
