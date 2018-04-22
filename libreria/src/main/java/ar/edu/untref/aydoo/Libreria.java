@@ -24,21 +24,22 @@ public class Libreria {
     private void decrementarLibros(final Producto producto) {
     }
 
-    public int ventasDelMesAnioDeUnCliente(final Cliente unCliente,
+    public Double ventasDelMesAnioDeUnCliente(final Cliente unCliente,
                                            final int unMes,
                                            final int unAnio) {
         Iterator<Venta> iteradorVentas = this.listaDeVentas.iterator();
         Venta unaVenta;
-        int cantidadDeVentas = 0;
+        Double importeDelMes = 0.0;
         while (iteradorVentas.hasNext()) {
             unaVenta = iteradorVentas.next();
             if (mismoCliente(unCliente, unaVenta.darCliente())) {
                 if (unaVenta.perteneceAlPeriodo(unAnio, unMes)) {
-                    cantidadDeVentas++;
+                    importeDelMes = importeDelMes
+                            + unaVenta.darProducto().darPrecio();
                 }
             }
         }
-        return cantidadDeVentas;
+        return importeDelMes;
     }
 
     private boolean mismoCliente(final Cliente unCliente,
