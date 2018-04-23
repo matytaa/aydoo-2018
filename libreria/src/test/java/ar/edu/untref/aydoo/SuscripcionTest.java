@@ -15,7 +15,7 @@ public class SuscripcionTest {
     public void darPrecioBonificadoDeLaSuscripciom() {
         Periodico rectaPrincipal = new Periodico(90.0, 3);
         Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
-        Double precioBonificado = 75.0;
-        Assert.assertEquals(precioBonificado, unaSuscripcion.darPrecioBonificado(),0.1);
+        Double precioBonificado = 18.0;
+        Assert.assertEquals(precioBonificado, unaSuscripcion.obtenerDescuento(),0.1);
     }
 }

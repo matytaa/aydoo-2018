@@ -25,4 +25,5 @@ public class ClienteTest {
         kimi.comprarSuscripcion(unaSuscripcion);
         Assert.assertTrue(kimi.tieneSuscripciones());
     }
+
 }
