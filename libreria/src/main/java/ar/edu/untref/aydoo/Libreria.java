@@ -13,9 +13,6 @@ public class Libreria {
         this.listaDeCompras.add(unaCompra);
     }
 
-    private void decrementarLibros(final Producto producto) {
-    }
-
     public Double ventasDelMesAnioDeUnCliente(final Cliente unCliente,
                                               final int unMes,
                                               final int unAnio) {
