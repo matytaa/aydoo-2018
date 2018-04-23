@@ -14,4 +14,15 @@ public class ClienteTest {
         Assert.assertEquals(nombre, unNombre);
         Assert.assertEquals(direccion, unaDirección);
     }
+
+    @Test
+    public void comprarSuscripcionDeUnProducto() {
+        String nombre = "Kimi Raikkonen";
+        String direccion = "Spa-Francorcharmps";
+        Cliente kimi = new Cliente(nombre, direccion);
+        Periodico rectaPrincipal = new Periodico(90.0, 3);
+        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
+        kimi.comprarSuscripcion(unaSuscripcion);
+        Assert.assertTrue(kimi.tieneSuscripciones());
+    }
 }
