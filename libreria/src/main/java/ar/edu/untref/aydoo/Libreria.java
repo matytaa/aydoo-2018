@@ -7,6 +7,7 @@ import java.util.List;
 public class Libreria {
 
     private List<Compra> listaDeCompras = new LinkedList<>();
+    private final int limiteMeses = 13;
 
     public void registrarCompra(final Compra unaCompra) {
         this.listaDeCompras.add(unaCompra);
@@ -41,5 +42,14 @@ public class Libreria {
     private boolean mismoCliente(final Cliente unCliente,
                                  final Cliente clienteVenta) {
         return unCliente.equals(clienteVenta);
+    }
+
+    public Double ventasDelAnioDeUnCliente(final Cliente unCliente,
+                                           final int unAnio) {
+        Double resultado = 0.0;
+        for (int mes = 1; mes < this.limiteMeses; mes++) {
+            resultado += ventasDelMesAnioDeUnCliente(unCliente, mes, unAnio);
+        }
+        return resultado;
     }
 }
