@@ -26,4 +26,14 @@ public class ClienteTest {
         Assert.assertTrue(kimi.tieneSuscripciones());
     }
 
+    @Test
+    public void retornarListaDeSuscripcionesYConsultarTamanio() {
+        String nombre = "Kimi Raikkonen";
+        String direccion = "Spa-Francorcharmps";
+        Cliente kimi = new Cliente(nombre, direccion);
+        Periodico rectaPrincipal = new Periodico(90.0, 3);
+        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
+        kimi.comprarSuscripcion(unaSuscripcion);
+        Assert.assertEquals(1, kimi.darSuscripciones().size());
+    }
 }

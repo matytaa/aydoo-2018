@@ -29,4 +29,8 @@ public class Cliente {
     public boolean tieneSuscripciones() {
         return this.listaDeSuscripciones.size() > 0;
     }
+
+    public List<Suscripcion> darSuscripciones() {
+        return this.listaDeSuscripciones;
+    }
 }

@@ -13,9 +13,9 @@ public class Libreria {
         this.listaDeCompras.add(unaCompra);
     }
 
-    public Double ventasDelMesAnioDeUnCliente(final Cliente unCliente,
-                                              final int unMes,
-                                              final int unAnio) {
+    public Double comprasDelMesAnioDeUnCliente(final Cliente unCliente,
+                                               final int unMes,
+                                               final int unAnio) {
         Iterator<Compra> iteradorCompras = this.listaDeCompras.iterator();
         Compra unaCompra;
         Double importeDelMes = 0.0;
@@ -29,6 +29,8 @@ public class Libreria {
                     while (iteradorProductos.hasNext()) {
                         unProducto = iteradorProductos.next();
                         importeDelMes += unProducto.darPrecio();
+                        importeDelMes -=
+                                aplicarDescuento(unCliente, unProducto);
                     }
                 }
             }
@@ -41,12 +43,35 @@ public class Libreria {
         return unCliente.equals(clienteVenta);
     }
 
-    public Double ventasDelAnioDeUnCliente(final Cliente unCliente,
-                                           final int unAnio) {
+    public Double comprasDelAnioDeUnCliente(final Cliente unCliente,
+                                            final int unAnio) {
         Double resultado = 0.0;
         for (int mes = 1; mes < this.limiteMeses; mes++) {
-            resultado += ventasDelMesAnioDeUnCliente(unCliente, mes, unAnio);
+            resultado += comprasDelMesAnioDeUnCliente(unCliente, mes, unAnio);
         }
         return resultado;
+    }
+
+    public boolean esPeridioco(final Producto unProducto) {
+        return unProducto instanceof Periodico;
+    }
+
+    public Double aplicarDescuento(final Cliente unCliente,
+                                   final Producto unPeriodico) {
+        Double descuento = 0.0;
+
+        if (esPeridioco(unPeriodico)) {
+            List<Suscripcion> unaListaDeSuscripciones =
+                    unCliente.darSuscripciones();
+            Iterator<Suscripcion> itProductos =
+                    unaListaDeSuscripciones.iterator();
+            while (itProductos.hasNext()) {
+                Suscripcion unaSuscripcion = itProductos.next();
+                if (unPeriodico.equals(unaSuscripcion.darPeriodico())) {
+                    descuento = unaSuscripcion.obtenerDescuento();
+                }
+            }
+        }
+        return descuento;
     }
 }
