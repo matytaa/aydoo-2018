@@ -14,9 +14,7 @@ public class CompraTest {
         Double precio = 10d;
         String nombre = "jabon";
         Producto jabon = new Producto(nombre, precio);
-        PromocionNula promocionNula = new PromocionNula();
         List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
-        promocionesActivas.add(promocionNula);
         Compra compraDelMes = new Compra(promocionesActivas);
         compraDelMes.agregar(jabon);
 
@@ -32,9 +30,7 @@ public class CompraTest {
         Producto jabon = new Producto(nombre, precio);
         nombre = "pan";
         Producto pan = new Producto(nombre, precio);
-        PromocionNula promocionNula = new PromocionNula();
         List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
-        promocionesActivas.add(promocionNula);
         Compra compraDelMes = new Compra(promocionesActivas);
         compraDelMes.agregar(jabon);
         compraDelMes.agregar(pan);
@@ -45,17 +41,15 @@ public class CompraTest {
     }
 
     @Test
-    public void promocionQueNoAplicaALaCompra () {
+    public void promocionQueNoAplicaALaCompra() {
         Producto jabon = new Producto("jabon", 10d);
         Double porcentajeDescuento = 10d;
 
         Producto pan = new Producto("pan", 10d);
 
-        PromocionNula promocionNula = new PromocionNula();
         PromocionPorcentaje promocionJabon = new PromocionPorcentaje(pan, porcentajeDescuento);
         List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
         promocionesActivas.add(promocionJabon);
-        promocionesActivas.add(promocionNula);
         Compra compraDelMes = new Compra(promocionesActivas);
         compraDelMes.agregar(jabon);
 
@@ -70,11 +64,9 @@ public class CompraTest {
 
         Producto jabon = new Producto("jabon", 10d);
 
-        PromocionNula promocionNula = new PromocionNula();
         PromocionPorcentaje promocionJabon = new PromocionPorcentaje(jabon, porcentajeDescuento);
         List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
         promocionesActivas.add(promocionJabon);
-        promocionesActivas.add(promocionNula);
 
         Compra compraDelMes = new Compra(promocionesActivas);
 

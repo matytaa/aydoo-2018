@@ -22,11 +22,27 @@ public class Compra {
 
     public Double calcularTotal() {
         Double total = 0d;
+        total = calcularTotalDeProductosConPromociones();
+        if (total==0)
+                total = calcularTotalDeProductosSinPromociones();
+        return total;
+    }
+
+    private Double calcularTotalDeProductosConPromociones() {
+        Double totalConPromociones = 0d;
         List<Producto> itemsAProcesar = new ArrayList<Producto>();
         itemsAProcesar.addAll(this.items);
         for (PromocionPorcentaje promocion : this.promociones) {
-            total += promocion.aplicar(itemsAProcesar);
+            totalConPromociones += promocion.aplicar(itemsAProcesar);
         }
-        return total;
+        return totalConPromociones;
+    }
+
+    private Double calcularTotalDeProductosSinPromociones() {
+        Double totalSinPromociones = 0d;
+        for (Producto prod: items) {
+            totalSinPromociones += prod.getPrecioConIva();
+        }
+        return totalSinPromociones;
     }
 }
