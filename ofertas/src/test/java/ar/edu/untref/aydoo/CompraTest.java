@@ -14,7 +14,7 @@ public class CompraTest {
         Double precio = 10d;
         String nombre = "jabon";
         Producto jabon = new Producto(nombre, precio);
-        List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
+        List<Promocion> promocionesActivas = new ArrayList<Promocion>();
         Compra compraDelMes = new Compra(promocionesActivas);
         compraDelMes.agregar(jabon);
 
@@ -30,7 +30,7 @@ public class CompraTest {
         Producto jabon = new Producto(nombre, precio);
         nombre = "pan";
         Producto pan = new Producto(nombre, precio);
-        List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
+        List<Promocion> promocionesActivas = new ArrayList<Promocion>();
         Compra compraDelMes = new Compra(promocionesActivas);
         compraDelMes.agregar(jabon);
         compraDelMes.agregar(pan);
@@ -48,7 +48,7 @@ public class CompraTest {
         Producto pan = new Producto("pan", 10d);
 
         PromocionPorcentaje promocionJabon = new PromocionPorcentaje(pan, porcentajeDescuento);
-        List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
+        List<Promocion> promocionesActivas = new ArrayList<Promocion>();
         promocionesActivas.add(promocionJabon);
         Compra compraDelMes = new Compra(promocionesActivas);
         compraDelMes.agregar(jabon);
@@ -59,23 +59,39 @@ public class CompraTest {
     }
 
     @Test
-    public void torgugaVerde() {
+    public void deberiaAplicarPromocionDescuento() {
         Double porcentajeDescuento = 10d;
 
         Producto jabon = new Producto("jabon", 10d);
 
         PromocionPorcentaje promocionJabon = new PromocionPorcentaje(jabon, porcentajeDescuento);
-        List<PromocionPorcentaje> promocionesActivas = new ArrayList<PromocionPorcentaje>();
+        List<Promocion> promocionesActivas = new ArrayList<Promocion>();
         promocionesActivas.add(promocionJabon);
 
         Compra compraDelMes = new Compra(promocionesActivas);
-
         compraDelMes.agregar(jabon);
-
         Double total = compraDelMes.calcularTotal();
 
         Assert.assertEquals(10.89d, total, 0d);
 
+    }
+
+    @Test
+    public void klñsdjf() {
+        Double porcentajeDescuento = 10d;
+
+        Producto jabon1 = new Producto("jabon", 10d);
+        Producto jabon2 = new Producto("jabon", 10d);
+        Promocion2X1 promocionJabon = new Promocion2X1(jabon1);
+        List<Promocion> promocionesActivas = new ArrayList<Promocion>();
+        promocionesActivas.add(promocionJabon);
+
+        Compra compraDelMes = new Compra(promocionesActivas);
+        compraDelMes.agregar(jabon1);
+        compraDelMes.agregar(jabon2);
+        Double total = compraDelMes.calcularTotal();
+
+        Assert.assertEquals(10.89d, total, 0d);
     }
 
 }

@@ -7,10 +7,10 @@ import java.util.List;
  * Created by nicopaez on 25/04/2018.
  */
 public class Compra {
-    private final List<PromocionPorcentaje> promociones;
+    private final List<Promocion> promociones;
     private List<Producto> items;
 
-    public Compra(List<PromocionPorcentaje> promocionesActivas) {
+    public Compra(List<Promocion> promocionesActivas) {
         this.items = new ArrayList<Producto>();
         this.promociones = promocionesActivas;
 
@@ -32,7 +32,7 @@ public class Compra {
         Double totalConPromociones = 0d;
         List<Producto> itemsAProcesar = new ArrayList<Producto>();
         itemsAProcesar.addAll(this.items);
-        for (PromocionPorcentaje promocion : this.promociones) {
+        for (Promocion promocion : this.promociones) {
             totalConPromociones += promocion.aplicar(itemsAProcesar);
         }
         return totalConPromociones;

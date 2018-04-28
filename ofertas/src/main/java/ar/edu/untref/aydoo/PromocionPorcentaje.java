@@ -6,18 +6,19 @@ import java.util.List;
 /**
  * Created by nicopaez on 25/04/2018.
  */
-public class PromocionPorcentaje {
-    private final Producto productoEnPromocion;
+public class PromocionPorcentaje extends Promocion{
+    //private final Producto productoEnPromocion;
     private final Double porcentajeDescuento;
 
     public PromocionPorcentaje(Producto producto, Double porcentajeDescuento) {
-        this.productoEnPromocion = producto;
+        super(producto);
         this.porcentajeDescuento =  porcentajeDescuento;
     }
 
     public Double aplicar(List<Producto> items) {
         Double montoAPagar = 0d;
         Iterator<Producto> it = items.iterator();
+        Producto productoEnPromocion = super.darProducto();
         while(it.hasNext()){
             if (productoEnPromocion.equals(it.next())) {
                 Double precioTotal = productoEnPromocion.getPrecioConIva();
