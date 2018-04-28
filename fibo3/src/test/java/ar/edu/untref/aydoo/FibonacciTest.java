@@ -136,7 +136,8 @@ public class FibonacciTest {
     @Test
     public void recibeParametro_vd_debeImprimirVerticalDirecto() {
         Fibonacci miFibonacci = new Fibonacci(12);
-        Assert.assertTrue(miFibonacci.definirSalidaHorizontalOVertical("-o=vd"));
+        miFibonacci.definirSalidaHorizontalOVertical("-o=vd");
+        Assert.assertTrue(miFibonacci.puedoContinuar());
         int resultado = miFibonacci.ejecutarFibonacci();
         Assert.assertEquals(89, resultado);
     }
@@ -144,7 +145,8 @@ public class FibonacciTest {
     @Test
     public void recibeParametro_xy_resultadoDebeSerCero() {
         Fibonacci miFibonacci = new Fibonacci(12);
-        Assert.assertFalse(miFibonacci.definirSalidaHorizontalOVertical("-o=xy"));
+        miFibonacci.definirSalidaHorizontalOVertical("-o=xy");
+        Assert.assertFalse(miFibonacci.puedoContinuar());
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
         Assert.assertEquals(0, resultado);
@@ -153,8 +155,9 @@ public class FibonacciTest {
     @Test
     public void fibonacciDe8VD() {
         Fibonacci miFibonacci = new Fibonacci(8);
+        miFibonacci.definirSalidaHorizontalOVertical("-o=vd");
+        Assert.assertTrue(miFibonacci.puedoContinuar());
         int resultado = 0;
-        Assert.assertTrue(miFibonacci.definirSalidaHorizontalOVertical("-o=vd"));
         resultado = miFibonacci.ejecutarFibonacci();
         Assert.assertEquals(13, resultado);
     }
@@ -162,9 +165,17 @@ public class FibonacciTest {
     @Test
     public void fibonacciDe8VI() {
         Fibonacci miFibonacci = new Fibonacci(8);
-        Assert.assertTrue(miFibonacci.definirSalidaHorizontalOVertical("-o=vi"));
+        miFibonacci.definirSalidaHorizontalOVertical("-o=vi");
+        Assert.assertTrue(miFibonacci.puedoContinuar());
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
         Assert.assertEquals(0, resultado);
+    }
+
+    @Test
+    public void enviarSalidaErroneaYNoDeberiaPoderContinuar() {
+        Fibonacci miFibonacci = new Fibonacci(8);
+        miFibonacci.definirSalidaHorizontalOVertical("-o=xs");
+        Assert.assertFalse(miFibonacci.puedoContinuar());
     }
 }

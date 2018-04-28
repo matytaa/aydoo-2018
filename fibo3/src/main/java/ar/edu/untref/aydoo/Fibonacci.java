@@ -90,8 +90,7 @@ public class Fibonacci {
         this.ordenInverso = unOrden;
     }
 
-    public boolean definirSalidaHorizontalOVertical(String parametros) {
-        boolean procesoSalidaPorPantalla;
+    public void definirSalidaHorizontalOVertical(String parametros) {
         if ((parametros.equals("-o=vi"))
                 || (parametros.equals("-o=vd"))
                 || (parametros.equals("-o=hi"))
@@ -99,31 +98,49 @@ public class Fibonacci {
                 || (parametros.equals(""))) {
             imprimeEnVertical(parametros.contains("v"));
             ejecutarEnOrdenInverso(parametros.contains("i"));
-            this.continuar = true;
-            procesoSalidaPorPantalla = true;
+            continuarEjecucion(true);
         } else {
             System.out.println("Opciones no validas");
             this.numeroFibonacci = -1;
-            this.continuar = false;
-            procesoSalidaPorPantalla = false;
+            continuarEjecucion(false);
         }
-        return procesoSalidaPorPantalla;
+    }
+
+    public boolean puedoContinuar() {
+        return this.continuar;
+    }
+
+    private void continuarEjecucion(boolean unEstado) {
+        this.continuar = unEstado;
     }
 
     public static void main(String[] args) {
         int numeroFib = -1;
         String argumentoTipoImpresion = "";
+        int cantidadDeArgumentos = args.length;
+
+        switch (cantidadDeArgumentos){
+            case 1:
+                numeroFib = Integer.parseInt(args[0]);
+                break;
+            case 2:
+                argumentoTipoImpresion = args[0];
+                numeroFib = Integer.parseInt(args[1]);
+                break;
+            default:
+                break;
+        }
+        /*
         if (args.length == 1) {
             numeroFib = Integer.parseInt(args[0]);
         } else if (args.length > 1) {
             argumentoTipoImpresion = args[0];
             numeroFib = Integer.parseInt(args[1]);
-        }
+        }*/
 
         Fibonacci miFibonacci = new Fibonacci(numeroFib);
         miFibonacci.definirSalidaHorizontalOVertical(argumentoTipoImpresion);
         miFibonacci.ejecutarFibonacci();
         miFibonacci.armarCabeceraDeSalida();
     }
-
 }
