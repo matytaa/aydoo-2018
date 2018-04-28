@@ -1,15 +1,15 @@
 package ar.edu.untref.aydoo;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Promocion {
     private Producto productoDeLaPromocion;
+
     public Promocion(Producto unProducto) {
         this.productoDeLaPromocion = unProducto;
     }
 
-    public Producto darProducto(){
+    public Producto darProducto() {
         return this.productoDeLaPromocion;
     }
 

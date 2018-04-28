@@ -16,15 +16,16 @@ public class Compra {
 
     }
 
-    public void agregar(Producto jabon) {
-        this.items.add(jabon);
+    public void agregar(Producto unProducto) {
+        this.items.add(unProducto);
     }
 
     public Double calcularTotal() {
         Double total = 0d;
         total = calcularTotalDeProductosConPromociones();
-        if (total==0)
-                total = calcularTotalDeProductosSinPromociones();
+        if (total == 0) {
+            total = calcularTotalDeProductosSinPromociones();
+        }
         return total;
     }
 
@@ -40,7 +41,7 @@ public class Compra {
 
     private Double calcularTotalDeProductosSinPromociones() {
         Double totalSinPromociones = 0d;
-        for (Producto prod: items) {
+        for (Producto prod : items) {
             totalSinPromociones += prod.getPrecioConIva();
         }
         return totalSinPromociones;
