@@ -181,9 +181,23 @@ public class FibonacciTest {
 
     @Test
     public void generarArchivoConElResultadoDeLaEjecion(){
-        Fibonacci miFibonacci = new Fibonacci(8);
+        Fibonacci miFibonacci = new Fibonacci(5);
         String resultado = "fibo<5>:\n" + "0\n" + "1\n" + "1\n" + "2\n" + "3";
         Assert.assertTrue(miFibonacci.generarArchivo("salida.txt"));
         miFibonacci.escribirResultado(resultado);
+    }
+
+    @Test
+    public void puedoSumarValoresDeberiaDarFalso(){
+        Fibonacci miFibonacci = new Fibonacci(5);
+        int resultado = 7;
+        Assert.assertFalse(miFibonacci.puedoSumarVaroles());
+    }
+
+    @Test
+    public void cambiarSumaDeValoresAVerdadero(){
+        Fibonacci miFibonacci = new Fibonacci(5);
+        miFibonacci.aplicarSumaDeValores();
+        Assert.assertTrue(miFibonacci.puedoSumarVaroles());
     }
 }

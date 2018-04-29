@@ -9,10 +9,12 @@ public class Fibonacci {
     private String cabeceraTxt;
     private boolean continuar;
     private GenerardorDeArchivos miGenerador;
+    private boolean sumarValores;
 
     public Fibonacci(int unNumeroFibonacci) {
         this.numeroFibonacci = unNumeroFibonacci;
         armarCabeceraDeSalida();
+        this.sumarValores = false;
     }
 
     public int calcularFibonacci(int unNumeroFibonacci) {
@@ -115,6 +117,19 @@ public class Fibonacci {
         this.continuar = unEstado;
     }
 
+    public boolean generarArchivo(String rutaArchivo) {
+        this.miGenerador = new GenerardorDeArchivos(rutaArchivo);
+        return this.miGenerador.generarArchivo();
+    }
+
+    public void escribirResultado(String resultadoEjecucion) {
+        this.miGenerador.escribirArchivo(resultadoEjecucion);
+    }
+
+    public boolean puedoSumarVaroles() {
+        return this.sumarValores;
+    }
+
     public static void main(String[] args) {
         int numeroFib = -1;
         String argumentoTipoImpresion = "";
@@ -145,12 +160,7 @@ public class Fibonacci {
         miFibonacci.armarCabeceraDeSalida();
     }
 
-    public boolean generarArchivo(String rutaArchivo) {
-        this.miGenerador = new GenerardorDeArchivos(rutaArchivo);
-        return this.miGenerador.generarArchivo();
-    }
-
-    public void escribirResultado(String resultadoEjecucion) {
-        this.miGenerador.escribirArchivo(resultadoEjecucion);
+    public void aplicarSumaDeValores() {
+        this.sumarValores = true;
     }
 }
