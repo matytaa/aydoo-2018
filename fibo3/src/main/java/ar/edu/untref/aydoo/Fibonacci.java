@@ -44,7 +44,20 @@ public class Fibonacci {
         if (esEjecucionInversa()) {
             return ejecutarFibonacciInverso();
         }
+        if (puedoSumarVaroles()) {
+            return ejecutarSumatoriaFibonacci();
+        }
         return ejecutarFibonacciDirecto();
+    }
+
+    private int ejecutarSumatoriaFibonacci() {
+        int resultadoFinal = 0;
+        for (int i = 0; i < this.numeroFibonacci; i++) {
+            resultadoFinal += calcularFibonacci(i);
+        }
+        this.cuerpoTxt = "" + resultadoFinal;
+        imprimirSalida();
+        return resultadoFinal;
     }
 
     private boolean esEjecucionInversa() {
@@ -135,7 +148,7 @@ public class Fibonacci {
         String argumentoTipoImpresion = "";
         int cantidadDeArgumentos = args.length;
 
-        switch (cantidadDeArgumentos){
+        switch (cantidadDeArgumentos) {
             case 1:
                 numeroFib = Integer.parseInt(args[0]);
                 break;

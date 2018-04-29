@@ -190,7 +190,6 @@ public class FibonacciTest {
     @Test
     public void puedoSumarValoresDeberiaDarFalso(){
         Fibonacci miFibonacci = new Fibonacci(5);
-        int resultado = 7;
         Assert.assertFalse(miFibonacci.puedoSumarVaroles());
     }
 
@@ -199,5 +198,13 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(5);
         miFibonacci.aplicarSumaDeValores();
         Assert.assertTrue(miFibonacci.puedoSumarVaroles());
+    }
+
+    @Test
+    public void sumarDeValoresDeberiaDar7(){
+        Fibonacci miFibonacci = new Fibonacci(5);
+        miFibonacci.aplicarSumaDeValores();
+        int resultado = 7;
+        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
     }
 }
