@@ -178,4 +178,10 @@ public class FibonacciTest {
         miFibonacci.definirSalidaHorizontalOVertical("-o=xs");
         Assert.assertFalse(miFibonacci.puedoContinuar());
     }
+
+    @Test
+    public void generarArchivoConNombreEnviado(){
+        Fibonacci miFibonacci = new Fibonacci(8);
+        miFibonacci.generarArchivo("salida.txt");
+    }
 }

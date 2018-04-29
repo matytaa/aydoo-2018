@@ -8,6 +8,7 @@ public class Fibonacci {
     private String cuerpoTxt = "";
     private String cabeceraTxt;
     private boolean continuar;
+    private GenerardorDeArchivos miGenerador;
 
     public Fibonacci(int unNumeroFibonacci) {
         this.numeroFibonacci = unNumeroFibonacci;
@@ -142,5 +143,9 @@ public class Fibonacci {
         miFibonacci.definirSalidaHorizontalOVertical(argumentoTipoImpresion);
         miFibonacci.ejecutarFibonacci();
         miFibonacci.armarCabeceraDeSalida();
+    }
+
+    public void generarArchivo(String rutaArchivo) {
+        miGenerador.generarArchivo(rutaArchivo);
     }
 }
