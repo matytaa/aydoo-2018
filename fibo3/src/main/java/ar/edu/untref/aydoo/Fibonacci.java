@@ -116,10 +116,14 @@ public class Fibonacci {
             ejecutarEnOrdenInverso(parametros.contains("i"));
             continuarEjecucion(true);
         } else {
-            System.out.println("Opciones no validas");
-            this.numeroFibonacci = -1;
-            continuarEjecucion(false);
+            cancelarEjecucion();
         }
+    }
+
+    private void cancelarEjecucion() {
+        System.out.println("Opciones no validas");
+        this.numeroFibonacci = -1;
+        continuarEjecucion(false);
     }
 
     public boolean puedoContinuar() {
@@ -173,7 +177,17 @@ public class Fibonacci {
         miFibonacci.armarCabeceraDeSalida();
     }
 
-    public void aplicarSumaDeValores() {
-        this.sumarValores = true;
+    public void aplicarSumaDeValores(boolean unEstado) {
+        this.sumarValores = unEstado;
+    }
+
+    public void definirSalidaListaOSumatoria(String parametro) {
+        if ((parametro.equals("-m=s"))
+                || (parametro.equals("-m=l"))
+                || (parametro.equals(""))) {
+            aplicarSumaDeValores(parametro.contains("s"));
+        } else {
+            cancelarEjecucion();
+        }
     }
 }
