@@ -180,8 +180,10 @@ public class FibonacciTest {
     }
 
     @Test
-    public void generarArchivoConNombreEnviado(){
+    public void generarArchivoConElResultadoDeLaEjecion(){
         Fibonacci miFibonacci = new Fibonacci(8);
-        miFibonacci.generarArchivo("salida.txt");
+        String resultado = "fibo<5>:\n" + "0\n" + "1\n" + "1\n" + "2\n" + "3";
+        Assert.assertTrue(miFibonacci.generarArchivo("salida.txt"));
+        miFibonacci.escribirResultado(resultado);
     }
 }

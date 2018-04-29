@@ -145,7 +145,12 @@ public class Fibonacci {
         miFibonacci.armarCabeceraDeSalida();
     }
 
-    public void generarArchivo(String rutaArchivo) {
-        miGenerador.generarArchivo(rutaArchivo);
+    public boolean generarArchivo(String rutaArchivo) {
+        this.miGenerador = new GenerardorDeArchivos(rutaArchivo);
+        return this.miGenerador.generarArchivo();
+    }
+
+    public void escribirResultado(String resultadoEjecucion) {
+        this.miGenerador.escribirArchivo(resultadoEjecucion);
     }
 }
