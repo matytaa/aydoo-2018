@@ -13,7 +13,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(1);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(0, resultado);
+        Assert.assertEquals(1, resultado);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(3);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(1, resultado);
+        Assert.assertEquals(2, resultado);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(4);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(2, resultado);
+        Assert.assertEquals(3, resultado);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(5);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(3, resultado);
+        Assert.assertEquals(5, resultado);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(6);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(5, resultado);
+        Assert.assertEquals(8, resultado);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(7);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(8, resultado);
+        Assert.assertEquals(13, resultado);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(8);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(13, resultado);
+        Assert.assertEquals(21, resultado);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(9);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(21, resultado);
+        Assert.assertEquals(34, resultado);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(10);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(34, resultado);
+        Assert.assertEquals(55, resultado);
     }
 
     @Test
@@ -93,7 +93,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(11);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(55, resultado);
+        Assert.assertEquals(89, resultado);
     }
 
     @Test
@@ -101,7 +101,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(89, resultado);
+        Assert.assertEquals(144, resultado);
     }
 
     @Test
@@ -110,7 +110,7 @@ public class FibonacciTest {
         int resultado = 0;
         miFibonacci.imprimeEnVertical(true);
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(89, resultado);
+        Assert.assertEquals(144, resultado);
     }
 
     @Test
@@ -139,7 +139,7 @@ public class FibonacciTest {
         miFibonacci.definirSalidaHorizontalOVertical("-o=vd");
         Assert.assertTrue(miFibonacci.puedoContinuar());
         int resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(89, resultado);
+        Assert.assertEquals(144, resultado);
     }
 
     @Test
@@ -159,7 +159,7 @@ public class FibonacciTest {
         Assert.assertTrue(miFibonacci.puedoContinuar());
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacci();
-        Assert.assertEquals(13, resultado);
+        Assert.assertEquals(21, resultado);
     }
 
     @Test
@@ -182,45 +182,29 @@ public class FibonacciTest {
     @Test
     public void generarArchivoConElResultadoDeLaEjecion(){
         Fibonacci miFibonacci = new Fibonacci(5);
-        String resultado = "fibo<5>:\n" + "0\n" + "1\n" + "1\n" + "2\n" + "3";
+        String resultado = "fibo<4>:\n" + "0\n" + "1\n" + "1\n" + "2\n" + "3";
         Assert.assertTrue(miFibonacci.generarArchivo("salida.txt"));
         miFibonacci.escribirResultado(resultado);
     }
 
     @Test
-    public void puedoSumarValoresDeberiaDarFalso(){
+    public void noDeberiapoderSumarValores(){
         Fibonacci miFibonacci = new Fibonacci(5);
         Assert.assertFalse(miFibonacci.puedoSumarVaroles());
     }
 
     @Test
-    public void cambiarSumaDeValoresAVerdadero(){
-        Fibonacci miFibonacci = new Fibonacci(5);
-        miFibonacci.aplicarSumaDeValores(true);
-        Assert.assertTrue(miFibonacci.puedoSumarVaroles());
-    }
-
-    @Test
-    public void sumarDeValoresDelFibonacciDe5DeberiaDar7(){
-        Fibonacci miFibonacci = new Fibonacci(5);
-        miFibonacci.aplicarSumaDeValores(true);
-        int resultado = 7;
-        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
-    }
-
-    @Test
-    public void sumarDeValoresDelFibonacciDe6DeberiaDar11(){
+    public void deberiaDePoderSumarLosValores(){
         Fibonacci miFibonacci = new Fibonacci(6);
         miFibonacci.aplicarSumaDeValores(true);
-        int resultado = 12;
-        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
+        Assert.assertTrue(miFibonacci.puedoSumarVaroles());
     }
 
     @Test
     public void recibirParametrosParaEjecutarListaDeberiaDar3ElFibonacciDe5(){
         Fibonacci miFibonacci = new Fibonacci(5);
         miFibonacci.definirSalidaListaOSumatoria("-m=l");
-        int resultado = 3;
+        int resultado = 5;
         Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
     }
 
@@ -228,7 +212,26 @@ public class FibonacciTest {
     public void recibirParametrosParaEjecutarSumatoriaDeberiaDar12(){
         Fibonacci miFibonacci = new Fibonacci(6);
         miFibonacci.definirSalidaListaOSumatoria("-m=s");
-        int resultado = 12;
+        int resultado = 20;
+        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
+    }
+
+    @Test
+    public void deberiaGenerarUnArchivoConElResultadoDeLaEjecucionLineal(){
+        Fibonacci miFibonacci = new Fibonacci(6);
+        miFibonacci.definirArchivoDeSalida("-f=salida.txt");
+        Assert.assertTrue(miFibonacci.puedoContinuar());
+        int resultado = 8;
+        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
+    }
+
+    @Test
+    public void deberiaGenerarUnArchivoConElResultadoDeLaEjecucionSumatoria(){
+        Fibonacci miFibonacci = new Fibonacci(6);
+        miFibonacci.definirSalidaListaOSumatoria("-m=s");
+        miFibonacci.definirArchivoDeSalida("-f=salida.txt");
+        Assert.assertTrue(miFibonacci.puedoContinuar());
+        int resultado = 20;
         Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
     }
 }

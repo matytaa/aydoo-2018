@@ -9,12 +9,16 @@ public class Fibonacci {
     private String cabeceraTxt;
     private boolean continuar;
     private GenerardorDeArchivos miGenerador;
+    private String archivoDeSalida;
     private boolean sumarValores;
+    private boolean salidaPorPantalla;
 
     public Fibonacci(int unNumeroFibonacci) {
         this.numeroFibonacci = unNumeroFibonacci;
         armarCabeceraDeSalida();
         this.sumarValores = false;
+        this.archivoDeSalida = "";
+        this.salidaPorPantalla = true;
     }
 
     public int calcularFibonacci(int unNumeroFibonacci) {
@@ -37,7 +41,7 @@ public class Fibonacci {
     }
 
     private void armarCabeceraDeSalida() {
-        this.cabeceraTxt = "fibo<" + this.numeroFibonacci + ">: ";
+        this.cabeceraTxt = "fibo<" + this.numeroFibonacci + ">";
     }
 
     public int ejecutarFibonacci() {
@@ -52,7 +56,7 @@ public class Fibonacci {
 
     private int ejecutarSumatoriaFibonacci() {
         int resultadoFinal = 0;
-        for (int i = 0; i < this.numeroFibonacci; i++) {
+        for (int i = 0; i < this.numeroFibonacci + 1; i++) {
             resultadoFinal += calcularFibonacci(i);
         }
         this.cuerpoTxt = "" + resultadoFinal;
@@ -65,7 +69,7 @@ public class Fibonacci {
     }
 
     public int ejecutarFibonacciDirecto() {
-        for (int i = 0; i < this.numeroFibonacci; i++) {
+        for (int i = 0; i < this.numeroFibonacci + 1; i++) {
             this.cuerpoTxt = this.cuerpoTxt
                     + imprimirFibonacci(calcularFibonacci(i));
         }
@@ -75,12 +79,27 @@ public class Fibonacci {
 
     public void imprimirSalida() {
         if (this.continuar) {
-            System.out.println(this.cabeceraTxt + this.cuerpoTxt);
+            String resultado = armarSalida();
+            if (this.salidaPorPantalla) {
+                System.out.println(resultado);
+            } else {
+                generarArchivo(this.archivoDeSalida);
+                escribirResultado(resultado);
+            }
         }
     }
 
+    private String armarSalida() {
+        String resultado = this.cabeceraTxt;
+        if (this.puedoSumarVaroles()) {
+            resultado = resultado + "s";
+        }
+        resultado = resultado + ":" + this.cuerpoTxt;
+        return resultado;
+    }
+
     public int ejecutarFibonacciInverso() {
-        for (int i = this.numeroFibonacci - 1; i >= 0; i--) {
+        for (int i = this.numeroFibonacci; i >= 0; i--) {
             this.cuerpoTxt = this.cuerpoTxt
                     + imprimirFibonacci(calcularFibonacci(i));
         }
@@ -147,6 +166,32 @@ public class Fibonacci {
         return this.sumarValores;
     }
 
+    public void aplicarSumaDeValores(boolean unEstado) {
+        this.sumarValores = unEstado;
+    }
+
+    public void definirSalidaListaOSumatoria(String parametro) {
+        if ((parametro.equals("-m=s"))
+                || (parametro.equals("-m=l"))
+                || (parametro.equals(""))) {
+            aplicarSumaDeValores(parametro.contains("s"));
+            continuarEjecucion(true);
+        } else {
+            cancelarEjecucion();
+        }
+    }
+
+    public void definirArchivoDeSalida(String paramatroSalidaArchivo) {
+        boolean aplicaSalidaPorArchivo = paramatroSalidaArchivo.contains("-f=");
+        if (aplicaSalidaPorArchivo) {
+            this.archivoDeSalida = paramatroSalidaArchivo.substring(3, paramatroSalidaArchivo.length());
+            continuarEjecucion(true);
+            this.salidaPorPantalla = false;
+        } else {
+            cancelarEjecucion();
+        }
+    }
+
     public static void main(String[] args) {
         int numeroFib = -1;
         String argumentoTipoImpresion = "";
@@ -175,19 +220,5 @@ public class Fibonacci {
         miFibonacci.definirSalidaHorizontalOVertical(argumentoTipoImpresion);
         miFibonacci.ejecutarFibonacci();
         miFibonacci.armarCabeceraDeSalida();
-    }
-
-    public void aplicarSumaDeValores(boolean unEstado) {
-        this.sumarValores = unEstado;
-    }
-
-    public void definirSalidaListaOSumatoria(String parametro) {
-        if ((parametro.equals("-m=s"))
-                || (parametro.equals("-m=l"))
-                || (parametro.equals(""))) {
-            aplicarSumaDeValores(parametro.contains("s"));
-        } else {
-            cancelarEjecucion();
-        }
     }
 }
