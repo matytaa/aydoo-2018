@@ -11,4 +11,10 @@ public class ProcesadorDeParametrosTest {
         Assert.assertTrue(miProcesador.puedoContinuar());
     }
 
+    @Test
+    public void deberiaPoderImprimirVertical() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.definirSalidaHorizontalOVertical("-o=vd");
+        Assert.assertTrue(miProcesador.imprimirEnVertical());
+    }
 }

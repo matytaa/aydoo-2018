@@ -4,6 +4,7 @@ public class ProcesadorDeParametros {
 
 
     private boolean continuar;
+    private boolean vertical;
 
     public void definirSalidaHorizontalOVertical(String parametros) {
         if ((parametros.equals("-o=vi"))
@@ -11,13 +12,19 @@ public class ProcesadorDeParametros {
                 || (parametros.equals("-o=hi"))
                 || (parametros.equals("-o=hd"))
                 || (parametros.equals(""))) {
-            //imprimeEnVertical(parametros.contains("v"));
+            imprimeEnVertical(parametros.contains("v"));
             //ejecutarEnOrdenInverso(parametros.contains("i"));
             continuarEjecucion(true);
         } else {
             cancelarEjecucion();
         }
     }
+
+    public void imprimeEnVertical(boolean imprimeVertical) {
+        this.vertical = imprimeVertical;
+    }
+
+
 
     private void cancelarEjecucion() {
         System.out.println("Opciones no validas");
@@ -31,5 +38,9 @@ public class ProcesadorDeParametros {
 
     public boolean puedoContinuar() {
         return this.continuar;
+    }
+
+    public boolean imprimirEnVertical() {
+        return this.vertical;
     }
 }
