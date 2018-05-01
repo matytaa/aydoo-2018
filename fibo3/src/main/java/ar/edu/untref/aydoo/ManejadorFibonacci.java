@@ -34,8 +34,10 @@ public class ManejadorFibonacci {
     }
 
     private void inicializarFibonacci(int unNumeroFibonacci) {
-        this.miFibonacci = new Fibonacci(unNumeroFibonacci);
-        armarCabeceraDeSalida(unNumeroFibonacci);
+        if (miProcesador.puedoContinuar()){
+            this.miFibonacci = new Fibonacci(unNumeroFibonacci);
+            armarCabeceraDeSalida(unNumeroFibonacci);
+        }
     }
 
     public void imprimirFibonacci(int numeroFibonacciAImprimir) {

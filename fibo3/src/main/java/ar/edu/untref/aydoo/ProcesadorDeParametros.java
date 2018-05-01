@@ -2,26 +2,32 @@ package ar.edu.untref.aydoo;
 
 public class ProcesadorDeParametros {
 
-
     private boolean continuar;
     private boolean vertical;
     private boolean ordenInverso;
     private boolean sumarValores;
     private String archivoDeSalida;
     private boolean salidaPorPantalla;
+    private boolean eureka;
+
+    public ProcesadorDeParametros(){
+        this.continuar = true;
+    }
 
     public void recibirParametros(String unArgumento){
-        continuarEjecucion(false);
-        definirSalidaListaOSumatoria(unArgumento);
-        if (!puedoContinuar()){
-            definirSalidaHorizontalOVertical(unArgumento);
-        }
-        if (!puedoContinuar()){
-            definirArchivoDeSalida(unArgumento);
-        }
+        this.eureka = false;
+        if(puedoContinuar()) {
+            definirSalidaListaOSumatoria(unArgumento);
+            if (!this.eureka) {
+                definirSalidaHorizontalOVertical(unArgumento);
+            }
+            if (!this.eureka) {
+                definirArchivoDeSalida(unArgumento);
+            }
 
-        if (!puedoContinuar()){
-            cancelarEjecucion();
+            if (!this.eureka) {
+                cancelarEjecucion();
+            }
         }
     }
 
@@ -33,7 +39,7 @@ public class ProcesadorDeParametros {
                 || (parametros.equals(""))) {
             imprimeEnVertical(parametros.contains("v"));
             ejecutarEnOrdenInverso(parametros.contains("i"));
-            continuarEjecucion(true);
+            encontroParametros(true);
         }
     }
 
@@ -79,15 +85,19 @@ public class ProcesadorDeParametros {
                 || (parametro.equals("-m=l"))
                 || (parametro.equals(""))) {
             aplicarSumaDeValores(parametro.contains("s"));
-            continuarEjecucion(true);
+            encontroParametros(true);
         }
+    }
+
+    private void encontroParametros(boolean eureka) {
+        this.eureka = eureka;
     }
 
     private void definirArchivoDeSalida(String paramatroSalidaArchivo) {
         boolean aplicaSalidaPorArchivo = paramatroSalidaArchivo.contains("-f=");
         if (aplicaSalidaPorArchivo) {
             this.archivoDeSalida = paramatroSalidaArchivo.substring(3, paramatroSalidaArchivo.length());
-            continuarEjecucion(true);
+            encontroParametros(true);
             this.salidaPorPantalla = false;
         }
     }

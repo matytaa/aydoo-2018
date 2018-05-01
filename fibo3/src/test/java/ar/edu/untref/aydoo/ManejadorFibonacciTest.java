@@ -92,7 +92,7 @@ public class ManejadorFibonacciTest {
         miManejador.imprimirSalida();
     }
 
-    @Ignore
+    @Test
     public void hola_soy_gokuu() {
         ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
         ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
@@ -105,6 +105,6 @@ public class ManejadorFibonacciTest {
         for (int i = 0; i < args.length - 1; i++) {
             miManejador.procesarArgumentos(args[i]);
         }
-
+        Assert.assertFalse(unProcesador.puedoContinuar());
     }
 }
