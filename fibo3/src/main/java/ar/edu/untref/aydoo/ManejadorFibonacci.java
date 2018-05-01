@@ -10,13 +10,15 @@ public class ManejadorFibonacci {
     public ManejadorFibonacci(ProcesadorDeParametros unProcesador, Fibonacci unFibonacci) {
         this.miProcesador = unProcesador;
         this.miFibonacci = unFibonacci;
+        this.cuerpoTxt = "";
+        this.cabeceraTxt = "";
     }
 
     public void procesarArgumentos(String unArgumento) {
         this.miProcesador.recibirParametros(unArgumento);
     }
 
-    public ProcesadorDeParametros darProcesadorDeParemetros(){
+    public ProcesadorDeParametros darProcesadorDeParemetros() {
         return this.miProcesador;
     }
 
@@ -33,6 +35,7 @@ public class ManejadorFibonacci {
 
     private void inicializarFibonacci(int unNumeroFibonacci) {
         this.miFibonacci = new Fibonacci(unNumeroFibonacci);
+        armarCabeceraDeSalida(unNumeroFibonacci);
     }
 
     public void imprimirFibonacci(int numeroFibonacciAImprimir) {
@@ -43,7 +46,11 @@ public class ManejadorFibonacci {
         }
     }
 
-    public String obtenerSalida() {
+    private void armarCabeceraDeSalida(int unNumeroFibonacci) {
+        this.cabeceraTxt = "fibo<" + unNumeroFibonacci + ">";
+    }
+
+    public String darCuerpoDelFibonacci() {
         return this.cuerpoTxt;
     }
 
@@ -64,8 +71,16 @@ public class ManejadorFibonacci {
         if (this.miProcesador.puedoSumarVaroles()) {
             resultado = resultado + "s";
         }
-        resultado = resultado + ":" + this.cuerpoTxt;
+        resultado = resultado + ":";
+        armarCuerpo();
+        resultado = resultado + darCuerpoDelFibonacci();
         return resultado;
+    }
+
+    private void armarCuerpo() {
+        for (int i = 0; i < this.miFibonacci.darListaDeValores().size(); i++) {
+            imprimirFibonacci(this.miFibonacci.darListaDeValores().get(i));
+        }
     }
 
     public boolean generarArchivo(String rutaArchivo) {

@@ -11,6 +11,7 @@ public class ProcesadorDeParametros {
     private boolean salidaPorPantalla;
 
     public void recibirParametros(String unArgumento){
+        continuarEjecucion(false);
         definirSalidaListaOSumatoria(unArgumento);
         if (!puedoContinuar()){
             definirSalidaHorizontalOVertical(unArgumento);

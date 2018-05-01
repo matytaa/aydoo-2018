@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ManejadorFibonacciTest {
@@ -40,14 +41,13 @@ public class ManejadorFibonacciTest {
     public void simularEjecucionPorConsolaTipoLista() {
         ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
         ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
-        Fibonacci miFibonacci = new Fibonacci(6);
         int numeroFibo = -1;
-        String[] args = {"-o=vd","-f=salida.txt","-m=l","6"};
+        String[] args = {"-o=vd", "-f=salida.txt", "-m=l", "6"};
         int largoArgumentos = args.length;
-        if (largoArgumentos>0)
-            numeroFibo = Integer.parseInt(args[largoArgumentos-1]);
+        if (largoArgumentos > 0)
+            numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
 
-        for (int i=0; i < args.length-1;i++){
+        for (int i = 0; i < args.length - 1; i++) {
             miManejador.procesarArgumentos(args[i]);
         }
 
@@ -59,18 +59,52 @@ public class ManejadorFibonacciTest {
     public void simularEjecucionPorConsolaTipoSumatoria() {
         ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
         ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
-        Fibonacci miFibonacci = new Fibonacci(6);
         int numeroFibo = -1;
-        String[] args = {"-o=vd","-m=s","6"};
+        String[] args = {"-o=vd", "-f=salida.txt", "-m=s", "6"};
         int largoArgumentos = args.length;
-        if (largoArgumentos>0)
-            numeroFibo = Integer.parseInt(args[largoArgumentos-1]);
+        if (largoArgumentos > 0)
+            numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
 
-        for (int i=0; i < args.length-1;i++){
+        for (int i = 0; i < args.length - 1; i++) {
             miManejador.procesarArgumentos(args[i]);
         }
 
         int resultado = 20;
         Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
+        miManejador.imprimirSalida();
+    }
+
+    @Test
+    public void deberiaGenerarArchivoDeSalida() {
+        ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
+        ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
+        int numeroFibo = -1;
+        String[] args = {"-o=hd", "-f=salida.txt", "-m=l", "6"};
+        int largoArgumentos = args.length;
+        if (largoArgumentos > 0)
+            numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
+
+        for (int i = 0; i < args.length - 1; i++) {
+            miManejador.procesarArgumentos(args[i]);
+        }
+
+        miManejador.ejecutarFibonnaci(numeroFibo);
+        miManejador.imprimirSalida();
+    }
+
+    @Ignore
+    public void hola_soy_gokuu() {
+        ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
+        ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
+        int numeroFibo = -1;
+        String[] args = {"-o=h2", "-f=salida.txt", "-m=l", "6"};
+        int largoArgumentos = args.length;
+        if (largoArgumentos > 0)
+            numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
+
+        for (int i = 0; i < args.length - 1; i++) {
+            miManejador.procesarArgumentos(args[i]);
+        }
+
     }
 }
