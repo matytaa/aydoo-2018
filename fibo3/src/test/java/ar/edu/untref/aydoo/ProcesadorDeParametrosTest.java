@@ -17,4 +17,11 @@ public class ProcesadorDeParametrosTest {
         miProcesador.definirSalidaHorizontalOVertical("-o=vd");
         Assert.assertTrue(miProcesador.imprimirEnVertical());
     }
+
+    @Test
+    public void deberiaPoderImprimirEnOrdenInverso() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.definirSalidaHorizontalOVertical("-o=vi");
+        Assert.assertTrue(miProcesador.esEjecucionInversa());
+    }
 }
