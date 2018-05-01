@@ -10,7 +10,21 @@ public class ProcesadorDeParametros {
     private String archivoDeSalida;
     private boolean salidaPorPantalla;
 
-    public void definirSalidaHorizontalOVertical(String parametros) {
+    public void recibirParametros(String unArgumento){
+        definirSalidaListaOSumatoria(unArgumento);
+        if (!puedoContinuar()){
+            definirSalidaHorizontalOVertical(unArgumento);
+        }
+        if (!puedoContinuar()){
+            definirArchivoDeSalida(unArgumento);
+        }
+
+        if (!puedoContinuar()){
+            cancelarEjecucion();
+        }
+    }
+
+   private void definirSalidaHorizontalOVertical(String parametros) {
         if ((parametros.equals("-o=vi"))
                 || (parametros.equals("-o=vd"))
                 || (parametros.equals("-o=hi"))
@@ -19,8 +33,6 @@ public class ProcesadorDeParametros {
             imprimeEnVertical(parametros.contains("v"));
             ejecutarEnOrdenInverso(parametros.contains("i"));
             continuarEjecucion(true);
-        } else {
-            cancelarEjecucion();
         }
     }
 
@@ -61,25 +73,29 @@ public class ProcesadorDeParametros {
         this.sumarValores = unEstado;
     }
 
-    public void definirSalidaListaOSumatoria(String parametro) {
+    private void definirSalidaListaOSumatoria(String parametro) {
         if ((parametro.equals("-m=s"))
                 || (parametro.equals("-m=l"))
                 || (parametro.equals(""))) {
             aplicarSumaDeValores(parametro.contains("s"));
             continuarEjecucion(true);
-        } else {
-            cancelarEjecucion();
         }
     }
 
-    public void definirArchivoDeSalida(String paramatroSalidaArchivo) {
+    private void definirArchivoDeSalida(String paramatroSalidaArchivo) {
         boolean aplicaSalidaPorArchivo = paramatroSalidaArchivo.contains("-f=");
         if (aplicaSalidaPorArchivo) {
             this.archivoDeSalida = paramatroSalidaArchivo.substring(3, paramatroSalidaArchivo.length());
             continuarEjecucion(true);
             this.salidaPorPantalla = false;
-        } else {
-            cancelarEjecucion();
         }
+    }
+
+    public boolean imprimeEnPantalla(){
+        return this.salidaPorPantalla;
+    }
+
+    public String darArchivoDeSalida(){
+        return this.archivoDeSalida;
     }
 }
