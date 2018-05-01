@@ -17,6 +17,6 @@ public class VotoTest {
         Candidato unCandidato = new Candidato("Goku","Estilo tortuga");
         String unaProvincia = "Mendoza";
         Voto unVoto = new Voto(unCandidato,unaProvincia);
-        Assert.assertEquals(unCandidato, unVoto.darProvincia());
+        Assert.assertEquals(unaProvincia, unVoto.darProvincia());
     }
 }
