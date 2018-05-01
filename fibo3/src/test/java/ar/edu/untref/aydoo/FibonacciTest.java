@@ -56,14 +56,4 @@ public class FibonacciTest {
         resultado = miFibonacci.ejecutarFibonacciInverso();
         Assert.assertEquals(0, resultado);
     }
-/*
-    @Test
-    public void asdasd() {
-        Fibonacci miFibonacci = new Fibonacci(6);
-        String[] args = {"-o=vd","-f=salida.txt","-m=l","6"};
-        miFibonacci.main(args);
-        int resultado = 20;
-        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
-    }
-  */
 }
