@@ -97,7 +97,7 @@ public class ManejadorFibonacciTest {
         ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
         ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
         int numeroFibo = -1;
-        String[] args = {"-o=h2", "-f=salida.txt", "-m=l", "6"};
+        String[] args = {"-o=vd", "-f=salida.txt", "-m=s", "6"};
         int largoArgumentos = args.length;
         if (largoArgumentos > 0)
             numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
@@ -105,6 +105,8 @@ public class ManejadorFibonacciTest {
         for (int i = 0; i < args.length - 1; i++) {
             miManejador.procesarArgumentos(args[i]);
         }
-        Assert.assertFalse(unProcesador.puedoContinuar());
+        Assert.assertTrue(unProcesador.puedoContinuar());
+        miManejador.ejecutarFibonnaci(numeroFibo);
+        miManejador.imprimirSalida();
     }
 }

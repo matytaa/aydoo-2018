@@ -12,6 +12,7 @@ public class ProcesadorDeParametros {
 
     public ProcesadorDeParametros(){
         this.continuar = true;
+        this.salidaPorPantalla = true;
     }
 
     public void recibirParametros(String unArgumento){

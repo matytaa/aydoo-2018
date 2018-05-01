@@ -24,17 +24,17 @@ public class ManejadorFibonacci {
 
     public int ejecutarFibonnaci(int unNumeroFibonacci) {
         inicializarFibonacci(unNumeroFibonacci);
-        if (this.miProcesador.esEjecucionInversa()) {
-            return this.miFibonacci.ejecutarFibonacciInverso();
-        }
         if (this.miProcesador.puedoSumarVaroles()) {
             return this.miFibonacci.ejecutarSumatoriaFibonacci();
+        }
+        if (this.miProcesador.esEjecucionInversa()) {
+            return this.miFibonacci.ejecutarFibonacciInverso();
         }
         return this.miFibonacci.ejecutarFibonacciDirecto();
     }
 
     private void inicializarFibonacci(int unNumeroFibonacci) {
-        if (miProcesador.puedoContinuar()){
+        if (miProcesador.puedoContinuar()) {
             this.miFibonacci = new Fibonacci(unNumeroFibonacci);
             armarCabeceraDeSalida(unNumeroFibonacci);
         }
@@ -64,6 +64,9 @@ public class ManejadorFibonacci {
             } else {
                 generarArchivo(this.miProcesador.darArchivoDeSalida());
                 escribirResultado(resultado);
+                System.out.println(this.cabeceraTxt
+                        + " guardado en "
+                        + this.miProcesador.darArchivoDeSalida());
             }
         }
     }
@@ -92,5 +95,22 @@ public class ManejadorFibonacci {
 
     public void escribirResultado(String resultadoEjecucion) {
         this.miGenerador.escribirArchivo(resultadoEjecucion);
+    }
+
+    public static void main(String[] args) {
+        ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
+        ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
+        int numeroFibo = -1;
+        int largoArgumentos = args.length;
+        if (largoArgumentos > 0)
+            numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
+
+        for (int i = 0; i < args.length - 1; i++) {
+            miManejador.procesarArgumentos(args[i]);
+        }
+        if (unProcesador.puedoContinuar()) {
+            miManejador.ejecutarFibonnaci(numeroFibo);
+            miManejador.imprimirSalida();
+        }
     }
 }
