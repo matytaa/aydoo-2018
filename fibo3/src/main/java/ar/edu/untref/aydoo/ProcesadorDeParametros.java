@@ -7,6 +7,8 @@ public class ProcesadorDeParametros {
     private boolean vertical;
     private boolean ordenInverso;
     private boolean sumarValores;
+    private String archivoDeSalida;
+    private boolean salidaPorPantalla;
 
     public void definirSalidaHorizontalOVertical(String parametros) {
         if ((parametros.equals("-o=vi"))
@@ -66,6 +68,17 @@ public class ProcesadorDeParametros {
                 || (parametro.equals(""))) {
             aplicarSumaDeValores(parametro.contains("s"));
             continuarEjecucion(true);
+        } else {
+            cancelarEjecucion();
+        }
+    }
+
+    public void definirArchivoDeSalida(String paramatroSalidaArchivo) {
+        boolean aplicaSalidaPorArchivo = paramatroSalidaArchivo.contains("-f=");
+        if (aplicaSalidaPorArchivo) {
+            this.archivoDeSalida = paramatroSalidaArchivo.substring(3, paramatroSalidaArchivo.length());
+            continuarEjecucion(true);
+            this.salidaPorPantalla = false;
         } else {
             cancelarEjecucion();
         }

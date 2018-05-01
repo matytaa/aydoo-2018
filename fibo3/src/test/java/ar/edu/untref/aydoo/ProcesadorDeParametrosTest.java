@@ -38,4 +38,11 @@ public class ProcesadorDeParametrosTest {
         miProcesador.definirSalidaListaOSumatoria("-m=l");
         Assert.assertFalse(miProcesador.puedoSumarVaroles());
     }
+
+    @Test
+    public void deberiaGenerarUnArchivo() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.definirArchivoDeSalida("-f=salida.txt");
+        Assert.assertTrue(miProcesador.puedoContinuar());
+    }
 }
