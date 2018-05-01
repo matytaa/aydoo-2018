@@ -180,7 +180,7 @@ public class FibonacciTest {
     }
 
     @Test
-    public void generarArchivoConElResultadoDeLaEjecion(){
+    public void generarArchivoConElResultadoDeLaEjecion() {
         Fibonacci miFibonacci = new Fibonacci(5);
         String resultado = "fibo<4>:\n" + "0\n" + "1\n" + "1\n" + "2\n" + "3";
         Assert.assertTrue(miFibonacci.generarArchivo("salida.txt"));
@@ -188,20 +188,20 @@ public class FibonacciTest {
     }
 
     @Test
-    public void noDeberiapoderSumarValores(){
+    public void noDeberiapoderSumarValores() {
         Fibonacci miFibonacci = new Fibonacci(5);
         Assert.assertFalse(miFibonacci.puedoSumarVaroles());
     }
 
     @Test
-    public void deberiaDePoderSumarLosValores(){
+    public void deberiaDePoderSumarLosValores() {
         Fibonacci miFibonacci = new Fibonacci(6);
         miFibonacci.aplicarSumaDeValores(true);
         Assert.assertTrue(miFibonacci.puedoSumarVaroles());
     }
 
     @Test
-    public void recibirParametrosParaEjecutarListaDeberiaDar3ElFibonacciDe5(){
+    public void recibirParametrosParaEjecutarListaDeberiaDar3ElFibonacciDe5() {
         Fibonacci miFibonacci = new Fibonacci(5);
         miFibonacci.definirSalidaListaOSumatoria("-m=l");
         int resultado = 5;
@@ -209,7 +209,7 @@ public class FibonacciTest {
     }
 
     @Test
-    public void recibirParametrosParaEjecutarSumatoriaDeberiaDar12(){
+    public void recibirParametrosParaEjecutarSumatoriaDeberiaDar12() {
         Fibonacci miFibonacci = new Fibonacci(6);
         miFibonacci.definirSalidaListaOSumatoria("-m=s");
         int resultado = 20;
@@ -217,7 +217,7 @@ public class FibonacciTest {
     }
 
     @Test
-    public void deberiaGenerarUnArchivoConElResultadoDeLaEjecucionLineal(){
+    public void deberiaGenerarUnArchivoConElResultadoDeLaEjecucionLineal() {
         Fibonacci miFibonacci = new Fibonacci(6);
         miFibonacci.definirArchivoDeSalida("-f=salida.txt");
         Assert.assertTrue(miFibonacci.puedoContinuar());
@@ -226,7 +226,7 @@ public class FibonacciTest {
     }
 
     @Test
-    public void deberiaGenerarUnArchivoConElResultadoDeLaEjecucionSumatoria(){
+    public void deberiaGenerarUnArchivoConElResultadoDeLaEjecucionSumatoria() {
         Fibonacci miFibonacci = new Fibonacci(6);
         miFibonacci.definirSalidaListaOSumatoria("-m=s");
         miFibonacci.definirArchivoDeSalida("-f=salida.txt");
@@ -234,4 +234,14 @@ public class FibonacciTest {
         int resultado = 20;
         Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
     }
+/*
+    @Test
+    public void asdasd() {
+        Fibonacci miFibonacci = new Fibonacci(6);
+        String[] args = {"-o=vd","-f=salida.txt","-m=l","6"};
+        miFibonacci.main(args);
+        int resultado = 20;
+        Assert.assertEquals(resultado, miFibonacci.ejecutarFibonacci());
+    }
+  */
 }

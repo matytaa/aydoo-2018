@@ -195,26 +195,11 @@ public class Fibonacci {
     public static void main(String[] args) {
         int numeroFib = -1;
         String argumentoTipoImpresion = "";
-        int cantidadDeArgumentos = args.length;
+        String argumentoArchivo = "";
+        String argumentoSumatoria = "";
 
-        switch (cantidadDeArgumentos) {
-            case 1:
-                numeroFib = Integer.parseInt(args[0]);
-                break;
-            case 2:
-                argumentoTipoImpresion = args[0];
-                numeroFib = Integer.parseInt(args[1]);
-                break;
-            default:
-                break;
-        }
-        /*
-        if (args.length == 1) {
-            numeroFib = Integer.parseInt(args[0]);
-        } else if (args.length > 1) {
-            argumentoTipoImpresion = args[0];
-            numeroFib = Integer.parseInt(args[1]);
-        }*/
+        int cantidadDeArgumentos = args.length;
+        numeroFib = Integer.parseInt(args[cantidadDeArgumentos - 1]);
 
         Fibonacci miFibonacci = new Fibonacci(numeroFib);
         miFibonacci.definirSalidaHorizontalOVertical(argumentoTipoImpresion);
