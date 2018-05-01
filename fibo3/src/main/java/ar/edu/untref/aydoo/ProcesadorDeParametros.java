@@ -34,7 +34,6 @@ public class ProcesadorDeParametros {
 
     private void cancelarEjecucion() {
         System.out.println("Opciones no validas");
-        //this.numeroFibonacci = -1;
         continuarEjecucion(false);
     }
 
