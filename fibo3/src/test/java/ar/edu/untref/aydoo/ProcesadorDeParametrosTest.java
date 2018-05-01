@@ -24,4 +24,18 @@ public class ProcesadorDeParametrosTest {
         miProcesador.definirSalidaHorizontalOVertical("-o=vi");
         Assert.assertTrue(miProcesador.esEjecucionInversa());
     }
+
+    @Test
+    public void deberiaPoderImprimirSumatoria() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.definirSalidaListaOSumatoria("-m=s");
+        Assert.assertTrue(miProcesador.puedoSumarVaroles());
+    }
+
+    @Test
+    public void deberiaPoderImprimirLista() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.definirSalidaListaOSumatoria("-m=l");
+        Assert.assertFalse(miProcesador.puedoSumarVaroles());
+    }
 }

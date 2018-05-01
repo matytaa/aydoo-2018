@@ -6,6 +6,7 @@ public class ProcesadorDeParametros {
     private boolean continuar;
     private boolean vertical;
     private boolean ordenInverso;
+    private boolean sumarValores;
 
     public void definirSalidaHorizontalOVertical(String parametros) {
         if ((parametros.equals("-o=vi"))
@@ -49,5 +50,24 @@ public class ProcesadorDeParametros {
 
     public boolean imprimirEnVertical() {
         return this.vertical;
+    }
+
+    public boolean puedoSumarVaroles() {
+        return this.sumarValores;
+    }
+
+    public void aplicarSumaDeValores(boolean unEstado) {
+        this.sumarValores = unEstado;
+    }
+
+    public void definirSalidaListaOSumatoria(String parametro) {
+        if ((parametro.equals("-m=s"))
+                || (parametro.equals("-m=l"))
+                || (parametro.equals(""))) {
+            aplicarSumaDeValores(parametro.contains("s"));
+            continuarEjecucion(true);
+        } else {
+            cancelarEjecucion();
+        }
     }
 }
