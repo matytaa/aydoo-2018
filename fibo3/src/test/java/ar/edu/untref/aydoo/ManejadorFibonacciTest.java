@@ -88,12 +88,15 @@ public class ManejadorFibonacciTest {
             miManejador.procesarArgumentos(args[i]);
         }
 
-        miManejador.ejecutarFibonnaci(numeroFibo);
+        int resultado = 8;
+        Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
         miManejador.imprimirSalida();
+        Assert.assertFalse(unProcesador.imprimeEnPantalla());
+        Assert.assertFalse(unProcesador.puedoSumarVaroles());
     }
 
     @Test
-    public void hola_soy_gokuu() {
+    public void deberiaEjecutarSumatoriaDeValoresYGuardarResultadoEnArchivoSalida() {
         ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
         ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
         int numeroFibo = -1;
@@ -106,7 +109,10 @@ public class ManejadorFibonacciTest {
             miManejador.procesarArgumentos(args[i]);
         }
         Assert.assertTrue(unProcesador.puedoContinuar());
-        miManejador.ejecutarFibonnaci(numeroFibo);
+        int resultado = 20;
+        Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
         miManejador.imprimirSalida();
+        Assert.assertFalse(unProcesador.imprimeEnPantalla());
+        Assert.assertTrue(unProcesador.puedoSumarVaroles());
     }
 }
