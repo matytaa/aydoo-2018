@@ -8,4 +8,12 @@ public class Candidato {
         this.nombre = unNombre;
         this.partido = unPartido;
     }
+
+    public String darNombreDelCandidato() {
+        return this.nombre;
+    }
+
+    public String darPartidoDelCandidato() {
+        return this.partido;
+    }
 }
