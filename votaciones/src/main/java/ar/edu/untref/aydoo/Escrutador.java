@@ -36,6 +36,26 @@ public class Escrutador {
         return votosTotales;
     }
 
+    public Candidato candidatoConMasVotosEnUnaProvincia(Provincia unaProvincia) {
+        Candidato unCandidato = null;
+        List<Voto> votosDeLaProvincia;
+        votosDeLaProvincia = obtenerVotosDeLaProvincia(unaProvincia);
+        int cantidadDeVotos = 0;
+
+        Iterator<Voto> itVotos = votosDeLaProvincia.iterator();
+        while (itVotos.hasNext()) {
+            Voto unVoto = itVotos.next();
+            int resultado = cantidadDeVotosEnProvinciaPorCantidato
+                    (unVoto.darCandidato(), unaProvincia);
+            if (resultado > cantidadDeVotos) {
+                unCandidato = unVoto.darCandidato();
+            }
+        }
+
+
+        return unCandidato;
+    }
+
     public int cantidadDeVotosPorPartido(String unPartido) {
         Iterator<Voto> itVotos = this.listaDeVotos.iterator();
         int contador = 0;
@@ -75,26 +95,6 @@ public class Escrutador {
 
     public void agregarListaDeProvincias(List<Provincia> unaListaDeProvincias) {
         this.listaDeProvincias = unaListaDeProvincias;
-    }
-
-    public Candidato candidatoConMasVotosEnUnaProvincia(Provincia unaProvincia) {
-        Candidato unCandidato = null;
-        List<Voto> votosDeLaProvincia;
-        votosDeLaProvincia = obtenerVotosDeLaProvincia(unaProvincia);
-        int cantidadDeVotos = 0;
-
-        Iterator<Voto> itVotos = votosDeLaProvincia.iterator();
-        while (itVotos.hasNext()) {
-            Voto unVoto = itVotos.next();
-            int resultado = cantidadDeVotosEnProvinciaPorCantidato
-                    (unVoto.darCandidato(), unaProvincia);
-            if (resultado > cantidadDeVotos) {
-                unCandidato = unVoto.darCandidato();
-            }
-        }
-
-
-        return unCandidato;
     }
 
     private List<Voto> obtenerVotosDeLaProvincia(Provincia unaProvincia) {
