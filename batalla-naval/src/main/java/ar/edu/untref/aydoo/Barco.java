@@ -32,4 +32,5 @@ public class Barco {
     public Sentido obtenerSentido() {
         return this.sentido;
     }
+
 }

@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 public class Crucero extends Barco {
+
     private Sentido sentido;
 
     public Crucero(final int tamanioBarco, final Sentido unSentido) {
@@ -15,4 +16,5 @@ public class Crucero extends Barco {
     public Sentido obtenerSentido() {
         return this.sentido;
     }
+
 }

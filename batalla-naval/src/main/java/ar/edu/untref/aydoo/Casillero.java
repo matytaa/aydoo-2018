@@ -3,14 +3,14 @@ package ar.edu.untref.aydoo;
 public class Casillero {
 
     private Barco barco = null;
-    private int horizontal;
-    private int vertical;
+    private int fila;
+    private int columna;
     private boolean casilleroDisponible;
 
     public Casillero(final int unaPosicionHorizontal,
                      final int unaPosicionVertical) {
-        this.horizontal = unaPosicionHorizontal;
-        this.vertical = unaPosicionVertical;
+        this.fila = unaPosicionHorizontal;
+        this.columna = unaPosicionVertical;
         this.casilleroDisponible = true;
     }
 
@@ -24,11 +24,11 @@ public class Casillero {
     }
 
     public int dameTuPosicioHorizontal() {
-        return this.horizontal;
+        return this.fila;
     }
 
     public int dameTuPosicioVertical() {
-        return this.vertical;
+        return this.columna;
     }
 
     public Barco dameElBarco() {
