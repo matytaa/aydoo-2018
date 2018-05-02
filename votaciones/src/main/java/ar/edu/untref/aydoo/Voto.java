@@ -1,10 +1,10 @@
 package ar.edu.untref.aydoo;
 
 public class Voto {
-    private final String unaProvincia;
+    private final Provincia unaProvincia;
     private final Candidato unCandidato;
 
-    public Voto(Candidato unCandidato, String unaProvincia) {
+    public Voto(Candidato unCandidato, Provincia unaProvincia) {
         this.unCandidato = unCandidato;
         this.unaProvincia = unaProvincia;
     }
@@ -13,7 +13,7 @@ public class Voto {
         return this.unCandidato;
     }
 
-    public String darProvincia() {
+    public Provincia darProvincia() {
         return this.unaProvincia;
     }
 }

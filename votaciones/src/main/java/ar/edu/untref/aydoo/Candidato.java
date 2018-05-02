@@ -2,9 +2,9 @@ package ar.edu.untref.aydoo;
 
 public class Candidato {
     private final String nombre;
-    private final String partido;
+    private final Partido partido;
 
-    public Candidato(String unNombre, String unPartido) {
+    public Candidato(String unNombre, Partido unPartido) {
         this.nombre = unNombre;
         this.partido = unPartido;
     }
@@ -13,7 +13,7 @@ public class Candidato {
         return this.nombre;
     }
 
-    public String darPartidoDelCandidato() {
+    public Partido darPartidoDelCandidato() {
         return this.partido;
     }
 }
