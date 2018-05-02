@@ -20,20 +20,16 @@ public class Escrutador {
         return listaDeVotos.size();
     }
 
-    public void agregarVoto(Voto unVoto) {
-        this.listaDeVotos.add(unVoto);
-    }
-
     public int cantidadDeVotosEnProvinciaPorCantidato
             (Candidato unCandidato, Provincia unaProvincia) {
         int votosTotales = 0;
         Iterator<Voto> itVotos = this.listaDeVotos.iterator();
-        while (itVotos.hasNext()){
+        while (itVotos.hasNext()) {
             Voto unVoto = itVotos.next();
             if (unaProvincia.
                     equals(unVoto.darProvincia())
                     && unCandidato.
-                    equals(unVoto.darCandidato())){
+                    equals(unVoto.darCandidato())) {
                 votosTotales++;
             }
         }
@@ -80,4 +76,37 @@ public class Escrutador {
     public void agregarListaDeProvincias(List<Provincia> unaListaDeProvincias) {
         this.listaDeProvincias = unaListaDeProvincias;
     }
+
+    public Candidato candidatoConMasVotosEnUnaProvincia(Provincia unaProvincia) {
+        Candidato unCandidato = null;
+        List<Voto> votosDeLaProvincia;
+        votosDeLaProvincia = obtenerVotosDeLaProvincia(unaProvincia);
+        int cantidadDeVotos = 0;
+
+        Iterator<Voto> itVotos = votosDeLaProvincia.iterator();
+        while (itVotos.hasNext()) {
+            Voto unVoto = itVotos.next();
+            int resultado = cantidadDeVotosEnProvinciaPorCantidato
+                    (unVoto.darCandidato(), unaProvincia);
+            if (resultado > cantidadDeVotos) {
+                unCandidato = unVoto.darCandidato();
+            }
+        }
+
+
+        return unCandidato;
+    }
+
+    private List<Voto> obtenerVotosDeLaProvincia(Provincia unaProvincia) {
+        List<Voto> listaDeVotosARetornar = new LinkedList<Voto>();
+        Iterator<Voto> itVotos = this.listaDeVotos.iterator();
+        while (itVotos.hasNext()) {
+            Voto unVoto = itVotos.next();
+            if (unaProvincia.equals(unVoto.darProvincia())) {
+                listaDeVotosARetornar.add(unVoto);
+            }
+        }
+        return listaDeVotosARetornar;
+    }
+
 }

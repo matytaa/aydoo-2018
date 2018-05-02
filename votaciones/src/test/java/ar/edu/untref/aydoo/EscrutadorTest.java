@@ -3,6 +3,7 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -26,6 +27,14 @@ public class EscrutadorTest {
     Voto votoCandidato6;
     Voto votoCandidato7;
     Voto votoCandidato8;
+
+    Voto votoCandidato9;
+    Voto votoCandidato10;
+    Voto votoCandidato11;
+    Voto votoCandidato12;
+    Voto votoCandidato13;
+    Voto votoCandidato14;
+    Voto votoCandidato15;
 
     Partido estiloTortuga;
     Partido pikoroAcademi;
@@ -65,7 +74,6 @@ public class EscrutadorTest {
         listaDePartidos = new LinkedList<Partido>();
         listaDePartidos.add(estiloTortuga);
         listaDePartidos.add(pikoroAcademi);
-
 
 
         listaDeProvincias = new LinkedList<Provincia>();
@@ -110,6 +118,14 @@ public class EscrutadorTest {
         votoCandidato7 = new Voto(candidato1, santaCruz);
         votoCandidato8 = new Voto(candidato1, santaCruz);
 
+        votoCandidato9 = new Voto(candidato1, corrientes);
+        votoCandidato12 = new Voto(candidato1, corrientes);
+        votoCandidato13 = new Voto(candidato1, corrientes);
+        votoCandidato15 = new Voto(candidato1, corrientes);
+        votoCandidato10 = new Voto(candidato5, corrientes);
+        votoCandidato11 = new Voto(candidato5, corrientes);
+        votoCandidato14 = new Voto(candidato5, corrientes);
+
         listaDeVotos.add(votoCandidato1);
         listaDeVotos.add(votoCandidato2);
         listaDeVotos.add(votoCandidato3);
@@ -119,13 +135,21 @@ public class EscrutadorTest {
         listaDeVotos.add(votoCandidato7);
         listaDeVotos.add(votoCandidato8);
 
+        listaDeVotos.add(votoCandidato9);
+        listaDeVotos.add(votoCandidato10);
+        listaDeVotos.add(votoCandidato11);
+        listaDeVotos.add(votoCandidato12);
+        listaDeVotos.add(votoCandidato13);
+        listaDeVotos.add(votoCandidato14);
+        listaDeVotos.add(votoCandidato15);
+
         miEscrutinio = new Escrutador(listaDeVotos);
         miEscrutinio.agregarListaDePartidos(listaDePartidos);
         miEscrutinio.agregarListaDeProvincias(listaDeProvincias);
     }
 
     @Test
-    public void deberiaDarCeroLaCantidadDeVotos() {
+    public void deberiaObtenerLaCantidadDeVotosDeUnCandidatoPorProvincia() {
         int resultado = miEscrutinio.cantidadDeVotosEnProvinciaPorCantidato(candidato1, mendoza);
         Assert.assertEquals(1, resultado);
         resultado = miEscrutinio.cantidadDeVotosEnProvinciaPorCantidato(candidato1, santaCruz);
@@ -135,44 +159,28 @@ public class EscrutadorTest {
     @Test
     public void deberiaDarUnaCantidadDe3Votos() {
         LinkedList<Voto> listaDeVotos = new LinkedList<Voto>();
+        listaDeVotos.add(votoCandidato1);
+        listaDeVotos.add(votoCandidato2);
+        listaDeVotos.add(votoCandidato3);
         miEscrutinio = new Escrutador(listaDeVotos);
-        miEscrutinio.agregarVoto(votoCandidato1);
-        miEscrutinio.agregarVoto(votoCandidato2);
-        miEscrutinio.agregarVoto(votoCandidato3);
         Assert.assertEquals(3, miEscrutinio.darCantidadDeVotos());
     }
 
     @Test
     public void deberiaComputar6VotosParaEstiloTortuga() {
-        List<Voto> listaDeVotos = new LinkedList<Voto>();
-        miEscrutinio = new Escrutador(listaDeVotos);
-        miEscrutinio.agregarVoto(votoCandidato1);
-        miEscrutinio.agregarVoto(votoCandidato2);
-        miEscrutinio.agregarVoto(votoCandidato3);
-        miEscrutinio.agregarVoto(votoCandidato4);
-        miEscrutinio.agregarVoto(votoCandidato5);
-        miEscrutinio.agregarVoto(votoCandidato6);
-        miEscrutinio.agregarVoto(votoCandidato7);
-        miEscrutinio.agregarVoto(votoCandidato8);
-
         Assert.assertEquals(6, miEscrutinio.cantidadDeVotosPorPartido("Estilo tortuga"));
     }
 
     @Test
     public void deberiaSerEstiloTortugaElPartidoDeMayorVotos() {
-        List<Voto> listaDeVotos = new LinkedList<Voto>();
-        miEscrutinio = new Escrutador(listaDeVotos);
-        miEscrutinio.agregarListaDePartidos(listaDePartidos);
-        miEscrutinio.agregarVoto(votoCandidato1);
-        miEscrutinio.agregarVoto(votoCandidato2);
-        miEscrutinio.agregarVoto(votoCandidato3);
-        miEscrutinio.agregarVoto(votoCandidato4);
-        miEscrutinio.agregarVoto(votoCandidato5);
-        miEscrutinio.agregarVoto(votoCandidato6);
-        miEscrutinio.agregarVoto(votoCandidato7);
-        miEscrutinio.agregarVoto(votoCandidato8);
-
-
         Assert.assertEquals(estiloTortuga, miEscrutinio.partidoConMasVotos());
+    }
+
+    @Test
+    public void deberiaOptenerElCandidatoConMasVotosEnSantaCruz() {
+        Assert.assertEquals(candidato1, miEscrutinio.candidatoConMasVotosEnUnaProvincia(santaCruz));
+        Assert.assertEquals(candidato2, miEscrutinio.candidatoConMasVotosEnUnaProvincia(chubut));
+        Assert.assertEquals(candidato5, miEscrutinio.candidatoConMasVotosEnUnaProvincia(misiones));
+        Assert.assertEquals(candidato1, miEscrutinio.candidatoConMasVotosEnUnaProvincia(corrientes));
     }
 }
