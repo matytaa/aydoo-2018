@@ -16,4 +16,5 @@ public class Crucero extends Barco {
     public Sentido obtenerSentido() {
         return this.sentido;
     }
+
 }

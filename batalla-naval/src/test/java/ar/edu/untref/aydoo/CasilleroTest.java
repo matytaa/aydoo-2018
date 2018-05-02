@@ -1,13 +1,9 @@
 package ar.edu.untref.aydoo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import gherkin.lexer.Ca;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestCasillero {
+public class CasilleroTest {
 
     @Test
     public void casilleroVacioDeberiaEstarVacio() {
@@ -27,36 +23,36 @@ public class TestCasillero {
 
     @Test
     public void casilleroRecibeSuPosicionEnConstructorYparaLuegoSolicitarla() {
-        int horizontal = 2;
-        int vertical = 2;
-        Casillero unCasillero = new Casillero(horizontal, vertical);
+        int fila = 2;
+        int columna = 2;
+        Casillero unCasillero = new Casillero(fila, columna);
         Assert.assertEquals(2, unCasillero.dameTuPosicioHorizontal());
         Assert.assertEquals(2, unCasillero.dameTuPosicioVertical());
     }
 
     @Test
-    public void asignar_bote_a_casillero_y_recuperar_tamanio_del_bote() {
-        int horizontal = 2;
-        int vertical = 2;
-        Bote unBote = new Bote(1);
-        Casillero unCasillero = new Casillero(horizontal, vertical);
+    public void asignarBoteACasilleroYRecuperarTamanioDelBote() {
+        int fila = 2;
+        int columna = 2;
+        Barco unBote = new Barco(1);
+        Casillero unCasillero = new Casillero(fila, columna);
         unCasillero.ponerBarco(unBote);
         Assert.assertEquals(1, unCasillero.dameElBarco().obtenerTamanio());
     }
 
     @Test
-    public void casillero_disponible_si_no_recibio_disparo_a_su_posicion() {
-        int horizontal = 2;
-        int vertical = 2;
-        Casillero unCasillero = new Casillero(horizontal, vertical);
+    public void casilleroDisponibleSiNoRecibioDisparoASuPosicion() {
+        int fila = 2;
+        int columna = 2;
+        Casillero unCasillero = new Casillero(fila, columna);
         Assert.assertTrue(unCasillero.estadoCasillero());
     }
 
     @Test
-    public void casillero_disponible_hasta_que_recibe_disparo() {
-        int horizontal = 2;
-        int vertical = 2;
-        Casillero unCasillero = new Casillero(horizontal, vertical);
+    public void casilleroDisponibleHastaQueRecibeDisparo() {
+        int fila = 2;
+        int columna = 2;
+        Casillero unCasillero = new Casillero(fila, columna);
         Assert.assertTrue(unCasillero.estadoCasillero());
         unCasillero.recibirDisparo();
         Assert.assertFalse(unCasillero.estadoCasillero());
