@@ -29,8 +29,6 @@ public class Libreria {
                     while (iteradorProductos.hasNext()) {
                         unProducto = iteradorProductos.next();
                         importeDelMes += unProducto.darPrecio();
-                        importeDelMes -=
-                                aplicarDescuento(unCliente, unProducto);
                     }
                 }
             }
@@ -50,28 +48,5 @@ public class Libreria {
             resultado += comprasDelMesAnioDeUnCliente(unCliente, mes, unAnio);
         }
         return resultado;
-    }
-
-    public boolean esPeridioco(final Producto unProducto) {
-        return unProducto instanceof Periodico;
-    }
-
-    public Double aplicarDescuento(final Cliente unCliente,
-                                   final Producto unPeriodico) {
-        Double descuento = 0.0;
-
-        if (esPeridioco(unPeriodico)) {
-            List<Suscripcion> unaListaDeSuscripciones =
-                    unCliente.darSuscripciones();
-            Iterator<Suscripcion> itProductos =
-                    unaListaDeSuscripciones.iterator();
-            while (itProductos.hasNext()) {
-                Suscripcion unaSuscripcion = itProductos.next();
-                if (unPeriodico.equals(unaSuscripcion.darPeriodico())) {
-                    descuento = unaSuscripcion.darPrecio();
-                }
-            }
-        }
-        return descuento;
     }
 }

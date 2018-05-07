@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class Suscripcion extends Producto{
     private final TipoSuscripcion miTipoDeSuscripcion;
     private Periodico miPeriodico;
-    private final Double descuento = -0.20;
+    private final Double DESCUENTO = -0.20;
 
     public Suscripcion(final Periodico unPeriodico, TipoSuscripcion unTipoDeSuscripcion) {
         super(unPeriodico.darPrecio());
@@ -18,7 +18,7 @@ public class Suscripcion extends Producto{
     public Double darPrecio() {
         Double unPrecio = 0.0;
         if(this.miTipoDeSuscripcion==TipoSuscripcion.ANUAL){
-            unPrecio = super.darPrecio() * this.descuento;
+            unPrecio = super.darPrecio() * this.DESCUENTO;
         }
         return unPrecio;
     }

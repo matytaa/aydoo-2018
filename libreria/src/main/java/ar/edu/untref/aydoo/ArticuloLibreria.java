@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 public class ArticuloLibreria extends Producto {
     private int iva;
-    private final Double denominador = 100.0;
+    private final Double DENOMINADOR = 100.0;
 
     public ArticuloLibreria(final Double unPrecio, final int unIva) {
         super(unPrecio);
@@ -15,7 +15,7 @@ public class ArticuloLibreria extends Producto {
 
     public Double darPrecio() {
         Double unPrecio = super.darPrecio();
-        Double unIva = (1.0 + this.iva / this.denominador);
+        Double unIva = (1.0 + this.iva / this.DENOMINADOR);
         return unPrecio * unIva;
     }
 }

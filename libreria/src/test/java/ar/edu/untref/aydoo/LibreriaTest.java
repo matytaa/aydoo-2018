@@ -110,34 +110,6 @@ public class LibreriaTest {
     }
 
     @Test
-    public void verificarInstanciasDePeriodicos() {
-        Libro eauRouge = new Libro(100.0);
-        ArticuloLibreria albumDBZ = new ArticuloLibreria(10.0, 10);
-        Periodico rectaPrincipal = new Periodico(90.0, 3);
-
-        Libreria miLibreria = new Libreria();
-
-        Assert.assertFalse(miLibreria.esPeridioco(eauRouge));
-        Assert.assertFalse(miLibreria.esPeridioco(albumDBZ));
-        Assert.assertTrue(miLibreria.esPeridioco(rectaPrincipal));
-    }
-
-    @Test
-    public void obtenerDescuentosDeLaListaDeSuscripciones() {
-        Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
-        Periodico rectaPrincipal = new Periodico(90.0, 3);
-        Periodico boxes = new Periodico(90.0, 2);
-        Libreria miLibreria = new Libreria();
-
-        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
-        kimiRaikkonen.comprarSuscripcion(unaSuscripcion);
-        Double unResultado = 18.0;
-        Assert.assertEquals(unResultado, miLibreria.aplicarDescuento(kimiRaikkonen, rectaPrincipal));
-        unResultado = 0.0;
-        Assert.assertEquals(unResultado, miLibreria.aplicarDescuento(kimiRaikkonen, boxes));
-    }
-
-    @Test
     public void generarComprasDeLibrosArticulosDeLibreriaYPeriodicosConSuscripcionesYSolicitarLasComprasDelAnio() {
         Calendar unaFecha = Calendar.getInstance();
         Cliente kimiRaikkonen = new Cliente("Kimi Raikkonen", "Spa-Francorchamps");
@@ -175,6 +147,7 @@ public class LibreriaTest {
         miLibreria.registrarCompra(compra3);
         miLibreria.registrarCompra(compra4);
         Double resultado = 370.90;
+        resultado = 388.90;
 
         Assert.assertEquals(resultado, miLibreria.comprasDelAnioDeUnCliente(kimiRaikkonen, 2018), 0.01);
     }

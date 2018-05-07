@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ClienteTest {
     @Test
-    public void crearUnCliente() {
+    public void nombreYDireccionSeAsignanCorrectamente() {
         String nombre = "Rafael Nadal";
         String direccion = "Vinateros 954";
         Cliente rafaelNadal = new Cliente(nombre, direccion);
