@@ -20,18 +20,11 @@ Repositorio personal de Matias Nievas Soto
     se suscriben (este descuento es sobre el precio del producto y no se acumula a
     otros descuentos).
 
-    Realizar el diagrama de clases correspondiente, detallando los métodos y
-    atributos más importantes.
-
-    Realizar un diagrama de secuencia sobre la obtención de la suma de los importes
-    a cobrarles a los clientes registrados, para un mes determinado.
-
-Forma de entrega: hacer los diagramas con Astah, luego exportar los diagramas a imágenes y poner esas imágenes en un GoogleDoc. Finalmente, entregar un link al GoogleDoc.
-
 Consigna:
 * Desarrollar un modelo de objetos que contemple la totalidad de la consigna
 * Utilizar la técnica TDD
-* Generar un diagrama de clase y secuencia (ubicar los diagramas en formato imagen en un subcarpeta doc junto a la carpeta src)
+* Generar un diagrama de clase y secuencia (ubicar los diagramas en formato imagen
+    en un subcarpeta doc junto a la carpeta src)
 
 
 Comandos:

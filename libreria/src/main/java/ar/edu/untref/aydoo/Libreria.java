@@ -10,7 +10,7 @@ public class Libreria {
     private final int limiteMeses = 13;
     private List<Cliente> listaDeClientesRegistrados;
 
-    public Libreria(){
+    public Libreria() {
         listaDeCompras = new LinkedList<>();
         listaDeClientesRegistrados = new LinkedList<>();
     }
@@ -40,7 +40,7 @@ public class Libreria {
 
     private Double aplicarDescuento(Double importeDelMes, Cliente unCliente) {
         Double unDescuento = 1.05;
-        if(clienteRegistrado(unCliente)){
+        if (clienteRegistrado(unCliente)) {
             importeDelMes = importeDelMes / unDescuento;
         }
         return importeDelMes;
