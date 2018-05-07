@@ -130,9 +130,9 @@ public class LibreriaTest {
         fechaDeCompra = unaFecha.getTime();
         Periodico rectaPrincipal = new Periodico(90.0, 3);
         Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
-        kimiRaikkonen.comprarSuscripcion(unaSuscripcion);
         Compra compra3 = new Compra(kimiRaikkonen, fechaDeCompra);
         compra3.agregarUnProducto(rectaPrincipal);
+        compra3.agregarUnProducto(unaSuscripcion);
 
         unaFecha.set(2018, Calendar.DECEMBER, 17);
         fechaDeCompra = unaFecha.getTime();
@@ -147,7 +147,6 @@ public class LibreriaTest {
         miLibreria.registrarCompra(compra3);
         miLibreria.registrarCompra(compra4);
         Double resultado = 370.90;
-        resultado = 388.90;
 
         Assert.assertEquals(resultado, miLibreria.comprasDelAnioDeUnCliente(kimiRaikkonen, 2018), 0.01);
     }
