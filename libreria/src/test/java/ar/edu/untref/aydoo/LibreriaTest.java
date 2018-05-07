@@ -147,4 +147,37 @@ public class LibreriaTest {
     public void elClienteNoDeberiaEstarRegistrado(){
         Assert.assertFalse(miLibreria.clienteRegistrado(sebastianVettel));
     }
+
+    @Test
+    public void deberiaRetornarElTotalDeLaCompraConDescuentoDel5porcientoPorSerClienteRegistrado() {
+        unaFecha.set(2018, Calendar.JANUARY, 17);
+        Date fechaDeCompra = unaFecha.getTime();
+        Compra compra1 = new Compra(kimiRaikkonen, fechaDeCompra);
+        compra1.agregarUnProducto(eauRouge);
+
+        unaFecha.set(2018, Calendar.JUNE, 17);
+        fechaDeCompra = unaFecha.getTime();
+        Compra compra2 = new Compra(kimiRaikkonen, fechaDeCompra);
+        compra2.agregarUnProducto(parabolica);
+
+        unaFecha.set(2018, Calendar.OCTOBER, 17);
+        fechaDeCompra = unaFecha.getTime();
+        Compra compra3 = new Compra(kimiRaikkonen, fechaDeCompra);
+        compra3.agregarUnProducto(rectaPrincipal);
+
+        unaFecha.set(2018, Calendar.DECEMBER, 17);
+        fechaDeCompra = unaFecha.getTime();
+        Compra compra4 = new Compra(kimiRaikkonen, fechaDeCompra);
+        compra4.agregarUnProducto(boxes);
+
+
+        miLibreria.registrarCompra(compra1);
+        miLibreria.registrarCompra(compra2);
+        miLibreria.registrarCompra(compra3);
+        miLibreria.registrarCompra(compra4);
+        miLibreria.registrarCliente(kimiRaikkonen);
+        Double resultado = 370.38;
+
+        Assert.assertEquals(resultado, miLibreria.comprasDelAnioDeUnCliente(kimiRaikkonen, 2018), 0.01);
+    }
 }

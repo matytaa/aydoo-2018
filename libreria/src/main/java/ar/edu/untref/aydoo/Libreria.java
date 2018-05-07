@@ -33,6 +33,16 @@ public class Libreria {
                 }
             }
         }
+        importeDelMes = aplicarDescuento(importeDelMes, unCliente);
+
+        return importeDelMes;
+    }
+
+    private Double aplicarDescuento(Double importeDelMes, Cliente unCliente) {
+        Double unDescuento = 1.05;
+        if(clienteRegistrado(unCliente)){
+            importeDelMes = importeDelMes / unDescuento;
+        }
         return importeDelMes;
     }
 
