@@ -12,7 +12,7 @@ public class SuscripcionTest {
     }
 
     @Test
-    public void darPrecioADescontarDeLaCompraConSuscripcionAnual() {
+    public void deberiaDarElPrecioConSuscripcionAnual() {
         Periodico rectaPrincipal = new Periodico(90.0, 3);
         Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
         Double precioBonificado = -18.0;
@@ -20,7 +20,7 @@ public class SuscripcionTest {
     }
 
     @Test
-    public void darPrecioADescontarDeLaCompraSuscripcionMensual() {
+    public void elPrecioConSuscripcionMensualDeberiaDar0() {
         Periodico rectaPrincipal = new Periodico(90.0, 3);
         Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.MENSUAL);
         Double precioBonificado = 0.0;
@@ -28,10 +28,11 @@ public class SuscripcionTest {
     }
 
     @Test
-    public void darPrecioADescontarDeLaCompraSuscripcionSemanal() {
+    public void elPrecioConSuscripcionSemanalDeberiaDar0() {
         Periodico rectaPrincipal = new Periodico(90.0, 3);
         Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.SEMANAL);
         Double precioBonificado = 0.0;
         Assert.assertEquals(precioBonificado, unaSuscripcion.darPrecio(),0.1);
     }
+
 }

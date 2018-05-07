@@ -22,4 +22,5 @@ public class Suscripcion extends Producto{
         }
         return unPrecio;
     }
+
 }

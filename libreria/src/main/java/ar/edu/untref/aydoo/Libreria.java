@@ -19,17 +19,11 @@ public class Libreria {
         Iterator<Compra> iteradorCompras = this.listaDeCompras.iterator();
         Compra unaCompra;
         Double importeDelMes = 0.0;
-        Producto unProducto;
         while (iteradorCompras.hasNext()) {
             unaCompra = iteradorCompras.next();
             if (mismoCliente(unCliente, unaCompra.darCliente())) {
                 if (unaCompra.perteneceAlPeriodo(unAnio, unMes)) {
-                    Iterator<Producto> iteradorProductos =
-                            unaCompra.darListaDeProducto().iterator();
-                    while (iteradorProductos.hasNext()) {
-                        unProducto = iteradorProductos.next();
-                        importeDelMes += unProducto.darPrecio();
-                    }
+                    importeDelMes += unaCompra.calcularValorDeLaCompra();
                 }
             }
         }

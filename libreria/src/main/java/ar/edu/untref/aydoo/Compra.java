@@ -1,11 +1,7 @@
 package ar.edu.untref.aydoo;
 
 
-import java.util.Date;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Compra {
     private List<Producto> misProductos;
@@ -47,7 +43,15 @@ public class Compra {
         return perteneceAlAnio(unAnio) && perteneceAlMes(unMes);
     }
 
-    public List<Producto> darListaDeProducto() {
-        return this.misProductos;
+    public Double calcularValorDeLaCompra() {
+        Double importeDeLaCompra = 0.0;
+        Producto unProducto;
+        Iterator<Producto> iteradorProductos =
+                this.misProductos.iterator();
+        while (iteradorProductos.hasNext()) {
+            unProducto = iteradorProductos.next();
+            importeDeLaCompra += unProducto.darPrecio();
+        }
+        return importeDeLaCompra;
     }
 }
