@@ -21,7 +21,7 @@ public class ClienteTest {
         String direccion = "Spa-Francorcharmps";
         Cliente kimi = new Cliente(nombre, direccion);
         Periodico rectaPrincipal = new Periodico(90.0, 3);
-        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
+        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
         kimi.comprarSuscripcion(unaSuscripcion);
         Assert.assertTrue(kimi.tieneSuscripciones());
     }
@@ -32,7 +32,7 @@ public class ClienteTest {
         String direccion = "Spa-Francorcharmps";
         Cliente kimi = new Cliente(nombre, direccion);
         Periodico rectaPrincipal = new Periodico(90.0, 3);
-        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
+        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
         kimi.comprarSuscripcion(unaSuscripcion);
         Assert.assertEquals(1, kimi.darSuscripciones().size());
     }

@@ -68,7 +68,7 @@ public class Libreria {
             while (itProductos.hasNext()) {
                 Suscripcion unaSuscripcion = itProductos.next();
                 if (unPeriodico.equals(unaSuscripcion.darPeriodico())) {
-                    descuento = unaSuscripcion.obtenerDescuento();
+                    descuento = unaSuscripcion.darPrecio();
                 }
             }
         }

@@ -1,6 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import cucumber.api.java.eo.Do;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -130,7 +129,7 @@ public class LibreriaTest {
         Periodico boxes = new Periodico(90.0, 2);
         Libreria miLibreria = new Libreria();
 
-        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
+        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
         kimiRaikkonen.comprarSuscripcion(unaSuscripcion);
         Double unResultado = 18.0;
         Assert.assertEquals(unResultado, miLibreria.aplicarDescuento(kimiRaikkonen, rectaPrincipal));
@@ -158,7 +157,7 @@ public class LibreriaTest {
         unaFecha.set(2018, Calendar.OCTOBER, 17);
         fechaDeCompra = unaFecha.getTime();
         Periodico rectaPrincipal = new Periodico(90.0, 3);
-        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal);
+        Suscripcion unaSuscripcion = new Suscripcion(rectaPrincipal, TipoSuscripcion.ANUAL);
         kimiRaikkonen.comprarSuscripcion(unaSuscripcion);
         Compra compra3 = new Compra(kimiRaikkonen, fechaDeCompra);
         compra3.agregarUnProducto(rectaPrincipal);
