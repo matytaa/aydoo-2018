@@ -136,4 +136,15 @@ public class LibreriaTest {
 
         Assert.assertEquals(resultado, miLibreria.comprasDelAnioDeUnCliente(kimiRaikkonen, 2018), 0.01);
     }
+
+    @Test
+    public void elClienteDeberiaEstarRegistrado(){
+        miLibreria.registrarCliente(kimiRaikkonen);
+        Assert.assertTrue(miLibreria.clienteRegistrado(kimiRaikkonen));
+    }
+
+    @Test
+    public void elClienteNoDeberiaEstarRegistrado(){
+        Assert.assertFalse(miLibreria.clienteRegistrado(sebastianVettel));
+    }
 }

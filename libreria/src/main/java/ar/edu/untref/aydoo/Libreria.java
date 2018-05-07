@@ -6,8 +6,14 @@ import java.util.List;
 
 public class Libreria {
 
-    private List<Compra> listaDeCompras = new LinkedList<>();
+    private List<Compra> listaDeCompras;
     private final int limiteMeses = 13;
+    private List<Cliente> listaDeClientesRegistrados;
+
+    public Libreria(){
+        listaDeCompras = new LinkedList<>();
+        listaDeClientesRegistrados = new LinkedList<>();
+    }
 
     public void registrarCompra(final Compra unaCompra) {
         this.listaDeCompras.add(unaCompra);
@@ -42,5 +48,13 @@ public class Libreria {
             resultado += comprasDelMesAnioDeUnCliente(unCliente, mes, unAnio);
         }
         return resultado;
+    }
+
+    public void registrarCliente(Cliente unCliente) {
+        this.listaDeClientesRegistrados.add(unCliente);
+    }
+
+    public boolean clienteRegistrado(Cliente unCliente) {
+        return this.listaDeClientesRegistrados.contains(unCliente);
     }
 }
