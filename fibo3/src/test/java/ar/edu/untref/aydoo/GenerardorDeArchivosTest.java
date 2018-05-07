@@ -10,9 +10,9 @@ public class GenerardorDeArchivosTest {
     }
 
     @Test
-    public void escribirArchivo(){
+    public void deberiaGenerarUnArchivoTXTconElResultadoDeLaEjecucionDelFibonacci(){
         GenerardorDeArchivos miGenerador = new GenerardorDeArchivos("salida.txt");
         miGenerador.generarArchivo();
-        miGenerador.escribirArchivo("hola soy goku");
+        miGenerador.escribirArchivo("fibo<6>: 0 1 1 2 3 5 8");
     }
 }

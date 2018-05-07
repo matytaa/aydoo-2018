@@ -13,12 +13,12 @@ public class Fibonacci {
         this.listaDeValores = new ArrayList<Integer>();
     }
 
-    public int calcularFibonacci(int unNumeroFibonacci) {
+    public int calcular(int unNumeroFibonacci) {
 
         if (verificarNumero(unNumeroFibonacci)) {
             int numeroAnterior = unNumeroFibonacci - 1;
-            resultadoParcial = calcularFibonacci(numeroAnterior)
-                    + calcularFibonacci(numeroAnterior - 1);
+            resultadoParcial = calcular(numeroAnterior)
+                    + calcular(numeroAnterior - 1);
         }
         return resultadoParcial;
     }
@@ -35,7 +35,7 @@ public class Fibonacci {
     public int ejecutarSumatoriaFibonacci() {
         int resultadoFinal = 0;
         for (int i = 0; i < this.numeroFibonacci + 1; i++) {
-            resultadoFinal += calcularFibonacci(i);
+            resultadoFinal += calcular(i);
         }
         listaDeValores.add(resultadoFinal);
         return resultadoFinal;
@@ -43,14 +43,14 @@ public class Fibonacci {
 
     public int ejecutarFibonacciDirecto() {
         for (int i = 0; i < this.numeroFibonacci + 1; i++) {
-            listaDeValores.add(calcularFibonacci(i));
+            listaDeValores.add(calcular(i));
         }
         return this.resultadoParcial;
     }
 
     public int ejecutarFibonacciInverso() {
         for (int i = this.numeroFibonacci; i >= 0; i--) {
-            listaDeValores.add(calcularFibonacci(i));
+            listaDeValores.add(calcular(i));
         }
         return this.resultadoParcial;
     }
@@ -58,20 +58,5 @@ public class Fibonacci {
 
     public ArrayList<Integer> darListaDeValores() {
         return this.listaDeValores;
-    }
-
-    public static void main(String[] args) {
-        int numeroFib = -1;
-        String argumentoTipoImpresion = "";
-        String argumentoArchivo = "";
-        String argumentoSumatoria = "";
-
-        int cantidadDeArgumentos = args.length;
-        numeroFib = Integer.parseInt(args[cantidadDeArgumentos - 1]);
-
-        Fibonacci miFibonacci = new Fibonacci(numeroFib);
-        //miFibonacci.definirSalidaHorizontalOVertical(argumentoTipoImpresion);
-        //miFibonacci.ejecutarFibonacci();
-        //miFibonacci.armarCabeceraDeSalida();
     }
 }

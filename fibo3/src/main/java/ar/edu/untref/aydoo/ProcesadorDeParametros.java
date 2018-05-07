@@ -44,11 +44,11 @@ public class ProcesadorDeParametros {
         }
     }
 
-    public void imprimeEnVertical(boolean imprimeVertical) {
+    private void imprimeEnVertical(boolean imprimeVertical) {
         this.vertical = imprimeVertical;
     }
 
-    public void ejecutarEnOrdenInverso(boolean unOrden) {
+    private void ejecutarEnOrdenInverso(boolean unOrden) {
         this.ordenInverso = unOrden;
     }
 
@@ -77,7 +77,7 @@ public class ProcesadorDeParametros {
         return this.sumarValores;
     }
 
-    public void aplicarSumaDeValores(boolean unEstado) {
+    private void aplicarSumaDeValores(boolean unEstado) {
         this.sumarValores = unEstado;
     }
 
