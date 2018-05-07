@@ -34,7 +34,7 @@ public class Fibonacci {
 
     public int ejecutarSumatoriaFibonacci() {
         int resultadoFinal = 0;
-        for (int i = 0; i < this.numeroFibonacci + 1; i++) {
+        for (int i = 0; i < this.numeroFibonacci; i++) {
             resultadoFinal += calcular(i);
         }
         listaDeValores.add(resultadoFinal);
@@ -42,14 +42,14 @@ public class Fibonacci {
     }
 
     public int ejecutarFibonacciDirecto() {
-        for (int i = 0; i < this.numeroFibonacci + 1; i++) {
+        for (int i = 0; i < this.numeroFibonacci; i++) {
             listaDeValores.add(calcular(i));
         }
         return this.resultadoParcial;
     }
 
     public int ejecutarFibonacciInverso() {
-        for (int i = this.numeroFibonacci; i >= 0; i--) {
+        for (int i = this.numeroFibonacci - 1; i >= 0; i--) {
             listaDeValores.add(calcular(i));
         }
         return this.resultadoParcial;

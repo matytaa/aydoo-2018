@@ -8,31 +8,31 @@ public class ProcesadorDeParametros {
     private boolean sumarValores;
     private String archivoDeSalida;
     private boolean salidaPorPantalla;
-    private boolean eureka;
+    private boolean parametroInterpretado;
 
-    public ProcesadorDeParametros(){
+    public ProcesadorDeParametros() {
         this.continuar = true;
         this.salidaPorPantalla = true;
     }
 
-    public void recibirParametros(String unArgumento){
-        this.eureka = false;
-        if(puedoContinuar()) {
+    public void recibirParametros(String unArgumento) {
+        this.parametroInterpretado = false;
+        if (puedoContinuar()) {
             definirSalidaListaOSumatoria(unArgumento);
-            if (!this.eureka) {
+            if (!this.parametroInterpretado) {
                 definirSalidaHorizontalOVertical(unArgumento);
             }
-            if (!this.eureka) {
+            if (!this.parametroInterpretado) {
                 definirArchivoDeSalida(unArgumento);
             }
 
-            if (!this.eureka) {
+            if (!this.parametroInterpretado) {
                 cancelarEjecucion();
             }
         }
     }
 
-   private void definirSalidaHorizontalOVertical(String parametros) {
+    private void definirSalidaHorizontalOVertical(String parametros) {
         if ((parametros.equals("-o=vi"))
                 || (parametros.equals("-o=vd"))
                 || (parametros.equals("-o=hi"))
@@ -91,7 +91,7 @@ public class ProcesadorDeParametros {
     }
 
     private void encontroParametros(boolean eureka) {
-        this.eureka = eureka;
+        this.parametroInterpretado = eureka;
     }
 
     private void definirArchivoDeSalida(String paramatroSalidaArchivo) {
@@ -103,11 +103,11 @@ public class ProcesadorDeParametros {
         }
     }
 
-    public boolean imprimeEnPantalla(){
+    public boolean imprimeEnPantalla() {
         return this.salidaPorPantalla;
     }
 
-    public String darArchivoDeSalida(){
+    public String darArchivoDeSalida() {
         return this.archivoDeSalida;
     }
 }

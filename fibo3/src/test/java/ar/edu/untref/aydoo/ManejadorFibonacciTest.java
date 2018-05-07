@@ -22,7 +22,7 @@ public class ManejadorFibonacciTest {
         Assert.assertTrue(unProcesador.puedoContinuar());
         int resultado = 0;
         resultado = miManejador.ejecutarFibonnaci(8);
-        Assert.assertEquals(21, resultado);
+        Assert.assertEquals(13, resultado);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class ManejadorFibonacciTest {
             miManejador.procesarArgumentos(args[i]);
         }
 
-        int resultado = 8;
+        int resultado = 5;
         Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
     }
 
@@ -69,7 +69,7 @@ public class ManejadorFibonacciTest {
             miManejador.procesarArgumentos(args[i]);
         }
 
-        int resultado = 20;
+        int resultado = 12;
         Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
         miManejador.imprimirSalida();
     }
@@ -79,7 +79,7 @@ public class ManejadorFibonacciTest {
         ProcesadorDeParametros unProcesador = new ProcesadorDeParametros();
         ManejadorFibonacci miManejador = new ManejadorFibonacci(unProcesador, null);
         int numeroFibo = -1;
-        String[] args = {"-o=hd", "-f=salida.txt", "-m=l", "6"};
+        String[] args = {"-o=hi", "-f=salida.txt", "-m=l", "6"};
         int largoArgumentos = args.length;
         if (largoArgumentos > 0)
             numeroFibo = Integer.parseInt(args[largoArgumentos - 1]);
@@ -88,7 +88,7 @@ public class ManejadorFibonacciTest {
             miManejador.procesarArgumentos(args[i]);
         }
 
-        int resultado = 8;
+        int resultado = 0;
         Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
         miManejador.imprimirSalida();
         Assert.assertFalse(unProcesador.imprimeEnPantalla());
@@ -109,7 +109,7 @@ public class ManejadorFibonacciTest {
             miManejador.procesarArgumentos(args[i]);
         }
         Assert.assertTrue(unProcesador.puedoContinuar());
-        int resultado = 20;
+        int resultado = 12;
         Assert.assertEquals(resultado, miManejador.ejecutarFibonnaci(numeroFibo));
         miManejador.imprimirSalida();
         Assert.assertFalse(unProcesador.imprimeEnPantalla());

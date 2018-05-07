@@ -13,7 +13,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(1);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacciDirecto();
-        Assert.assertEquals(1, resultado);
+        Assert.assertEquals(0, resultado);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(10);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacciDirecto();
-        Assert.assertEquals(55, resultado);
+        Assert.assertEquals(34, resultado);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(11);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacciDirecto();
-        Assert.assertEquals(89, resultado);
+        Assert.assertEquals(55, resultado);
     }
 
     @Test
@@ -45,15 +45,23 @@ public class FibonacciTest {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacciDirecto();
-        Assert.assertEquals(144, resultado);
+        Assert.assertEquals(89, resultado);
     }
 
 
     @Test
-    public void imprimirFiboInverso() {
+    public void deberiaSerCeroElUltimoNumeroDeLaLista() {
         Fibonacci miFibonacci = new Fibonacci(12);
         int resultado = 0;
         resultado = miFibonacci.ejecutarFibonacciInverso();
         Assert.assertEquals(0, resultado);
     }
+
+    @Test
+    public void deberiaDar88LaSumatiriaDelFiboDe10() {
+        Fibonacci miFibonacci = new Fibonacci(10);
+        int resultado = 88;
+        Assert.assertEquals(resultado, miFibonacci.ejecutarSumatoriaFibonacci());
+    }
+
 }
