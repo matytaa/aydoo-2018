@@ -61,4 +61,18 @@ public class ProcesadorDeParametrosTest {
         miProcesador.recibirParametros("-o=xy");
         Assert.assertFalse(miProcesador.puedoContinuar());
     }
+
+    @Test
+    public void recibeParametro_vdx_noDeberiaPoderContinuar() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.recibirParametros("-o=vdx");
+        Assert.assertFalse(miProcesador.puedoContinuar());
+    }
+
+    @Test
+    public void recibeParametro_lx_noDeberiaPoderContinuar() {
+        ProcesadorDeParametros miProcesador = new ProcesadorDeParametros();
+        miProcesador.recibirParametros("-m=lx");
+        Assert.assertFalse(miProcesador.puedoContinuar());
+    }
 }

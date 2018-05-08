@@ -42,7 +42,7 @@ public class ProcesadorDeParametros {
     }
 
     private void definirSalidaHorizontalOVertical(String parametros) {
-        this.expresionRegular = "(\\-)+([o])=([vh][id])";
+        this.expresionRegular = "(\\-)+([o])=([vh][id]\\b)";
         this.patron = Pattern.compile(expresionRegular);
         this.emparejador = patron.matcher(parametros);
         this.esCoincidente =emparejador.find();
@@ -91,7 +91,7 @@ public class ProcesadorDeParametros {
     }
 
     private void definirSalidaListaOSumatoria(String parametro) {
-        this.expresionRegular = "(\\-)+([m])=([ls])";
+        this.expresionRegular = "(\\-)+([m])=([ls]\\b)";
         this.patron = Pattern.compile(expresionRegular);
         this.emparejador = patron.matcher(parametro);
         this.esCoincidente =emparejador.find();
