@@ -1,5 +1,8 @@
 package ar.edu.untref.aydoo;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ProcesadorDeParametros {
 
     private boolean continuar;
@@ -10,9 +13,15 @@ public class ProcesadorDeParametros {
     private boolean salidaPorPantalla;
     private boolean parametroInterpretado;
 
+    private boolean esCoincidente;
+    private String expresionRegular;
+    private Pattern patron;
+    private Matcher emparejador;
+
     public ProcesadorDeParametros() {
         this.continuar = true;
         this.salidaPorPantalla = true;
+        this.esCoincidente = false;
     }
 
     public void recibirParametros(String unArgumento) {
@@ -33,11 +42,11 @@ public class ProcesadorDeParametros {
     }
 
     private void definirSalidaHorizontalOVertical(String parametros) {
-        if ((parametros.equals("-o=vi"))
-                || (parametros.equals("-o=vd"))
-                || (parametros.equals("-o=hi"))
-                || (parametros.equals("-o=hd"))
-                || (parametros.equals(""))) {
+        this.expresionRegular = "(\\-)+([o])=([vh][id])";
+        this.patron = Pattern.compile(expresionRegular);
+        this.emparejador = patron.matcher(parametros);
+        this.esCoincidente =emparejador.find();
+        if (this.esCoincidente){
             imprimeEnVertical(parametros.contains("v"));
             ejecutarEnOrdenInverso(parametros.contains("i"));
             encontroParametros(true);
@@ -82,16 +91,18 @@ public class ProcesadorDeParametros {
     }
 
     private void definirSalidaListaOSumatoria(String parametro) {
-        if ((parametro.equals("-m=s"))
-                || (parametro.equals("-m=l"))
-                || (parametro.equals(""))) {
+        this.expresionRegular = "(\\-)+([m])=([ls])";
+        this.patron = Pattern.compile(expresionRegular);
+        this.emparejador = patron.matcher(parametro);
+        this.esCoincidente =emparejador.find();
+        if (this.esCoincidente){
             aplicarSumaDeValores(parametro.contains("s"));
             encontroParametros(true);
         }
     }
 
-    private void encontroParametros(boolean eureka) {
-        this.parametroInterpretado = eureka;
+    private void encontroParametros(boolean parametroInterpretado) {
+        this.parametroInterpretado = parametroInterpretado;
     }
 
     private void definirArchivoDeSalida(String paramatroSalidaArchivo) {
