@@ -37,6 +37,7 @@ public class ValidadorDeVotoTest {
     Partido pikoroAcademi;
     List<Partido> listaDePartidos;
     List<Provincia> listaDeProvincias;
+    List<Candidato> listaDeCandidatos;
     List<Voto> listaDeVotos = new LinkedList<Voto>();
     Provincia buenosAires = new Provincia("Buenos Aires");
     Provincia misiones = new Provincia("Misiones");
@@ -106,6 +107,14 @@ public class ValidadorDeVotoTest {
         candidato5 = new Candidato("Gohan", pikoroAcademi);
         candidato6 = new Candidato("Krilin", estiloTortuga);
 
+        listaDeCandidatos = new LinkedList<Candidato>();
+        listaDeCandidatos.add(candidato1);
+        listaDeCandidatos.add(candidato2);
+        listaDeCandidatos.add(candidato3);
+        listaDeCandidatos.add(candidato4);
+        listaDeCandidatos.add(candidato5);
+        listaDeCandidatos.add(candidato6);
+
         votoCandidato1 = new Voto(candidato1, mendoza);
         votoCandidato2 = new Voto(candidato2, chubut);
         votoCandidato3 = new Voto(candidato3, cordoba);
@@ -142,7 +151,7 @@ public class ValidadorDeVotoTest {
     }
 
     @Test
-    public void deberianSerValidosTodosLosVotos(){
+    public void deberianSerValidosTodosLosVotosYaQueTodasLasProvinciasSonValidas(){
         ValidadorDeVoto miValidador = new ValidadorDeVoto();
         int cantidadDeVotos = listaDeVotos.size();
         miValidador.validarVotosPorProvincia(listaDeVotos,listaDeProvincias);
@@ -150,12 +159,30 @@ public class ValidadorDeVotoTest {
     }
 
     @Test
-    public void deberiaDeHaberUnVotoInvalido(){
+    public void deberiaDeHaberUnVotoInvalidoYaQueLaProvinciaNoEsValida(){
         ValidadorDeVoto miValidador = new ValidadorDeVoto();
         Voto unVoto = new Voto(candidato1,new Provincia("Madrid"));
         listaDeVotos.add(unVoto);
         int cantidadDeVotos = listaDeVotos.size();
         miValidador.validarVotosPorProvincia(listaDeVotos,listaDeProvincias);
+        Assert.assertEquals(cantidadDeVotos-1, listaDeVotos.size());
+    }
+
+    @Test
+    public void deberianSerValidosTodosLosVotosYaQueTodosLosCandidatosSonValidas(){
+        ValidadorDeVoto miValidador = new ValidadorDeVoto();
+        int cantidadDeVotos = listaDeVotos.size();
+        miValidador.validarVotosPorCandidato(listaDeVotos,listaDeCandidatos);
+        Assert.assertEquals(cantidadDeVotos, listaDeVotos.size());
+    }
+
+    @Test
+    public void deberiaDeHaberUnVotoInvalidoYaQueElCandidatoNoEsValido(){
+        ValidadorDeVoto miValidador = new ValidadorDeVoto();
+        Voto unVoto = new Voto(new Candidato("Freezer",pikoroAcademi),buenosAires);
+        listaDeVotos.add(unVoto);
+        int cantidadDeVotos = listaDeVotos.size();
+        miValidador.validarVotosPorCandidato(listaDeVotos,listaDeCandidatos);
         Assert.assertEquals(cantidadDeVotos-1, listaDeVotos.size());
     }
 }
