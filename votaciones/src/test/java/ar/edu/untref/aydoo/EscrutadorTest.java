@@ -40,6 +40,8 @@ public class EscrutadorTest {
     Partido pikoroAcademi;
     List<Partido> listaDePartidos;
     List<Provincia> listaDeProvincias;
+    List<Candidato> listaDeCandidatos;
+
     List<Voto> listaDeVotos = new LinkedList<Voto>();
     Provincia buenosAires = new Provincia("Buenos Aires");
     Provincia misiones = new Provincia("Misiones");
@@ -109,6 +111,14 @@ public class EscrutadorTest {
         candidato5 = new Candidato("Gohan", pikoroAcademi);
         candidato6 = new Candidato("Krilin", estiloTortuga);
 
+        listaDeCandidatos = new LinkedList<Candidato>();
+        listaDeCandidatos.add(candidato1);
+        listaDeCandidatos.add(candidato2);
+        listaDeCandidatos.add(candidato3);
+        listaDeCandidatos.add(candidato4);
+        listaDeCandidatos.add(candidato5);
+        listaDeCandidatos.add(candidato6);
+
         votoCandidato1 = new Voto(candidato1, mendoza);
         votoCandidato2 = new Voto(candidato2, chubut);
         votoCandidato3 = new Voto(candidato3, cordoba);
@@ -146,6 +156,7 @@ public class EscrutadorTest {
         miEscrutinio = new Escrutador(listaDeVotos);
         miEscrutinio.agregarListaDePartidos(listaDePartidos);
         miEscrutinio.agregarListaDeProvincias(listaDeProvincias);
+        miEscrutinio.agregarListaDeCandidatos(listaDeCandidatos);
     }
 
     @Test

@@ -10,11 +10,13 @@ public class Escrutador {
     private List<Partido> listaDePartidos;
     private List<Provincia> listaDeProvincias;
     private ValidadorDeVoto miValidadorDeVotos;
+    private List<Candidato> listaDeCandidatos;
 
     public Escrutador(List<Voto> unaListaDeVotos) {
         this.listaDeVotos = unaListaDeVotos;
         this.listaDePartidos = new LinkedList<Partido>();
         this.listaDeProvincias = new LinkedList<Provincia>();
+        this.listaDeCandidatos = new LinkedList<Candidato>();
         this.miValidadorDeVotos = new ValidadorDeVoto();
     }
 
@@ -39,6 +41,7 @@ public class Escrutador {
     }
 
     public Candidato candidatoConMasVotosEnUnaProvincia(Provincia unaProvincia) {
+        validarVotos();
         Candidato unCandidato = null;
         List<Voto> votosDeLaProvincia;
         votosDeLaProvincia = obtenerVotosDeLaProvincia(unaProvincia);
@@ -76,7 +79,7 @@ public class Escrutador {
     public Partido partidoConMasVotos() {
         int cantidadDeVotos = 0;
         Partido mejorPartido = null;
-        this.miValidadorDeVotos.validarVotosPorProvincia(this.listaDeVotos, this.listaDeProvincias);
+        validarVotos();
         Iterator<Partido> itPartidos = this.listaDePartidos.iterator();
         while (itPartidos.hasNext()) {
             Partido unPartido = itPartidos.next();
@@ -90,6 +93,11 @@ public class Escrutador {
         }
         return mejorPartido;
 
+    }
+
+    private void validarVotos() {
+        this.miValidadorDeVotos.validarVotosPorProvincia(this.listaDeVotos, this.listaDeProvincias);
+        this.miValidadorDeVotos.validarVotosPorCandidato(this.listaDeVotos, this.listaDeCandidatos);
     }
 
     public void agregarListaDePartidos(List<Partido> unaListaDePartidos) {
@@ -112,4 +120,7 @@ public class Escrutador {
         return listaDeVotosARetornar;
     }
 
+    public void agregarListaDeCandidatos(List<Candidato> unaListaDeCandidatos) {
+        this.listaDeCandidatos = unaListaDeCandidatos;
+    }
 }
