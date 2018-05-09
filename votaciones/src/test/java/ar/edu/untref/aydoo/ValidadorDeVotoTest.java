@@ -148,4 +148,14 @@ public class ValidadorDeVotoTest {
         miValidador.validarVotosPorProvincia(listaDeVotos,listaDeProvincias);
         Assert.assertEquals(cantidadDeVotos, listaDeVotos.size());
     }
+
+    @Test
+    public void deberiaDeHaberUnVotoInvalido(){
+        ValidadorDeVoto miValidador = new ValidadorDeVoto();
+        Voto unVoto = new Voto(candidato1,new Provincia("Madrid"));
+        listaDeVotos.add(unVoto);
+        int cantidadDeVotos = listaDeVotos.size();
+        miValidador.validarVotosPorProvincia(listaDeVotos,listaDeProvincias);
+        Assert.assertEquals(cantidadDeVotos-1, listaDeVotos.size());
+    }
 }

@@ -9,11 +9,13 @@ public class Escrutador {
     private List<Voto> listaDeVotos;
     private List<Partido> listaDePartidos;
     private List<Provincia> listaDeProvincias;
+    private ValidadorDeVoto miValidadorDeVotos;
 
     public Escrutador(List<Voto> unaListaDeVotos) {
         this.listaDeVotos = unaListaDeVotos;
         this.listaDePartidos = new LinkedList<Partido>();
         this.listaDeProvincias = new LinkedList<Provincia>();
+        this.miValidadorDeVotos = new ValidadorDeVoto();
     }
 
     public int darCantidadDeVotos() {
@@ -74,6 +76,7 @@ public class Escrutador {
     public Partido partidoConMasVotos() {
         int cantidadDeVotos = 0;
         Partido mejorPartido = null;
+        this.miValidadorDeVotos.validarVotosPorProvincia(this.listaDeVotos, this.listaDeProvincias);
         Iterator<Partido> itPartidos = this.listaDePartidos.iterator();
         while (itPartidos.hasNext()) {
             Partido unPartido = itPartidos.next();

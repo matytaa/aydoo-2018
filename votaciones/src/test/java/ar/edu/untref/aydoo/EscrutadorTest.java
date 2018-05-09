@@ -167,7 +167,7 @@ public class EscrutadorTest {
     }
 
     @Test
-    public void deberiaComputar6VotosParaEstiloTortuga() {
+    public void deberiaComputar10VotosParaEstiloTortuga() {
         Assert.assertEquals(10, miEscrutinio.cantidadDeVotosPorPartido("Estilo tortuga"));
     }
 
