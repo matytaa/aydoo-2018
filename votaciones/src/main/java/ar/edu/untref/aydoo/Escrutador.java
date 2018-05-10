@@ -41,7 +41,6 @@ public class Escrutador {
     }
 
     public Candidato candidatoConMasVotosEnUnaProvincia(Provincia unaProvincia) {
-        validarVotos();
         Candidato unCandidato = null;
         List<Voto> votosDeLaProvincia;
         votosDeLaProvincia = obtenerVotosDeLaProvincia(unaProvincia);
@@ -62,7 +61,8 @@ public class Escrutador {
     }
 
     public int cantidadDeVotosPorPartido(String unPartido) {
-        Iterator<Voto> itVotos = this.listaDeVotos.iterator();
+        List<Voto> unaListaDeVotos = validarVotos();
+        Iterator<Voto> itVotos = unaListaDeVotos.iterator();
         int contador = 0;
         while (itVotos.hasNext()) {
             if (unPartido.equals(
@@ -79,7 +79,6 @@ public class Escrutador {
     public Partido partidoConMasVotos() {
         int cantidadDeVotos = 0;
         Partido mejorPartido = null;
-        validarVotos();
         Iterator<Partido> itPartidos = this.listaDePartidos.iterator();
         while (itPartidos.hasNext()) {
             Partido unPartido = itPartidos.next();
@@ -95,9 +94,11 @@ public class Escrutador {
 
     }
 
-    private void validarVotos() {
-        this.miValidadorDeVotos.validarVotosPorProvincia(this.listaDeVotos, this.listaDeProvincias);
-        this.miValidadorDeVotos.validarVotosPorCandidato(this.listaDeVotos, this.listaDeCandidatos);
+    private List<Voto> validarVotos() {
+        List<Voto> unaListaDeVotos = this.listaDeVotos;
+        this.miValidadorDeVotos.validarVotosPorProvincia(unaListaDeVotos, this.listaDeProvincias);
+        this.miValidadorDeVotos.validarVotosPorCandidato(unaListaDeVotos, this.listaDeCandidatos);
+        return unaListaDeVotos;
     }
 
     public void agregarListaDePartidos(List<Partido> unaListaDePartidos) {
@@ -110,7 +111,8 @@ public class Escrutador {
 
     private List<Voto> obtenerVotosDeLaProvincia(Provincia unaProvincia) {
         List<Voto> listaDeVotosARetornar = new LinkedList<Voto>();
-        Iterator<Voto> itVotos = this.listaDeVotos.iterator();
+        List<Voto> unaListaDeVotos = validarVotos();
+        Iterator<Voto> itVotos = unaListaDeVotos.iterator();
         while (itVotos.hasNext()) {
             Voto unVoto = itVotos.next();
             if (unaProvincia.equals(unVoto.darProvincia())) {
