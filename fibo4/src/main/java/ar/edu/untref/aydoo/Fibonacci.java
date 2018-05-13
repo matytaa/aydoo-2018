@@ -50,11 +50,14 @@ public class Fibonacci {
             }
 
             for (int i = 0; i < args.length - 1; i++){
-                if (args[i].matches("-o=[vh][i]")){
+                if (args[i].matches("-o=[vhp][i]")){
                     stringSequence = new PrinterWithDirection('i').print(stringSequence);
                 }
                 if (args[i].matches("-o=[v][di]")){
                     stringSequence = new PrinterWithOrientation('v').print(stringSequence);
+                }
+                if (args[i].matches("-o=[p][di]")){
+                    stringSequence = new PrinterWithProgress().print(stringSequence);
                 }
                 if (args[i].matches("-f=[^\\s]+")){
                     fileName = args[i].substring(3, args[i].length());
