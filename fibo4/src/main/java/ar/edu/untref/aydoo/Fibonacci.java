@@ -6,7 +6,7 @@ import java.util.List;
 public class Fibonacci {
 
 
-    private static String[] validArguments = new String[]{"-o=[vh][di]", "-m=[ls]", "-f=[^\\s]+"};
+    private static String[] validArguments = new String[]{"-o=[vhp][di]", "-m=[ls]", "-f=[^\\s]+"};
 
     /**
      * Imprime por pantalla la secuencia de fibonacci, con la opción de poder imprimirla vertical u horizontalmente

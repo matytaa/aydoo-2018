@@ -34,4 +34,33 @@ public class FibonacciInputTest
         Fibonacci.validateInput(input);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testInValidInputWithTheArgumentsVerticalHorizontal() throws IllegalArgumentException {
+        String input[] = new String[]{"-o=vh", "8"};
+        Fibonacci.validateInput(input);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInValidInputWithTheArgumentsHorizontalVertical() throws IllegalArgumentException {
+        String input[] = new String[]{"-o=vh", "8"};
+        Fibonacci.validateInput(input);
+    }
+
+    @Test
+    public void testValidInputWithTwoArgumentsProgressiveAndDirect() throws IllegalArgumentException {
+        String input[] = new String[]{"-o=pd", "5"};
+        Fibonacci.validateInput(input);
+    }
+
+    @Test
+    public void testValidInputWithTwoArgumentsProgressiveAndInverse() throws IllegalArgumentException {
+        String input[] = new String[]{"-o=pi", "5"};
+        Fibonacci.validateInput(input);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testValidInputWithTwoArgumentsProgressiveAndHorizontal() throws IllegalArgumentException {
+        String input[] = new String[]{"-o=ph", "5"};
+        Fibonacci.validateInput(input);
+    }
 }

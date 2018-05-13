@@ -7,6 +7,20 @@ Ejemplos de uso:
 * java -jar fibo.jar -o=vd 5
 * java -jar fibo.jar -o=hi 8
 
+Trabajando sobre el código que recibirá por correo en su casilla persona:
+
+1. Agregue el código recibido en el directorio "fibo4" de su repositorio
+2. A continuación analice el código recibido y escriba un informe (archivo informe.md) reportando en dicho archivo su opinion sobre el modelo/código recibido. Considere las siguiente cuestiones:
+    2.1. ¿cumple con la consigna fibo3?
+    2.2. ¿tiene suficientes tests?
+    2.3. ¿respeta la convenciones Java?
+    2.4. ¿respecta los principio SOLID? en caso que no los respete indique que principio viola y porque
+    
+Una vez realizado el análisis implemente las siguientes modificaciones:
+Agregar una opción para impresión progresiva (ver Ejemplos). 
+Agregar una opción para imprimir solo los números pares (ver Ejemplos).
+Ejemplos:
+
 # Ejemplo 1 progresiva directa
 
 java -jar fibo.jar -o=pd 8
