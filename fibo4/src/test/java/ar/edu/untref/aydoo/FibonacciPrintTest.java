@@ -75,14 +75,35 @@ public class FibonacciPrintTest {
         FibonacciCalculator calculator = new FibonacciCalculator();
         String sequence = calculator.getFibonacciStringSequence(8);
         String result = "fibo<8>:\n";
-        result += "13 \n";
-        result += "13 8 \n";
-        result += "13 8 5 \n";
-        result += "13 8 5 3 \n";
-        result += "13 8 5 3 2 \n";
-        result += "13 8 5 3 2 1 \n";
-        result += "13 8 5 3 2 1 1 \n";
-        result += "13 8 5 3 2 1 1 0 \n";
+        result += "13\n";
+        result += "13 8\n";
+        result += "13 8 5\n";
+        result += "13 8 5 3\n";
+        result += "13 8 5 3 2\n";
+        result += "13 8 5 3 2 1\n";
+        result += "13 8 5 3 2 1 1\n";
+        result += "13 8 5 3 2 1 1 0\n";
+
+        Assert.assertEquals(
+                result,
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
+        );
+    }
+
+    @Test
+    public void testPrintFibonacciSequenceProgressingAndDirect() {
+        String input[] = new String[]{"-o=pd", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        String result = "fibo<8>:\n";
+        result += "0\n";
+        result += "0 1\n";
+        result += "0 1 1\n";
+        result += "0 1 1 2\n";
+        result += "0 1 1 2 3\n";
+        result += "0 1 1 2 3 5\n";
+        result += "0 1 1 2 3 5 8\n";
+        result += "0 1 1 2 3 5 8 13\n";
 
         Assert.assertEquals(
                 result,

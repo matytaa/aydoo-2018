@@ -12,7 +12,7 @@ public class PrinterWithProgress extends Printer {
             String element =
                     lastElement.
                     toString().substring(1, lastElement.length());
-            textReturn += element + " " + "\n";
+            textReturn += element + "\n";
         }
         textToPrint = textReturn;
 
