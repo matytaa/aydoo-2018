@@ -82,7 +82,7 @@ public class FibonacciPrintTest {
         result += "13 8 5 3 2\n";
         result += "13 8 5 3 2 1\n";
         result += "13 8 5 3 2 1 1\n";
-        result += "13 8 5 3 2 1 1 0\n";
+        result += "13 8 5 3 2 1 1 0";
 
         Assert.assertEquals(
                 result,
@@ -103,7 +103,7 @@ public class FibonacciPrintTest {
         result += "0 1 1 2 3\n";
         result += "0 1 1 2 3 5\n";
         result += "0 1 1 2 3 5 8\n";
-        result += "0 1 1 2 3 5 8 13\n";
+        result += "0 1 1 2 3 5 8 13";
 
         Assert.assertEquals(
                 result,
