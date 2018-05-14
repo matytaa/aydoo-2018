@@ -51,8 +51,14 @@ public class FibonacciPrintTest {
     @Test
     public void testPrintWithAddAndHorizontalAndDirect() throws IllegalArgumentException {
         String input[] = new String[]{"-o=hd", "-m=s", "5"};
-        String sequence = Fibonacci.getStringSequence(5, input);
-        Assert.assertEquals("fibo<5>s: 7", Fibonacci.printFibonacciSequence(sequence, 5, input));
+        //String sequence = Fibonacci.getStringSequence(5, input);
+        //Assert.assertEquals("fibo<5>s: 7", Fibonacci.printFibonacciSequence(sequence, 5, input));
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(5);
+        Assert.assertEquals(
+                "fibo<5>s: 7",
+                Fibonacci.printFibonacciSequence(sequence, 5, input)
+        );
     }
 
     @Test
@@ -117,7 +123,7 @@ public class FibonacciPrintTest {
         FibonacciCalculator calculator = new FibonacciCalculator();
         String sequence = calculator.getFibonacciStringSequence(8);
         Assert.assertEquals(
-                "fibo<8>: 8 2",
+                "fibo<8>: 8 2 0",
                 Fibonacci.printFibonacciSequence(sequence, 8, input)
         );
     }
@@ -128,7 +134,7 @@ public class FibonacciPrintTest {
         FibonacciCalculator calculator = new FibonacciCalculator();
         String sequence = calculator.getFibonacciStringSequence(8);
         Assert.assertEquals(
-                "fibo<8>:\n8\n2",
+                "fibo<8>:\n8\n2\n0",
                 Fibonacci.printFibonacciSequence(sequence, 8, input)
         );
     }
@@ -139,7 +145,7 @@ public class FibonacciPrintTest {
         FibonacciCalculator calculator = new FibonacciCalculator();
         String sequence = calculator.getFibonacciStringSequence(8);
         Assert.assertEquals(
-                "fibo<8>:\n2\n8",
+                "fibo<8>:\n0\n2\n8",
                 Fibonacci.printFibonacciSequence(sequence, 8, input)
         );
     }
@@ -150,7 +156,7 @@ public class FibonacciPrintTest {
         FibonacciCalculator calculator = new FibonacciCalculator();
         String sequence = calculator.getFibonacciStringSequence(8);
         Assert.assertEquals(
-                "fibo<8>: 2 8",
+                "fibo<8>: 0 2 8",
                 Fibonacci.printFibonacciSequence(sequence, 8, input)
         );
     }
@@ -161,8 +167,30 @@ public class FibonacciPrintTest {
         FibonacciCalculator calculator = new FibonacciCalculator();
         String sequence = calculator.getFibonacciStringSequence(16);
         Assert.assertEquals(
-                "fibo<16>: 2 8 34 144 610",
+                "fibo<16>: 0 2 8 34 144 610",
                 Fibonacci.printFibonacciSequence(sequence, 16, input)
+        );
+    }
+
+    @Test
+    public void testPrintFibonacciSequencePairsWithAddAndHorizontal() {
+        String input[] = new String[]{"-o=hd","-m=s","-n=p", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        Assert.assertEquals(
+                "fibo<8>s: 10",
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
+        );
+    }
+
+    @Test
+    public void testPrintFibonacciSequencePairsWithAddAndVertical() {
+        String input[] = new String[]{"-o=vd","-m=s","-n=p", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        Assert.assertEquals(
+                "fibo<8>s:\n10",
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
         );
     }
 }

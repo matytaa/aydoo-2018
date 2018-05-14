@@ -8,12 +8,11 @@ public class PrinterOnlyPairs extends Printer {
         String[] splittedString = textToPrint.split(" ");
         for (int i = 1; i < splittedString.length; i++) {
             int number = Integer.parseInt(splittedString[i]);
-            if ((number % 2 == 0) && (number > 0)) {
+            if (number % 2 == 0) {
                 newText.append(" ").append(splittedString[i]);
             }
         }
         textToPrint = newText.toString();
-        ;
 
         return textToPrint;
     }
