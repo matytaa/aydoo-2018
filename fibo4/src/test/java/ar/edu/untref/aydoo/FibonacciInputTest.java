@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class FibonacciInputTest
 {
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testValidInputWithOneDigit() throws IllegalArgumentException {
         String input[] = new String[]{"0"};
         Fibonacci.validateInput(input);

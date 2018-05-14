@@ -110,4 +110,59 @@ public class FibonacciPrintTest {
                 Fibonacci.printFibonacciSequence(sequence, 8, input)
         );
     }
+
+    @Test
+    public void testPrintFibonacciSequenceOnlyPairsHorizontalAndInverse() {
+        String input[] = new String[]{"-o=hi","-n=p", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        Assert.assertEquals(
+                "fibo<8>: 8 2",
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
+        );
+    }
+
+    @Test
+    public void testPrintFibonacciSequenceOnlyPairsVerticalAndInverse() {
+        String input[] = new String[]{"-o=vi","-n=p", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        Assert.assertEquals(
+                "fibo<8>:\n8\n2",
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
+        );
+    }
+
+    @Test
+    public void testPrintFibonacciSequenceOnlyPairsVerticalAndDirect() {
+        String input[] = new String[]{"-o=vd","-n=p", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        Assert.assertEquals(
+                "fibo<8>:\n2\n8",
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
+        );
+    }
+
+    @Test
+    public void testPrintFibonacciSequencePairsHorizontalAndDirect() {
+        String input[] = new String[]{"-o=hd","-n=p", "8"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(8);
+        Assert.assertEquals(
+                "fibo<8>: 2 8",
+                Fibonacci.printFibonacciSequence(sequence, 8, input)
+        );
+    }
+
+    @Test
+    public void testPrintOtherFibonacciSequencePairsHorizontalAndDirect() {
+        String input[] = new String[]{"-o=hd","-n=p", "16"};
+        FibonacciCalculator calculator = new FibonacciCalculator();
+        String sequence = calculator.getFibonacciStringSequence(16);
+        Assert.assertEquals(
+                "fibo<16>: 2 8 34 144 610",
+                Fibonacci.printFibonacciSequence(sequence, 16, input)
+        );
+    }
 }

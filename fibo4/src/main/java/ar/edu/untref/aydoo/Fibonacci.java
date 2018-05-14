@@ -50,6 +50,10 @@ public class Fibonacci {
                 stringSequence = " " + stringSequence;
             }
 
+            if (argsAsList.contains("-n=p")){
+                stringSequence = new PrinterOnlyPairs().print(stringSequence);
+            }
+
             for (int i = 0; i < args.length - 1; i++){
                 if (args[i].matches("-o=[vhp][i]")){
                     stringSequence = new PrinterWithDirection('i').print(stringSequence);
@@ -103,10 +107,14 @@ public class Fibonacci {
             }
         }
         // El ultimo parámetro debe ser el número de la secuencia de fibonacci
+        int number;
         try{
-            Integer.parseInt(args[args.length - 1]);
+            number = Integer.parseInt(args[args.length - 1]);
         }catch (Exception e){
             throw new IllegalArgumentException("Debe ingresar un número entero");
+        }
+        if (number < 1) {
+            throw new IllegalArgumentException("Opción no válida!");
         }
     }
 
