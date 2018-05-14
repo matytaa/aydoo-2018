@@ -63,4 +63,16 @@ public class FibonacciInputTest
         String input[] = new String[]{"-o=ph", "5"};
         Fibonacci.validateInput(input);
     }
+
+    @Test
+    public void testValidInputWithTwoArgumentsToPrintPairs() throws IllegalArgumentException {
+        String input[] = new String[]{"-n=p", "5"};
+        Fibonacci.validateInput(input);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testValidateInputWithIlegalArgumentForPrintPairs() throws IllegalArgumentException {
+        String input[] = new String[]{"-n=o", "5"};
+        Fibonacci.validateInput(input);
+    }
 }
