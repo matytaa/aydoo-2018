@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class PrinterWithOrientation extends Printer {
+public class PrinterWithOrientation implements Printer {
 
     private char orientation;
 

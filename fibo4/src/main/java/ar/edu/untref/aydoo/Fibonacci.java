@@ -40,42 +40,25 @@ public class Fibonacci {
     static String printFibonacciSequence(String stringSequence, int fibo_number, String[] args) {
 
         String prefix = "fibo<" + fibo_number + ">";
-        String new_prefix = prefix;
+        String newPrefix = prefix;
         boolean saveToFile = false;
         String fileName = "";
 
         if (args.length > 1) {
-
-            List argsAsList = Arrays.asList(args);
-            if (argsAsList.contains("-n=p")) {
-                stringSequence = new PrinterOnlyPairs().print(stringSequence);
-            }
-            if (argsAsList.contains("-m=s")) {
-                new_prefix += "s";
-                stringSequence = new PrinterAdder().print(stringSequence);
-            }
-
-
+            PrinterMain myPrinter = new PrinterMain(args);
+            stringSequence = myPrinter.verifyPairs(stringSequence);
+            newPrefix = myPrinter.verifyAdder(newPrefix);
+            stringSequence = myPrinter.implementAdder(stringSequence);
+            stringSequence = myPrinter.print(stringSequence);
             for (int i = 0; i < args.length - 1; i++) {
-                if (args[i].matches("-o=[vhp][i]")) {
-                    stringSequence = new PrinterWithDirection('i').print(stringSequence);
-                }
-                if (args[i].matches("-o=[v][di]")) {
-                    stringSequence = new PrinterWithOrientation('v').print(stringSequence);
-                }
-                if (args[i].matches("-o=[p][di]")) {
-                    stringSequence = new PrinterWithProgress().print(stringSequence);
-                }
                 if (args[i].matches("-f=[^\\s]+")) {
                     fileName = args[i].substring(3, args[i].length());
                     saveToFile = true;
                 }
-
             }
-
         }
 
-        stringSequence = new_prefix + ":" + stringSequence;
+        stringSequence = newPrefix + ":" + stringSequence;
 
         if (saveToFile) {
             try {

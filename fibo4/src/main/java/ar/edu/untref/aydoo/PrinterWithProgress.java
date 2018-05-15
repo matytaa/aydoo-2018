@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class PrinterWithProgress extends Printer {
+public class PrinterWithProgress implements Printer {
     @Override
     public String print(String textToPrint) {
         //Se arma cadena para impresión progresiva

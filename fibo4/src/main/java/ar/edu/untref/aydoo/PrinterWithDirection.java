@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class PrinterWithDirection extends Printer {
+public class PrinterWithDirection implements Printer {
 
     private char direction;
 

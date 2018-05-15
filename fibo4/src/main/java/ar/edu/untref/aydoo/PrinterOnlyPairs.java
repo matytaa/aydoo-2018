@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class PrinterOnlyPairs extends Printer {
+public class PrinterOnlyPairs implements Printer {
     @Override
     public String print(String textToPrint) {
         //Solo se retornan los numeros pares

@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class PrinterAdder extends Printer {
+public class PrinterAdder implements Printer {
     @Override
     public String print(String textToPrint) {
         //Se retorna sumatoria de valores
