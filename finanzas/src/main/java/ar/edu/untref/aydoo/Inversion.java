@@ -2,7 +2,6 @@ package ar.edu.untref.aydoo;
 
 import ar.edu.untref.aydoo.excepciones.InversionException;
 import ar.edu.untref.aydoo.excepciones.MontoInicialException;
-import ar.edu.untref.aydoo.excepciones.PlazoAcordadoException;
 import ar.edu.untref.aydoo.excepciones.PorcentajeInversionException;
 
 public class Inversion {
@@ -16,14 +15,11 @@ public class Inversion {
         this.monto = monto;
     }
 
-    public void setPorcentajeGanancia(Double unPorcentaje) throws PorcentajeInversionException {
-        if (unPorcentaje < 0d){
-            throw new PorcentajeInversionException();
-        }
+    public void setPorcentajeGanancia(Double unPorcentaje){
         this.porcentajeGanancia = unPorcentaje;
     }
 
-    public Double obtenerGanacias() throws PlazoAcordadoException, InversionException {
+    public Double obtenerGanacias() throws InversionException {
         return this.monto*this.porcentajeGanancia;
     }
 

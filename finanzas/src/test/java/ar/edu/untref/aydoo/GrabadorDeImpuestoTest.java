@@ -24,7 +24,7 @@ public class GrabadorDeImpuestoTest {
         GrabadorDeImpuesto gabadorDeFinanzas = new GrabadorDeImpuesto();
 
         Double result = gabadorDeFinanzas.grabarImpuestos(compraDolares.obtenerGanacias());
-        Assert.assertEquals(1250d, result, 0.001);
+        Assert.assertEquals(5000d, result, 0.001);
     }
 
     @Test

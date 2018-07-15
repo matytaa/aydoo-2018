@@ -2,7 +2,6 @@ package ar.edu.untref.aydoo;
 
 import ar.edu.untref.aydoo.excepciones.InversionException;
 import ar.edu.untref.aydoo.excepciones.MontoInicialException;
-import ar.edu.untref.aydoo.excepciones.PorcentajeInversionException;
 
 public class CompraDolares extends Inversion {
 
@@ -16,7 +15,9 @@ public class CompraDolares extends Inversion {
     }
 
     public Double obtenerGanacias() throws InversionException {
-        super.setPorcentajeGanancia(cotizacionFinal/cotizacionInicial);
+        Double unPorcentaje = (cotizacionFinal/cotizacionInicial) - 1;
+
+        super.setPorcentajeGanancia(unPorcentaje);
         return super.obtenerGanacias();
     }
 }
