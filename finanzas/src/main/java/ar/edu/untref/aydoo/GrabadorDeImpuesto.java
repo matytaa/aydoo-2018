@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class GabadorDeFinanzas {
+public class GrabadorDeImpuesto {
 
     public Double grabarImpuestos(Double monto) {
         if (monto < 20000.0d){
