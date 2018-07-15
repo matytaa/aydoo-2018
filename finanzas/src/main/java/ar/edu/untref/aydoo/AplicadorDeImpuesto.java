@@ -1,6 +1,8 @@
 package ar.edu.untref.aydoo;
 
 
+import ar.edu.untref.aydoo.AplicadoresDeImpuestos.*;
+
 public class AplicadorDeImpuesto {
 
     private Aplicador5Porciento cinco;

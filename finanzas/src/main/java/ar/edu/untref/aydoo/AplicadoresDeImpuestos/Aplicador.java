@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.AplicadoresDeImpuestos;
 
 public interface Aplicador {
     public void setNext (Aplicador unAplicador);

@@ -1,5 +1,7 @@
 package ar.edu.untref.aydoo;
 
+import ar.edu.untref.aydoo.AplicadoresDeImpuestos.Aplicador15Porciento;
+import ar.edu.untref.aydoo.AplicadoresDeImpuestos.Aplicador20Porciento;
 import org.junit.Assert;
 import org.junit.Test;
 

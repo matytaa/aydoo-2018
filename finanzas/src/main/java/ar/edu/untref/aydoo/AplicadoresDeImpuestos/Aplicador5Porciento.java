@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.AplicadoresDeImpuestos;
 
 public class Aplicador5Porciento  implements Aplicador{
     private static final Double CINCOPORCIENTO = 0.05d;

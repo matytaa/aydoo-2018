@@ -4,16 +4,14 @@ public class GrabadorDeImpuesto {
 
     private AplicadorDeImpuesto aplicadorDeImpuestos;
 
-    public GrabadorDeImpuesto(){
+    public GrabadorDeImpuesto() {
         this.aplicadorDeImpuestos = new AplicadorDeImpuesto();
     }
 
     public Double grabarImpuestos(Double monto, boolean esEmpresa) {
-        Double resultado = 0d;
-        if (monto < 20000.0d){
-            return resultado;
+        if (monto < 20000.0d) {
+            return 0d;
         }
-
         return this.aplicadorDeImpuestos.aplicar(monto, esEmpresa);
     }
 
