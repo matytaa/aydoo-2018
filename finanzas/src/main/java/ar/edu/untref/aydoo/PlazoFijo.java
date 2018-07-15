@@ -10,11 +10,11 @@ public class PlazoFijo extends Inversion {
         this.interes = interes;
     }
 
-    public Double obtenerGanacias(int diaARetirar) {
-        if (diaARetirar >= this.plazoAcordado){
-            super.setPorcentajeGanancia(interes/100);
-            return super.obtenerGanacias();
+    public Double obtenerGanacias(int diaARetirar) throws PlazoFijoTradicionalException {
+        if (diaARetirar < this.plazoAcordado){
+            throw new PlazoFijoTradicionalException();
         }
-        return 0d;
+        super.setPorcentajeGanancia(interes/100);
+        return super.obtenerGanacias();
     }
 }

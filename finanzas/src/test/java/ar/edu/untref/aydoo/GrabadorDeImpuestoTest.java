@@ -29,7 +29,7 @@ public class GrabadorDeImpuestoTest
     }
 
     @Test
-    public void obtengo25KDeGananciasPlazoFijo()
+    public void obtengo25KDeGananciasPlazoFijo() throws PlazoFijoTradicionalException
     {
         Double monto = 20000d;
         int plazoAcordado = 90;
