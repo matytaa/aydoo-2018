@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import ar.edu.untref.aydoo.excepciones.InversionException;
-import ar.edu.untref.aydoo.excepciones.MontoInicialException;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -42,10 +41,11 @@ public class GrabadorDeImpuestoTest {
     public void obtengo25KDeGananciasPlazoFijoPrecancelable() throws InversionException {
         Double monto = 20000d;
         int plazoAcordado = 180;
+        int plazoReal = 90;
         Double interes = 10d;
-        PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable(monto, plazoAcordado, interes);
+        PlazoFijoPrecancelable plazoFijoPrecancelable = new PlazoFijoPrecancelable(monto, plazoAcordado, plazoReal, interes);
         GrabadorDeImpuesto gabadorDeFinanzas = new GrabadorDeImpuesto();
-        Double result = gabadorDeFinanzas.grabarImpuestos(plazoFijoPrecancelable.obtenerGanacias(90));
+        Double result = gabadorDeFinanzas.grabarImpuestos(plazoFijoPrecancelable.obtenerGanacias());
         Assert.assertEquals(1000d, result, 0.001);
     }
 }

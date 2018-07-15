@@ -17,7 +17,7 @@ public class PlazoFijo extends Inversion {
 
     public Double obtenerGanacias() throws InversionException {
         if (this.plazoAcordado < 30){
-            throw new PlazoAcordadoException();
+            throw new PlazoAcordadoException(30);
         }
         if (this.interes < 0d){
             throw new PorcentajeInversionException();
