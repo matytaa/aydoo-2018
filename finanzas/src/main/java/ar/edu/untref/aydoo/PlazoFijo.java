@@ -1,18 +1,22 @@
 package ar.edu.untref.aydoo;
 
+import ar.edu.untref.aydoo.excepciones.InversionException;
+import ar.edu.untref.aydoo.excepciones.MontoInicialException;
+import ar.edu.untref.aydoo.excepciones.PlazoAcordadoException;
+
 public class PlazoFijo extends Inversion {
     private final int plazoAcordado;
     private final Double interes;
 
-    public PlazoFijo(Double monto, int plazoAcordado, Double interes) {
+    public PlazoFijo(Double monto, int plazoAcordado, Double interes) throws MontoInicialException {
         super(monto);
         this.plazoAcordado = plazoAcordado;
         this.interes = interes;
     }
 
-    public Double obtenerGanacias(int diaARetirar) throws PlazoFijoTradicionalException {
-        if (diaARetirar < this.plazoAcordado){
-            throw new PlazoFijoTradicionalException();
+    public Double obtenerGanacias() throws InversionException {
+        if (this.plazoAcordado < 30){
+            throw new PlazoAcordadoException();
         }
         super.setPorcentajeGanancia(interes/100);
         return super.obtenerGanacias();
