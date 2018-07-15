@@ -56,18 +56,18 @@ public class GrabadorDeImpuestoTest {
     }
 
     @Test
-    public void deberiaAplicarEl5PorcientoDeImpuestoPorSerEmpresa(){
+    public void deberiaAplicarEl5PorcientoDeImpuestoMonto30KPorSerEmpresa() {
         Inversor unInversor = mock(Inversor.class);
         when(unInversor.esEmpresa()).thenReturn(true);
         when(unInversor.calcularGanacias()).thenReturn(30000d);
-        
+
         GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
         Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
         Assert.assertEquals(1500d, resultado, 0.001);
     }
 
     @Test
-    public void deberiaAplicarEl5PorcientoDeImpuestoPorSerParticular(){
+    public void deberiaAplicarEl5PorcientoDeImpuestoMonto60KPorSerParticular() {
         Inversor unInversor = mock(Inversor.class);
         when(unInversor.esEmpresa()).thenReturn(false);
         when(unInversor.calcularGanacias()).thenReturn(60000d);
@@ -75,5 +75,60 @@ public class GrabadorDeImpuestoTest {
         GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
         Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
         Assert.assertEquals(3000d, resultado, 0.001);
+    }
+
+    @Test
+    public void deberiaAplicarEl8PorcientoDeImpuestoMonto110KPorSerParticular() {
+        Inversor unInversor = mock(Inversor.class);
+        when(unInversor.esEmpresa()).thenReturn(false);
+        when(unInversor.calcularGanacias()).thenReturn(110000d);
+
+        GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
+        Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
+        Assert.assertEquals(8800d, resultado, 0.001);
+    }
+
+    @Test
+    public void deberiaAplicarEl10PorcientoDeImpuestoMonto510KPorSerParticular() {
+        Inversor unInversor = mock(Inversor.class);
+        when(unInversor.esEmpresa()).thenReturn(false);
+        when(unInversor.calcularGanacias()).thenReturn(510000d);
+
+        GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
+        Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
+        Assert.assertEquals(51000d, resultado, 0.001);
+    }
+
+    @Test
+    public void deberiaAplicarEl10PorcientoDeImpuestoMonto60KPorSerEmpresa() {
+        Inversor unInversor = mock(Inversor.class);
+        when(unInversor.esEmpresa()).thenReturn(true);
+        when(unInversor.calcularGanacias()).thenReturn(60000d);
+
+        GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
+        Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
+        Assert.assertEquals(6000d, resultado, 0.001);
+    }
+
+    @Test
+    public void deberiaAplicarEl15PorcientoDeImpuestoMonto200KPorSerEmpresa() {
+        Inversor unInversor = mock(Inversor.class);
+        when(unInversor.esEmpresa()).thenReturn(true);
+        when(unInversor.calcularGanacias()).thenReturn(200000d);
+
+        GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
+        Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
+        Assert.assertEquals(30000d, resultado, 0.001);
+    }
+
+    @Test
+    public void deberiaAplicarEl20PorcientoDeImpuestoMonto600KPorSerEmpresa() {
+        Inversor unInversor = mock(Inversor.class);
+        when(unInversor.esEmpresa()).thenReturn(true);
+        when(unInversor.calcularGanacias()).thenReturn(600000d);
+
+        GrabadorDeImpuesto grabadorDeImpuesto = new GrabadorDeImpuesto();
+        Double resultado = grabadorDeImpuesto.grabarImpuestos(unInversor.calcularGanacias(), unInversor.esEmpresa());
+        Assert.assertEquals(120000d, resultado, 0.001);
     }
 }
