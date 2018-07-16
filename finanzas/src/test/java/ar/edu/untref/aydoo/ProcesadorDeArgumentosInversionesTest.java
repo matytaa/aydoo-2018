@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import ar.edu.untref.aydoo.excepciones.InversionException;
 import ar.edu.untref.aydoo.excepciones.InversionInvalidaException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class ProcesadorDeArgumentosInversionesTest {
     }
 
     @Test
-    public void deberianSerValidosTodosLosArgumentos() throws InversionInvalidaException {
+    public void deberianSerValidosTodosLosArgumentos() throws InversionException {
         String argumentosDol = "dol,20000,20,28";
         String argumentosPFT = "pft,90,40,250000";
         String argumentosPFP = "pfp,365,300,40,100000";
@@ -37,7 +38,7 @@ public class ProcesadorDeArgumentosInversionesTest {
     }
 
     @Test(expected = InversionInvalidaException.class)
-    public void deberiaRetornarFalseYaQueExisteUnArgumentoInvalido() throws InversionInvalidaException {
+    public void deberiaRetornarFalseYaQueExisteUnArgumentoInvalido() throws InversionException {
         String argumentosDol = "dol,20000,20,28";
         String argumentosPFT = "pft,90,40,250000";
         String argumentosPFP = "pfT,365,300,40,100000";
