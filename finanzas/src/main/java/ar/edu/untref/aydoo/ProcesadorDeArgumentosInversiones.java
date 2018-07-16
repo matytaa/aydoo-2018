@@ -3,6 +3,8 @@ package ar.edu.untref.aydoo;
 import ar.edu.untref.aydoo.excepciones.InversionException;
 import ar.edu.untref.aydoo.excepciones.InversionInvalidaException;
 
+import java.util.List;
+
 
 public class ProcesadorDeArgumentosInversiones {
     private final String argumentos;
@@ -13,20 +15,20 @@ public class ProcesadorDeArgumentosInversiones {
         this.creadorDeInversiones = new CreadorDeInversiones();
     }
 
-    public boolean procesar() throws InversionException {
-        boolean resultado = false;
+    public List procesar() throws InversionException {
+        List unaLista = null;
         String[] argumentos = this.argumentos.split("(?=\\s)");
         for (String argumento : argumentos) {
             argumento = argumento.replaceAll("\\s", "");
             if (puedeCrearInversion(argumento)
                     || puedeCrearInversionPlazoFijoPrecancelable(argumento)) {
-                this.creadorDeInversiones.crearInversion(argumento);
-                resultado = true;
+                unaLista = this.creadorDeInversiones.crearInversion(argumento);
+
             } else {
                 throw new InversionInvalidaException(argumento);
             }
         }
-        return resultado;
+        return unaLista;
 
     }
 

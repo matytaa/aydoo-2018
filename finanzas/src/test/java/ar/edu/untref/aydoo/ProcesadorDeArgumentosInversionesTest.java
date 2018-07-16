@@ -34,7 +34,7 @@ public class ProcesadorDeArgumentosInversionesTest {
         String argumentosPFP = "pfp,365,300,40,100000";
         String argumentos = argumentosDol + " " + argumentosPFP + " " + argumentosPFT;
         ProcesadorDeArgumentosInversiones procesador = new ProcesadorDeArgumentosInversiones(argumentos);
-        Assert.assertTrue(procesador.procesar());
+        Assert.assertEquals(3,procesador.procesar().size());
     }
 
     @Test(expected = InversionInvalidaException.class)
@@ -44,6 +44,6 @@ public class ProcesadorDeArgumentosInversionesTest {
         String argumentosPFP = "pfT,365,300,40,100000";
         String argumentos = argumentosDol + " " + argumentosPFP + " " + argumentosPFT;
         ProcesadorDeArgumentosInversiones procesador = new ProcesadorDeArgumentosInversiones(argumentos);
-        Assert.assertFalse(procesador.procesar());
+        Assert.assertEquals(3,procesador.procesar().size());
     }
 }
