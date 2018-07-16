@@ -11,7 +11,7 @@ public class AplicadorDeImpuesto {
     private Aplicador15Porciento quince;
     private Aplicador20Porciento veinte;
 
-    public AplicadorDeImpuesto(){
+    public AplicadorDeImpuesto() {
         cinco = new Aplicador5Porciento();
         ocho = new Aplicador8Porciento();
         diez = new Aplicador10Porciento();
@@ -30,6 +30,6 @@ public class AplicadorDeImpuesto {
     }
 
     public Double aplicar(Double monto, boolean esEmpresa) {
-        return cinco.aplicar(monto,esEmpresa);
+        return cinco.aplicar(monto, esEmpresa);
     }
 }

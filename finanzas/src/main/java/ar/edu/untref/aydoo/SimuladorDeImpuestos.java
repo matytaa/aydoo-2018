@@ -26,24 +26,33 @@ public class SimuladorDeImpuestos {
     }
 
     public String armarSalida() {
-        String resultado = String.format(Locale.US,"ganancia: %.2f, impuesto: %.2f",obtenerGanancias(),aplicarImpuesto());
+        String resultado = String.format(Locale.US, "ganancia: %.2f, impuesto: %.2f", obtenerGanancias(), aplicarImpuesto());
         return resultado;
     }
 
-    public static final void main(final String[] arg) throws TipoDeInversorException, InversionException {
+    public static final void main(final String[] arg) {
         String tipoInversor = arg[0];
         if (!tipoInversor.matches("ind|emp") || tipoInversor.length() > 3) {
-            throw new TipoDeInversorException();
+            try {
+                throw new TipoDeInversorException();
+            } catch (TipoDeInversorException e) {
+                System.out.println(e.getMessage());
+            }
         }
         boolean esEmpresa = (tipoInversor.contains("emp"));
         String argumentosInversiones = armarArgumentos(arg);
-        SimuladorDeImpuestos simulador = new SimuladorDeImpuestos(esEmpresa, argumentosInversiones);
-        System.out.println(simulador.armarSalida());
+        SimuladorDeImpuestos simulador = null;
+        try {
+            simulador = new SimuladorDeImpuestos(esEmpresa, argumentosInversiones);
+            System.out.println(simulador.armarSalida());
+        } catch (InversionException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static String armarArgumentos(String[] arg) {
         String argumentos = "";
-        for (int i = 0; i < arg.length; i++) {
+        for (int i = 1; i < arg.length; i++) {
             argumentos += " " + arg[i];
         }
         return argumentos;

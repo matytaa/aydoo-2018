@@ -15,7 +15,7 @@ public class CompraDolares extends Inversion {
     }
 
     public Double obtenerGanacias() throws InversionException {
-        Double unPorcentaje = (cotizacionFinal/cotizacionInicial) - 1;
+        Double unPorcentaje = (cotizacionFinal / cotizacionInicial) - 1;
 
         super.setPorcentajeGanancia(unPorcentaje);
         return super.obtenerGanacias();

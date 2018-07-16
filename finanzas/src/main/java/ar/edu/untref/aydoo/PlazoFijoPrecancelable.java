@@ -6,6 +6,11 @@ import ar.edu.untref.aydoo.excepciones.PlazoAcordadoException;
 import ar.edu.untref.aydoo.excepciones.PorcentajeInversionException;
 
 public class PlazoFijoPrecancelable extends Inversion {
+
+    private static final int DIAS_MINIMO = 60;
+    private static final int PORCIENTOS = 100;
+    private static final int MITAD = 2;
+    private static final int INTERES_MINIMO = 0;
     private final int plazoAcordado;
     private final int plazoReal;
     private final Double interes;
@@ -19,18 +24,18 @@ public class PlazoFijoPrecancelable extends Inversion {
 
     public Double obtenerGanacias() throws InversionException {
 
-        if (this.interes < 0d){
+        if (this.interes < INTERES_MINIMO) {
             throw new PorcentajeInversionException();
         }
 
-        if (this.plazoAcordado < 60){
+        if (this.plazoAcordado < DIAS_MINIMO) {
             throw new PlazoAcordadoException(60);
         }
 
-        if (this.plazoReal >= this.plazoAcordado){
-            super.setPorcentajeGanancia(interes/100);
-        }else{
-            super.setPorcentajeGanancia((interes/100)/2);
+        if (this.plazoReal >= this.plazoAcordado) {
+            super.setPorcentajeGanancia(interes / PORCIENTOS);
+        } else {
+            super.setPorcentajeGanancia((interes / PORCIENTOS) / MITAD);
         }
         return super.obtenerGanacias();
     }

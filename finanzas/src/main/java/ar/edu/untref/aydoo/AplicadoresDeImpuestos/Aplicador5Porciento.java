@@ -1,7 +1,10 @@
 package ar.edu.untref.aydoo.AplicadoresDeImpuestos;
 
-public class Aplicador5Porciento  implements Aplicador{
+public class Aplicador5Porciento implements Aplicador {
     private static final Double CINCOPORCIENTO = 0.05d;
+    private static final Double CINCUENTAMIL = 50000d;
+    private static final Double VEINTEMIL = 20000d;
+    private static final Double CIENMIL = 100000d;
     private Aplicador siguiente;
 
     @Override
@@ -15,11 +18,11 @@ public class Aplicador5Porciento  implements Aplicador{
     }
 
     public Double aplicar(Double monto, boolean esEmpresa) {
-        if ((!esEmpresa && (50000d <= monto && monto < 100000d))
-                || (esEmpresa && (20000d <= monto && monto < 50000d))) {
+        if ((!esEmpresa && (CINCUENTAMIL <= monto && monto < CIENMIL))
+                || (esEmpresa && (VEINTEMIL <= monto && monto < CINCUENTAMIL))) {
             return (monto * CINCOPORCIENTO);
         }
 
-        return this.siguiente.aplicar(monto,esEmpresa);
+        return this.siguiente.aplicar(monto, esEmpresa);
     }
 }

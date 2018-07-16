@@ -1,7 +1,7 @@
 package ar.edu.untref.aydoo;
 
 public class GrabadorDeImpuesto {
-
+    private static final double MONTO_MINIMO = 20000.0d;
     private AplicadorDeImpuesto aplicadorDeImpuestos;
 
     public GrabadorDeImpuesto() {
@@ -9,7 +9,7 @@ public class GrabadorDeImpuesto {
     }
 
     public Double grabarImpuestos(Double monto, boolean esEmpresa) {
-        if (monto < 20000.0d) {
+        if (monto < MONTO_MINIMO) {
             return 0d;
         }
         return this.aplicadorDeImpuestos.aplicar(monto, esEmpresa);
