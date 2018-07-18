@@ -7,9 +7,11 @@ import java.util.List;
 
 public class CreadorDeInversiones {
     private final List<Inversion> listaDeInversiones;
+    private final ManejadorDeInversiones manejador;
 
     public CreadorDeInversiones() {
         this.listaDeInversiones = new LinkedList<>();
+        this.manejador = new ManejadorDeInversiones();
     }
 
     public List crearInversion(String argumento) throws MontoInicialException {
@@ -23,8 +25,8 @@ public class CreadorDeInversiones {
             Double monto = Double.valueOf(argumentos[1]);
             Double cotizacionInicial = Double.valueOf(argumentos[2]);
             Double cotizacionFinal = Double.valueOf(argumentos[3]);
-            CompraDolares unaInversion = new CompraDolares(monto, cotizacionInicial, cotizacionFinal);
-            this.listaDeInversiones.add(unaInversion);
+            manejador.crearInversion(monto, cotizacionInicial, cotizacionFinal);
+            this.listaDeInversiones.add(manejador.getInversion());
         } else {
             crearInversionPlazoFijo(unArgumento);
         }
@@ -36,8 +38,8 @@ public class CreadorDeInversiones {
             int plazo = Integer.valueOf(argumentos[1]);
             Double interes = Double.valueOf(argumentos[2]);
             Double monto = Double.valueOf(argumentos[3]);
-            PlazoFijo unaInversion = new PlazoFijo(monto, plazo, interes);
-            this.listaDeInversiones.add(unaInversion);
+            this.manejador.crearInversion(monto, plazo, interes);
+            this.listaDeInversiones.add(manejador.getInversion());
         } else {
             crearInversionPlazoFijoPrecancelable(unArgumento);
         }
@@ -49,7 +51,7 @@ public class CreadorDeInversiones {
         int plazoReal = Integer.valueOf(argumentos[2]);
         Double interes = Double.valueOf(argumentos[3]);
         Double monto = Double.valueOf(argumentos[4]);
-        PlazoFijoPrecancelable unaInversion = new PlazoFijoPrecancelable(monto, plazo, plazoReal, interes);
-        this.listaDeInversiones.add(unaInversion);
+        this.manejador.crearInversion(monto, plazo, plazoReal, interes);
+        this.listaDeInversiones.add(manejador.getInversion());
     }
 }
