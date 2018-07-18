@@ -25,8 +25,8 @@ public class CreadorDeInversiones {
             Double monto = Double.valueOf(argumentos[1]);
             Double cotizacionInicial = Double.valueOf(argumentos[2]);
             Double cotizacionFinal = Double.valueOf(argumentos[3]);
-            manejador.crearInversion(monto, cotizacionInicial, cotizacionFinal);
-            this.listaDeInversiones.add(manejador.getInversion());
+            this.listaDeInversiones.add(
+                    manejador.crearInversion(monto, cotizacionInicial, cotizacionFinal));
         } else {
             crearInversionPlazoFijo(unArgumento);
         }
@@ -38,8 +38,8 @@ public class CreadorDeInversiones {
             int plazo = Integer.valueOf(argumentos[1]);
             Double interes = Double.valueOf(argumentos[2]);
             Double monto = Double.valueOf(argumentos[3]);
-            this.manejador.crearInversion(monto, plazo, interes);
-            this.listaDeInversiones.add(manejador.getInversion());
+            this.listaDeInversiones.add(
+                    this.manejador.crearInversion(monto, plazo, interes));
         } else {
             crearInversionPlazoFijoPrecancelable(unArgumento);
         }
@@ -51,7 +51,8 @@ public class CreadorDeInversiones {
         int plazoReal = Integer.valueOf(argumentos[2]);
         Double interes = Double.valueOf(argumentos[3]);
         Double monto = Double.valueOf(argumentos[4]);
-        this.manejador.crearInversion(monto, plazo, plazoReal, interes);
-        this.listaDeInversiones.add(manejador.getInversion());
+
+        this.listaDeInversiones.add(
+                this.manejador.crearInversion(monto, plazo, plazoReal, interes));
     }
 }
