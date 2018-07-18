@@ -30,7 +30,8 @@ public class SimuladorDeImpuestos {
         return resultado;
     }
 
-    public static final String main(final String[] arg) {
+
+    public static final void main(final String[] arg) {
         String resultado = "";
         String tipoInversor = arg[0];
         if (!tipoInversor.matches("ind|emp") || tipoInversor.length() > 3) {
@@ -52,7 +53,6 @@ public class SimuladorDeImpuestos {
             }
         }
         System.out.println(resultado);
-        return resultado;
     }
 
     private static String armarArgumentos(String[] arg) {
