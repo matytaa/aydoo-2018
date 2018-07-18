@@ -19,7 +19,7 @@ public class Inversion {
         this.porcentajeGanancia = unPorcentaje;
     }
 
-    public Double obtenerGanacias() throws InversionException {
+    public Double obtenerGanacias(){
         return this.monto * this.porcentajeGanancia;
     }
 

@@ -33,10 +33,10 @@ public class ProcesadorDeArgumentosInversiones {
     }
 
     public boolean puedeCrearInversion(String argumento) {
-        return argumento.matches("((pft|dol)+[,]+[0-9]+[,]+[0-9]+[,]+[0-9]+)");
+        return argumento.matches("((pft|dol)+[,]+.[0-9]+[,]+.[0-9]+[,]+.[0-9]+)");
     }
 
     public boolean puedeCrearInversionPlazoFijoPrecancelable(String argumento) {
-        return argumento.matches("((pfp)+([,]+[0-9]+[,]+[0-9]+[,]+[0-9]+[,]+[0-9]+))");
+        return argumento.matches("((pfp)+([,]+.[0-9]+[,]+.[0-9]+[,]+.[0-9]+[,]+.[0-9]+))");
     }
 }

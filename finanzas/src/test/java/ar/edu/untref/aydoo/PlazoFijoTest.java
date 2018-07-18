@@ -17,7 +17,7 @@ public class PlazoFijoTest {
     }
 
     @Test(expected = MontoInicialException.class)
-    public void deberiaLanzarExcepcionDeMontoInicial() throws MontoInicialException {
+    public void deberiaLanzarExcepcionDeMontoInicial() throws InversionException {
         PlazoFijo unPlazoFijo = new PlazoFijo(15d, 30, 10d);
     }
 

@@ -1,7 +1,6 @@
 package ar.edu.untref.aydoo;
 
 import ar.edu.untref.aydoo.excepciones.InversionException;
-import ar.edu.untref.aydoo.excepciones.MontoInicialException;
 import ar.edu.untref.aydoo.excepciones.PlazoAcordadoException;
 import ar.edu.untref.aydoo.excepciones.PorcentajeInversionException;
 
@@ -15,22 +14,21 @@ public class PlazoFijoPrecancelable extends Inversion {
     private final int plazoReal;
     private final Double interes;
 
-    public PlazoFijoPrecancelable(Double monto, int plazoAcordado, int plazoReal, Double interes) throws MontoInicialException {
+    public PlazoFijoPrecancelable(Double monto, int plazoAcordado, int plazoReal, Double interes) throws InversionException {
         super(monto);
+        if (interes < INTERES_MINIMO) {
+            throw new PorcentajeInversionException();
+        }
+
+        if (plazoAcordado < DIAS_MINIMO) {
+            throw new PlazoAcordadoException(60);
+        }
         this.plazoAcordado = plazoAcordado;
         this.plazoReal = plazoReal;
         this.interes = interes;
     }
 
-    public Double obtenerGanacias() throws InversionException {
-
-        if (this.interes < INTERES_MINIMO) {
-            throw new PorcentajeInversionException();
-        }
-
-        if (this.plazoAcordado < DIAS_MINIMO) {
-            throw new PlazoAcordadoException(60);
-        }
+    public Double obtenerGanacias(){
 
         if (this.plazoReal >= this.plazoAcordado) {
             super.setPorcentajeGanancia(interes / PORCIENTOS);

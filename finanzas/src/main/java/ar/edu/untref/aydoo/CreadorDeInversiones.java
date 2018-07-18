@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import ar.edu.untref.aydoo.excepciones.InversionException;
 import ar.edu.untref.aydoo.excepciones.MontoInicialException;
 
 import java.util.LinkedList;
@@ -14,12 +15,12 @@ public class CreadorDeInversiones {
         this.manejador = new ManejadorDeInversiones();
     }
 
-    public List crearInversion(String argumento) throws MontoInicialException {
+    public List crearInversion(String argumento) throws InversionException {
         crearInversionDolares(argumento);
         return this.listaDeInversiones;
     }
 
-    private void crearInversionDolares(String unArgumento) throws MontoInicialException {
+    private void crearInversionDolares(String unArgumento) throws InversionException {
         if (unArgumento.contains("dol")) {
             String[] argumentos = unArgumento.split("[,]");
             Double monto = Double.valueOf(argumentos[1]);
@@ -32,7 +33,7 @@ public class CreadorDeInversiones {
         }
     }
 
-    private void crearInversionPlazoFijo(String unArgumento) throws MontoInicialException {
+    private void crearInversionPlazoFijo(String unArgumento) throws InversionException {
         if (unArgumento.contains("pft")) {
             String[] argumentos = unArgumento.split("[,]");
             int plazo = Integer.valueOf(argumentos[1]);
@@ -45,7 +46,7 @@ public class CreadorDeInversiones {
         }
     }
 
-    private void crearInversionPlazoFijoPrecancelable(String unArgumento) throws MontoInicialException {
+    private void crearInversionPlazoFijoPrecancelable(String unArgumento) throws InversionException {
         String[] argumentos = unArgumento.split("[,]");
         int plazo = Integer.valueOf(argumentos[1]);
         int plazoReal = Integer.valueOf(argumentos[2]);

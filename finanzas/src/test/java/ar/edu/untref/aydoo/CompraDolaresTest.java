@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import ar.edu.untref.aydoo.excepciones.CotizacionDolarException;
 import ar.edu.untref.aydoo.excepciones.InversionException;
 import ar.edu.untref.aydoo.excepciones.MontoInicialException;
 import org.junit.Test;
@@ -23,5 +24,20 @@ public class CompraDolaresTest {
         CompraDolares compra = new CompraDolares(15000d, 28d, 25d);
         Double resultado = compra.obtenerGanacias();
         Assert.assertEquals(-1607.142d, resultado, 0.001);
+    }
+
+    @Test(expected = CotizacionDolarException.class)
+    public void deberiaLanzarExcepcionCotizacionDolarCotizacionIncialMenorACero() throws InversionException {
+        CompraDolares compra = new CompraDolares(15000d, -28d, 28.5d);
+    }
+
+    @Test(expected = CotizacionDolarException.class)
+    public void deberiaLanzarExcepcionCotizacionDolarCotizacionFinalMenorACero() throws InversionException {
+        CompraDolares compra = new CompraDolares(15000d, 28d, -28.5d);
+    }
+
+    @Test(expected = CotizacionDolarException.class)
+    public void deberiaLanzarExcepcionCotizacionDolarAmbasCotizacionesMenoresACero() throws InversionException {
+        CompraDolares compra = new CompraDolares(15000d, -28d, -28.5d);
     }
 }

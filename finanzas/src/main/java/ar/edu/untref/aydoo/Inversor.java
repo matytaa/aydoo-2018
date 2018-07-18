@@ -22,11 +22,7 @@ public class Inversor {
         Double resultado = 0d;
         Iterator<Inversion> itInversiones = this.listaDeInversiones.iterator();
         while (itInversiones.hasNext()) {
-            try {
-                resultado += itInversiones.next().obtenerGanacias();
-            } catch (InversionException e) {
-                System.out.println(e.getMessage());
-            }
+            resultado += itInversiones.next().obtenerGanacias();
         }
         return resultado;
     }
