@@ -14,7 +14,7 @@ public class PlazoFijo extends Inversion {
     public PlazoFijo(Double monto, int plazoAcordado, Double interes) throws InversionException {
         super(monto);
         if (plazoAcordado < DIAS_MINIMO) {
-            throw new PlazoAcordadoException(DIAS_MINIMO);
+            throw new PlazoAcordadoException("tradicional", DIAS_MINIMO);
         }
         if (interes < INTERES_MINIMO) {
             throw new PorcentajeInversionException();

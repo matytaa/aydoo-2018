@@ -21,7 +21,7 @@ public class PlazoFijoPrecancelable extends Inversion {
         }
 
         if (plazoAcordado < DIAS_MINIMO) {
-            throw new PlazoAcordadoException(60);
+            throw new PlazoAcordadoException("precancelable", DIAS_MINIMO);
         }
         this.plazoAcordado = plazoAcordado;
         this.plazoReal = plazoReal;

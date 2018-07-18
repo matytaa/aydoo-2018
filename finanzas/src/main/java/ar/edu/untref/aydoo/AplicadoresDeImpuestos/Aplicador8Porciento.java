@@ -13,10 +13,6 @@ public class Aplicador8Porciento implements Aplicador {
     }
 
     @Override
-    public Aplicador getNext() {
-        return this.siguiente;
-    }
-
     public Double aplicar(Double monto, boolean esEmpresa) {
         if (!esEmpresa && (CIENMIL <= monto && monto < QUINIENTOSMIL)) {
             return (monto * OCHOPORCIENTO);

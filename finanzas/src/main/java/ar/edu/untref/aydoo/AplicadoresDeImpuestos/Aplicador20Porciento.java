@@ -12,10 +12,6 @@ public class Aplicador20Porciento implements Aplicador {
     }
 
     @Override
-    public Aplicador getNext() {
-        return this.siguiente;
-    }
-
     public Double aplicar(Double monto, boolean esEmpresa) {
         Double resultado = 0d;
         if (esEmpresa && monto >= QUINIENTOSMIL) {

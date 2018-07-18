@@ -30,24 +30,29 @@ public class SimuladorDeImpuestos {
         return resultado;
     }
 
-    public static final void main(final String[] arg) {
+    public static final String main(final String[] arg) {
+        String resultado = "";
         String tipoInversor = arg[0];
         if (!tipoInversor.matches("ind|emp") || tipoInversor.length() > 3) {
             try {
                 throw new TipoDeInversorException();
             } catch (TipoDeInversorException e) {
-                System.out.println(e.getMessage());
+                resultado = e.getMessage();
             }
         }
-        boolean esEmpresa = (tipoInversor.contains("emp"));
-        String argumentosInversiones = armarArgumentos(arg);
-        SimuladorDeImpuestos simulador = null;
-        try {
-            simulador = new SimuladorDeImpuestos(esEmpresa, argumentosInversiones);
-            System.out.println(simulador.armarSalida());
-        } catch (InversionException e) {
-            System.out.println(e.getMessage());
+        if (resultado.length()==0) {
+            boolean esEmpresa = (tipoInversor.contains("emp"));
+            String argumentosInversiones = armarArgumentos(arg);
+            SimuladorDeImpuestos simulador = null;
+            try {
+                simulador = new SimuladorDeImpuestos(esEmpresa, argumentosInversiones);
+                resultado = simulador.armarSalida();
+            } catch (InversionException e) {
+                resultado = e.getMessage();
+            }
         }
+        System.out.println(resultado);
+        return resultado;
     }
 
     private static String armarArgumentos(String[] arg) {
